@@ -6,6 +6,7 @@ dependencies {
     api 'de.topobyte:melon-commons-io:0.0.2'
     api 'de.topobyte:melon-paths:0.0.3'
     api 'de.topobyte:melon-enums:0.0.1'
+    api 'de.topobyte:jts-indexing:0.3.2'
     api 'com.google.guava:guava:19.0'
     api 'com.google.code.gson:gson:2.8.6'
     api 'org.locationtech.jts.io:jts-io-common:1.17.1'

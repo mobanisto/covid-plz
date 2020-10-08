@@ -20,24 +20,16 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-package de.mobanisto.covidplz.model;
+package de.mobanisto.covidplz.mapping;
 
-import org.locationtech.jts.geom.Geometry;
+import de.mobanisto.covidplz.model.RKIRegion;
 
-import lombok.Getter;
-
-public class PostalCode
+public class PartialRKIRelation extends PartialRelation<RKIRegion>
 {
 
-	@Getter
-	private String code;
-	@Getter
-	private Geometry geometry;
-
-	public PostalCode(String code, Geometry geometry)
+	public PartialRKIRelation(RKIRegion object, double coverage)
 	{
-		this.code = code;
-		this.geometry = geometry;
+		super(object, coverage);
 	}
 
 }

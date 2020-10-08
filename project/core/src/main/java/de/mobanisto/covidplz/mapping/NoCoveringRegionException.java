@@ -20,24 +20,16 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-package de.mobanisto.covidplz.model;
+package de.mobanisto.covidplz.mapping;
 
-import org.locationtech.jts.geom.Geometry;
-
-import lombok.Getter;
-
-public class PostalCode
+public class NoCoveringRegionException extends Exception
 {
 
-	@Getter
-	private String code;
-	@Getter
-	private Geometry geometry;
+	private static final long serialVersionUID = 1L;
 
-	public PostalCode(String code, Geometry geometry)
+	public NoCoveringRegionException(String message)
 	{
-		this.code = code;
-		this.geometry = geometry;
+		super(message);
 	}
 
 }

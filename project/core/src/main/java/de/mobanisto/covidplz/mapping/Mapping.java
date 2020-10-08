@@ -20,24 +20,18 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-package de.mobanisto.covidplz.model;
+package de.mobanisto.covidplz.mapping;
 
-import org.locationtech.jts.geom.Geometry;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import lombok.Getter;
 
-public class PostalCode
+public class Mapping
 {
 
 	@Getter
-	private String code;
-	@Getter
-	private Geometry geometry;
-
-	public PostalCode(String code, Geometry geometry)
-	{
-		this.code = code;
-		this.geometry = geometry;
-	}
+	private Map<String, List<PartialRsRelation>> codeToRKI = new HashMap<>();
 
 }

@@ -20,24 +20,28 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-package de.mobanisto.covidplz.model;
-
-import org.locationtech.jts.geom.Geometry;
+package de.mobanisto.covidplz.mapping;
 
 import lombok.Getter;
 
-public class PostalCode
+public class PartialRelation<T> implements Comparable<PartialRelation<T>>
 {
 
 	@Getter
-	private String code;
+	private T object;
 	@Getter
-	private Geometry geometry;
+	private double coverage;
 
-	public PostalCode(String code, Geometry geometry)
+	public PartialRelation(T object, double coverage)
 	{
-		this.code = code;
-		this.geometry = geometry;
+		this.object = object;
+		this.coverage = coverage;
+	}
+
+	@Override
+	public int compareTo(PartialRelation<T> o)
+	{
+		return Double.compare(coverage, o.coverage);
 	}
 
 }
