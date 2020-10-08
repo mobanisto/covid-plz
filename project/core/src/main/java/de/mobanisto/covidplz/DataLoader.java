@@ -12,9 +12,6 @@ public class DataLoader
 	{
 		Data data = new Data();
 
-		data.setBaseData(
-				RKILoader.load(dir.resolve("RKI_Corona_Landkreise.geojson")));
-
 		return data;
 	}
 
