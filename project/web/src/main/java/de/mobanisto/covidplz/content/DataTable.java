@@ -67,7 +67,7 @@ public class DataTable
 		return row(table, title, id, s -> {
 			try {
 				double d = Double.parseDouble(s);
-				return String.format(Locale.GERMAN, "%.1f", d);
+				return String.format(Locale.GERMAN, "%.2f", d);
 			} catch (NumberFormatException e) {
 				return s;
 			}
