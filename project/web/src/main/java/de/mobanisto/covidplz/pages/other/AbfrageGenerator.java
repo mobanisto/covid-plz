@@ -29,7 +29,6 @@ import de.mobanisto.covidplz.Website;
 import de.mobanisto.covidplz.mapping.Mapping;
 import de.mobanisto.covidplz.mapping.PartialRsRelation;
 import de.mobanisto.covidplz.model.DailyData;
-import de.mobanisto.covidplz.model.Data;
 import de.mobanisto.covidplz.model.RegionData;
 import de.mobanisto.covidplz.pages.base.SimpleBaseGenerator;
 import de.mobanisto.covidplz.rki.Fields;
@@ -53,14 +52,11 @@ public class AbfrageGenerator extends SimpleBaseGenerator
 
 	private static final String PARAM_PLZ = "plz";
 
-	private Map<String, String[]> parameters;
-
 	private String plz;
 
 	public AbfrageGenerator(WebPath path, Map<String, String[]> parameters)
 	{
 		super(path);
-		this.parameters = parameters;
 
 		plz = ParameterUtil.get(parameters, PARAM_PLZ);
 	}
@@ -71,11 +67,6 @@ public class AbfrageGenerator extends SimpleBaseGenerator
 		content.ac(HTML.h1("Anfrage stellen"));
 
 		P p = content.ac(HTML.p());
-
-		Data data = Website.INSTANCE.getData();
-		p.appendText(String.format(
-				"Anzahl Postleitzahlen: %d, Anzahl RKI-Regionen: %d.",
-				data.getPostalCodes().size(), data.getRkiIdentifiers().size()));
 
 		form(content);
 
@@ -89,7 +80,8 @@ public class AbfrageGenerator extends SimpleBaseGenerator
 		Form form = element.ac(HTML.form());
 		form.setAction("/abfrage");
 
-		queryAndButton(form, "12345", plz == null ? "" : plz, "plz");
+		queryAndButton(form, "Bitte hier Postleitzahl eingeben",
+				plz == null ? "" : plz, "plz");
 	}
 
 	public static void queryAndButton(Form form, String placeholder,
@@ -148,17 +140,28 @@ public class AbfrageGenerator extends SimpleBaseGenerator
 		table.addClass("table");
 
 		row(table, "Datenstand", data, Fields.LAST_UPDATE);
-		row(table, "Fälle pro 100T Einwohner", data, Fields.CASES_PER_100K);
-		row(table, "Fälle pro 100T Einwohner in den letzten 7 Tagen", data,
+		rowBold(table, "Fälle pro 100T Einwohner in den letzten 7 Tagen", data,
 				Fields.CASES7_PER_100K);
 		row(table, "Fälle insgesamt", data, Fields.CASES);
-		row(table, "Tote", data, Fields.DEATHS);
+		row(table, "Tote insgesamt", data, Fields.DEATHS);
+		row(table, "Einwohner", data, Fields.EWZ);
+		row(table, "Fälle pro 100T Einwohner insgesamt", data,
+				Fields.CASES_PER_100K);
 
 	}
 
 	private void row(Table table, String title, RegionData data, String id)
 	{
 		TableRow row = table.row();
+		row.cell(title);
+		String value = data.getData().get(id);
+		row.cell(value);
+	}
+
+	private void rowBold(Table table, String title, RegionData data, String id)
+	{
+		TableRow row = table.row();
+		row.attr("style", "font-weight: bold");
 		row.cell(title);
 		String value = data.getData().get(id);
 		row.cell(value);
