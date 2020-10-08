@@ -91,7 +91,7 @@ public class AboutGenerator extends SimpleBaseGenerator
 		Img image = colLeft.ac(HTML.img("/"
 				+ WebPaths.get(CacheBusting.resolve("images/regionen.png"))));
 		image.addClass("img-fluid");
-		image.attr("style", "width: 100%; padding: 15%");
+		image.attr("style", "width: 100%; padding: 0.5em");
 
 		Data data = Website.INSTANCE.getData();
 
