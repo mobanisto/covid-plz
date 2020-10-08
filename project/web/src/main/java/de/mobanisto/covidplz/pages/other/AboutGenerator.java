@@ -95,13 +95,20 @@ public class AboutGenerator extends SimpleBaseGenerator
 
 		Data data = Website.INSTANCE.getData();
 
-		colRight.ac(HTML.h1("Daten"));
+		colRight.ac(HTML.h3("Erfasste Daten"));
 
 		ListGroup list = colRight.ac(Bootstrap.listGroup());
 		list.addTextItem(String.format("Anzahl Postleitzahlen: %d",
 				data.getPostalCodes().size()));
 		list.addTextItem(String.format("Anzahl RKI-Regionen: %d",
 				data.getRkiIdentifiers().size()));
+
+		colRight.ac(HTML.h3("Quellen").addClass("mt-2"));
+
+		list = colRight.ac(Bootstrap.listGroup());
+		list.addTextItem("Postleitzahlen: OpenStreetMap");
+		list.addTextItem("Infektionsdaten: Robert-Koch-Institut via"
+				+ " Nationale Plattform für geographische Daten (NPGEO-DE)");
 	}
 
 }
