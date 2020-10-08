@@ -9,6 +9,7 @@
 
   <logger name="de.topobyte" level="INFO"/>
   <logger name="de.mobanisto" level="INFO"/>
+  <logger name="de.mobanisto.covidplz" level="DEBUG"/>
 
   <root level="info">
     <appender-ref ref="STDOUT" />
