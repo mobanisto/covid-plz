@@ -27,7 +27,7 @@ public class TestConvertRKIGeometriesToSmx
 	{
 		Path repo = SystemPaths.CWD.getParent().getParent();
 		Path fileData = repo.resolve("data/RKI_Corona_Landkreise.geojson");
-		Path dirOutput = repo.resolve("smx");
+		Path dirOutput = repo.resolve("smx/rki");
 
 		Files.createDirectories(dirOutput);
 
