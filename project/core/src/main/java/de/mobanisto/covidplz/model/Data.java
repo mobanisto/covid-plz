@@ -22,15 +22,15 @@
 
 package de.mobanisto.covidplz.model;
 
-import java.util.HashSet;
-import java.util.Set;
-
+import de.mobanisto.covidplz.RKIBaseData;
 import lombok.Getter;
+import lombok.Setter;
 
 public class Data
 {
 
 	@Getter
-	private Set<String> postcodes = new HashSet<>();
+	@Setter
+	private RKIBaseData baseData;
 
 }

@@ -27,7 +27,7 @@ import java.io.IOException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import de.mobanisto.covidplz.DataLoader;
+import de.mobanisto.covidplz.model.Data;
 
 public class WebsiteData
 {
@@ -39,8 +39,8 @@ public class WebsiteData
 		logger.info("loading data...");
 		try {
 			DataLoader dataLoader = new DataLoader();
-			dataLoader.loadData(Config.INSTANCE.getDirData());
-			Website.INSTANCE.setData(dataLoader.getData());
+			Data data = dataLoader.loadData(Config.INSTANCE.getDirData());
+			Website.INSTANCE.setData(data);
 		} catch (IOException e) {
 			logger.error("Error while loading data", e);
 		}
