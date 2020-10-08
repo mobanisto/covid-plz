@@ -22,10 +22,13 @@
 
 package de.mobanisto.covidplz.pages.other;
 
+import de.mobanisto.covidplz.Website;
+import de.mobanisto.covidplz.model.Data;
 import de.mobanisto.covidplz.pages.base.SimpleBaseGenerator;
 import de.topobyte.cachebusting.CacheBusting;
 import de.topobyte.jsoup.HTML;
 import de.topobyte.jsoup.bootstrap4.Bootstrap;
+import de.topobyte.jsoup.bootstrap4.components.ListGroup;
 import de.topobyte.jsoup.components.Div;
 import de.topobyte.jsoup.components.Img;
 import de.topobyte.jsoup.components.P;
@@ -68,6 +71,18 @@ public class AboutGenerator extends SimpleBaseGenerator
 		p.ac(HTML.a("https://www.reiseland-brandenburg.de",
 				"TMB Tourismus-Marketing Brandenburg GmbH"));
 		p.appendText(".");
+
+		Div colData = row.ac(HTML.div("col-12 col-sm-8"));
+
+		Data data = Website.INSTANCE.getData();
+
+		colData.ac(HTML.h1("Daten"));
+
+		ListGroup list = colData.ac(Bootstrap.listGroup());
+		list.addTextItem(String.format("Anzahl Postleitzahlen: %d",
+				data.getPostalCodes().size()));
+		list.addTextItem(String.format("Anzahl RKI-Regionen: %d",
+				data.getRkiIdentifiers().size()));
 	}
 
 }
