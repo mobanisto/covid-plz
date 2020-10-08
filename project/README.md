@@ -18,3 +18,16 @@ hier:
 Dieses können Sie auf einem beliebigen Servlet-Container, wie bspw. Tomcat oder
 Jetty ausliefern. Nähere Informationen entnehmen Sie den
 Installationsanweisungen des jeweiligen Servlet-Containers.
+
+## Weiterentwicklung und Wartung
+
+Zur Entwicklung empfehlen wir Eclipse mit Web Tools Platform. Zum Importieren
+des Projekts in Eclipse führen Sie zunächst folgendes Kommando aus:
+
+    ./gradlew cleanEclipse eclipse
+
+Im Anschluss fügen Sie das Git-Repository zu ihrem Eclipse-Workspace hinzu,
+und importieren von dort aus das Projekt mit seinen Untermodulen. Nachdem
+Sie einen Servlet-Container wie Tomcat installiert haben, können Sie die
+Webanwendung wie gewohnt von Eclipse aus starten und mit der Weiterentwicklung
+beginnen.
