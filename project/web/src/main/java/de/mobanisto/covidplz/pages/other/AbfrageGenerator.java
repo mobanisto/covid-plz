@@ -40,9 +40,9 @@ import de.topobyte.jsoup.components.Button;
 import de.topobyte.jsoup.components.Div;
 import de.topobyte.jsoup.components.Form;
 import de.topobyte.jsoup.components.Input;
-import de.topobyte.jsoup.components.P;
 import de.topobyte.jsoup.components.Table;
 import de.topobyte.jsoup.components.TableRow;
+import de.topobyte.jsoup.jquery.JQuery;
 import de.topobyte.jsoup.nodes.Element;
 import de.topobyte.webgun.util.ParameterUtil;
 import de.topobyte.webpaths.WebPath;
@@ -66,8 +66,6 @@ public class AbfrageGenerator extends SimpleBaseGenerator
 	{
 		content.ac(HTML.h1("Anfrage stellen"));
 
-		P p = content.ac(HTML.p());
-
 		form(content);
 
 		if (plz != null) {
@@ -82,6 +80,8 @@ public class AbfrageGenerator extends SimpleBaseGenerator
 
 		queryAndButton(form, "Bitte hier Postleitzahl eingeben",
 				plz == null ? "" : plz, "plz");
+
+		element.ac(JQuery.focusById("plz"));
 	}
 
 	public static void queryAndButton(Form form, String placeholder,
