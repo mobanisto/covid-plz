@@ -22,7 +22,25 @@
 
 package de.mobanisto.covidplz.model;
 
+import java.util.Set;
+
+import de.mobanisto.covidplz.mapping.Mapping;
+import lombok.Getter;
+import lombok.Setter;
+
 public class Data
 {
+
+	@Getter
+	@Setter
+	private Set<String> postalCodes;
+
+	@Getter
+	@Setter
+	private Set<String> rkiIdentifiers;
+
+	@Getter
+	@Setter
+	private Mapping mapping;
 
 }

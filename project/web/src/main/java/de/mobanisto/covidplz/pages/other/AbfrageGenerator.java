@@ -22,6 +22,8 @@
 
 package de.mobanisto.covidplz.pages.other;
 
+import de.mobanisto.covidplz.Website;
+import de.mobanisto.covidplz.model.Data;
 import de.mobanisto.covidplz.pages.base.SimpleBaseGenerator;
 import de.topobyte.jsoup.HTML;
 import de.topobyte.jsoup.components.P;
@@ -41,7 +43,11 @@ public class AbfrageGenerator extends SimpleBaseGenerator
 		content.ac(HTML.h1("Anfrage stellen"));
 
 		P p = content.ac(HTML.p());
-		p.appendText("Diese Seite ist noch im Aufbau.");
+
+		Data data = Website.INSTANCE.getData();
+		p.appendText(String.format(
+				"Anzahl Postleitzahlen: %d, Anzahl RKI-Regionen: %d.",
+				data.getPostalCodes().size(), data.getRkiIdentifiers().size()));
 	}
 
 }
