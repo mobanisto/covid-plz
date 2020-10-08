@@ -48,6 +48,13 @@ public class AboutGenerator extends SimpleBaseGenerator
 	{
 		content.ac(HTML.h1("Über dieses Projekt"));
 
+		rowAboutProject();
+
+		rowAboutData();
+	}
+
+	private void rowAboutProject()
+	{
 		Div row = content.ac(Bootstrap.row());
 		row.addClass("align-items-center");
 
@@ -71,14 +78,26 @@ public class AboutGenerator extends SimpleBaseGenerator
 		p.ac(HTML.a("https://www.reiseland-brandenburg.de",
 				"TMB Tourismus-Marketing Brandenburg GmbH"));
 		p.appendText(".");
+	}
 
-		Div colData = row.ac(HTML.div("col-12 col-sm-8"));
+	private void rowAboutData()
+	{
+		Div row = content.ac(Bootstrap.row());
+		row.addClass("align-items-center");
+
+		Div colRight = row.ac(HTML.div("col-12 col-sm-8"));
+		Div colLeft = row.ac(HTML.div("col-12 col-sm-4"));
+
+		Img image = colLeft.ac(HTML.img("/"
+				+ WebPaths.get(CacheBusting.resolve("images/regionen.png"))));
+		image.addClass("img-fluid");
+		image.attr("style", "width: 100%; padding: 15%");
 
 		Data data = Website.INSTANCE.getData();
 
-		colData.ac(HTML.h1("Daten"));
+		colRight.ac(HTML.h1("Daten"));
 
-		ListGroup list = colData.ac(Bootstrap.listGroup());
+		ListGroup list = colRight.ac(Bootstrap.listGroup());
 		list.addTextItem(String.format("Anzahl Postleitzahlen: %d",
 				data.getPostalCodes().size()));
 		list.addTextItem(String.format("Anzahl RKI-Regionen: %d",
