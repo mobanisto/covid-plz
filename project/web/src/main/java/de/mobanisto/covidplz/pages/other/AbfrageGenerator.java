@@ -131,9 +131,11 @@ public class AbfrageGenerator extends SimpleBaseGenerator
 
 	private void data(Element element, String rs, RegionData data)
 	{
+		String bezeichnungRegion = data.getData().get(Fields.BEZ);
 		String nameRegion = data.getData().get(Fields.GEN);
 
-		element.ac(HTML.h2(String.format(nameRegion)));
+		element.ac(
+				HTML.h2(String.format("%s %s", bezeichnungRegion, nameRegion)));
 
 		DataTable dataTable = new DataTable(data);
 		dataTable.add(element);
