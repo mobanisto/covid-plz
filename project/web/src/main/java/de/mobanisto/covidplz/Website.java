@@ -22,6 +22,7 @@
 
 package de.mobanisto.covidplz;
 
+import de.mobanisto.covidplz.model.DailyData;
 import de.mobanisto.covidplz.model.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -38,5 +39,9 @@ public class Website
 	@Getter
 	@Setter
 	private Data data;
+
+	@Getter
+	@Setter
+	private DailyData dailyData;
 
 }

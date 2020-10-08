@@ -23,11 +23,14 @@
 package de.mobanisto.covidplz;
 
 import java.io.IOException;
+import java.io.InputStream;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import de.mobanisto.covidplz.model.DailyData;
 import de.mobanisto.covidplz.model.Data;
+import de.topobyte.melon.commons.io.Resources;
 
 public class WebsiteData
 {
@@ -43,6 +46,14 @@ public class WebsiteData
 			Website.INSTANCE.setData(data);
 		} catch (IOException e) {
 			logger.error("Error while loading data", e);
+		}
+
+		logger.info("loading daily data...");
+		try (InputStream input = Resources.stream("data.csv")) {
+			DailyData data = DailyDataLoader.load(input);
+			Website.INSTANCE.setDailyData(data);
+		} catch (IOException e) {
+			logger.error("Error while loading daily data", e);
 		}
 	}
 

@@ -54,10 +54,8 @@ public class DailyDataLoader
 
 		DailyData data = new DailyData();
 
-		InputStreamReader reader = new InputStreamReader(bomInput);
-		ICsvMapReader csvReader = null;
-		try {
-			csvReader = new CsvMapReader(reader,
+		try (InputStreamReader reader = new InputStreamReader(bomInput)) {
+			ICsvMapReader csvReader = new CsvMapReader(reader,
 					CsvPreference.EXCEL_PREFERENCE);
 
 			final String[] header = csvReader.getHeader(true);
@@ -66,10 +64,6 @@ public class DailyDataLoader
 			while ((map = csvReader.read(header)) != null) {
 				String rs = map.get(Fields.RS);
 				data.getRsToRegionData().put(rs, new RegionData(rs, map));
-			}
-		} finally {
-			if (csvReader != null) {
-				csvReader.close();
 			}
 		}
 
