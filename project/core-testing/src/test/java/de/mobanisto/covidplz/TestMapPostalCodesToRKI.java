@@ -22,13 +22,18 @@
 
 package de.mobanisto.covidplz;
 
+import java.io.BufferedWriter;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import de.mobanisto.covidplz.mapping.MapPostalCodesToRKI;
 import de.mobanisto.covidplz.mapping.Mapping;
@@ -45,6 +50,7 @@ public class TestMapPostalCodesToRKI
 	{
 		Path repo = SystemPaths.CWD.getParent().getParent();
 		Path dir = repo.resolve("data");
+		Path fileOutput = repo.resolve("mapping.json");
 
 		MapPostalCodesToRKI task = new MapPostalCodesToRKI();
 		Mapping mapping = task.execute(dir);
@@ -67,6 +73,11 @@ public class TestMapPostalCodesToRKI
 				unambiguous, n, unambiguous / (double) n * 100));
 		System.out.println(String.format("Mapped ambiguously: %d/%d (%.1f%%)",
 				ambiguous, n, ambiguous / (double) n * 100));
+
+		try (BufferedWriter output = Files.newBufferedWriter(fileOutput)) {
+			Gson gson = new GsonBuilder().setPrettyPrinting().create();
+			gson.toJson(mapping, output);
+		}
 	}
 
 }
