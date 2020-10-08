@@ -26,6 +26,7 @@ import java.util.List;
 import java.util.Map;
 
 import de.mobanisto.covidplz.Website;
+import de.mobanisto.covidplz.content.DataTable;
 import de.mobanisto.covidplz.mapping.Mapping;
 import de.mobanisto.covidplz.mapping.PartialRsRelation;
 import de.mobanisto.covidplz.model.DailyData;
@@ -40,8 +41,6 @@ import de.topobyte.jsoup.components.Button;
 import de.topobyte.jsoup.components.Div;
 import de.topobyte.jsoup.components.Form;
 import de.topobyte.jsoup.components.Input;
-import de.topobyte.jsoup.components.Table;
-import de.topobyte.jsoup.components.TableRow;
 import de.topobyte.jsoup.jquery.JQuery;
 import de.topobyte.jsoup.nodes.Element;
 import de.topobyte.webgun.util.ParameterUtil;
@@ -136,35 +135,8 @@ public class AbfrageGenerator extends SimpleBaseGenerator
 
 		element.ac(HTML.h2(String.format(nameRegion)));
 
-		Table table = element.ac(HTML.table());
-		table.addClass("table");
-
-		row(table, "Datenstand", data, Fields.LAST_UPDATE);
-		rowBold(table, "Fälle pro 100T Einwohner in den letzten 7 Tagen", data,
-				Fields.CASES7_PER_100K);
-		row(table, "Fälle insgesamt", data, Fields.CASES);
-		row(table, "Tote insgesamt", data, Fields.DEATHS);
-		row(table, "Einwohner", data, Fields.EWZ);
-		row(table, "Fälle pro 100T Einwohner insgesamt", data,
-				Fields.CASES_PER_100K);
-
-	}
-
-	private void row(Table table, String title, RegionData data, String id)
-	{
-		TableRow row = table.row();
-		row.cell(title);
-		String value = data.getData().get(id);
-		row.cell(value);
-	}
-
-	private void rowBold(Table table, String title, RegionData data, String id)
-	{
-		TableRow row = table.row();
-		row.attr("style", "font-weight: bold");
-		row.cell(title);
-		String value = data.getData().get(id);
-		row.cell(value);
+		DataTable dataTable = new DataTable(data);
+		dataTable.add(element);
 	}
 
 }
