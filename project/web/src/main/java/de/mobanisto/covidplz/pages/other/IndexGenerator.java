@@ -42,8 +42,15 @@ public class IndexGenerator extends SimpleBaseGenerator
 
 		P p = content.ac(HTML.p());
 		p.appendText(
-				"Hier erscheint in Kürze ein Werkzeug zur Abfrage zum Infektionsgeschehen"
-						+ " in Deutschland.");
+				"Auf dieser Seite können Sie die Daten zum Infektionsgeschen der"
+						+ " COVID-19-Pandemie abrufen, die täglich vom Robert-Koch-Institut"
+						+ " veröffentlicht werden.");
+		p = content.ac(HTML.p());
+		p.appendText("Geben Sie einfach auf der ");
+		p.ac(HTML.a("/abfrage", "Abfrage-Seite"));
+		p.appendText(" eine Postleitzahl ein."
+				+ " Nach Bestätigung der Eingabe erscheinen die vorhandenen Daten zu"
+				+ " der entsprechenden Stadt bzw. dem entsprechenden Landkreis.");
 	}
 
 }
