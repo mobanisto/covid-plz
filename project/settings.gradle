@@ -1,0 +1,5 @@
+include 'core', 'core-testing', 'cli', 'web'
+project(':core').name = 'covid-plz-core'
+project(':core-testing').name = 'covid-plz-core-testing'
+project(':cli').name = 'covid-plz-cli'
+project(':web').name = 'covid-plz-web'

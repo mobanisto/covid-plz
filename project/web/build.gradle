@@ -1,0 +1,133 @@
+buildscript {
+    repositories {
+        maven { url 'https://plugins.gradle.org/m2/' }
+        maven { url 'https://mvn.topobyte.de' }
+    }
+    dependencies {
+        classpath 'de.topobyte:gradle-generate-favicons-plugin:0.0.2'
+        classpath 'de.topobyte:gradle-cache-busting-plugin:0.0.3'
+    }
+}
+
+plugins {
+    id 'com.craigburke.client-dependencies' version '1.4.0'
+}
+
+apply plugin: 'de.topobyte.generate-favicons-gradle-plugin'
+apply plugin: 'de.topobyte.cache-busting-gradle-plugin'
+
+dependencies {
+    implementation project(':covid-plz-core')
+
+    implementation 'de.topobyte:pagegen-core:1.0.1'
+    implementation 'de.topobyte:pagegen-bootstrap:1.1.0'
+    implementation 'de.topobyte:webgun-core:1.1.0'
+    implementation 'de.topobyte:webgun-resolving:1.1.0'
+    implementation 'de.topobyte:jsoup-bootstrap4:1.0.0'
+    implementation 'de.topobyte:jsoup-servlet:0.1.1'
+    implementation 'de.topobyte:jsoup-jquery:0.0.1'
+    implementation 'de.topobyte:jsoup-utils:0.1.6'
+    implementation 'de.topobyte:jsoup-flexmark:0.1.0'
+    implementation 'de.topobyte:jsoup-feather:1.1.0'
+    implementation 'de.topobyte:servlet-utils:0.0.2'
+    implementation 'de.topobyte:css-utils:0.1.0'
+    implementation 'de.topobyte:shell-paths:0.0.1'
+
+    implementation 'com.vladsch.flexmark:flexmark:0.28.18'
+    implementation 'com.vladsch.flexmark:flexmark-ext-gfm-strikethrough:0.28.18'
+    implementation 'com.vladsch.flexmark:flexmark-ext-tables:0.28.18'
+    implementation 'com.vladsch.flexmark:flexmark-ext-wikilink:0.28.18'
+
+    implementation 'org.slf4j:slf4j-api:1.7.20'
+
+    providedCompile 'javax.servlet:javax.servlet-api:3.+'
+    providedCompile 'javax.servlet.jsp:jsp-api:2.1'
+
+    // we need this as compile due to shutdown code
+    implementation 'ch.qos.logback:logback-classic:1.2.3'
+
+    testImplementation 'junit:junit:4.12'
+}
+
+eclipse {
+    wtp {
+        component {
+            contextPath = '/'
+            deployName = 'covid-plz'
+            resource deployPath: '/', sourcePath: 'src/main/webapp'
+            resource deployPath: '/client', sourcePath: 'src/assets/vendor'
+            resource deployPath: '/', sourcePath: 'build/static'
+            resource deployPath: '/', sourcePath: 'res-nohash'
+        }
+    }
+}
+eclipse.classpath.file {
+    withXml {
+        def node = it.asNode()
+        node.appendNode('classpathentry', [kind: 'src', output: 'bin/main', path: 'logging/devel'])
+        node.appendNode('classpathentry', [kind: 'src', output: 'bin/main', path: 'config/devel'])
+    }
+    // Classpath entry for Eclipse which changes the order of classpathentries; otherwise no sources for 3rd party jars are shown
+    withXml { xml ->
+        def node = xml.asNode()
+        node.remove( node.find { it.@path == 'org.eclipse.jst.j2ee.internal.web.container' } )
+        node.appendNode( 'classpathentry', [ kind: 'con', path: 'org.eclipse.jst.j2ee.internal.web.container', exported: 'true'])
+    }
+}
+
+clientDependencies {
+    copyExcludes = ['**/*.map', '**/Gruntfile.js', 'gulpfile.js', 'source/**']
+    yarn {
+        'jquery'('3.5.1')
+        'bootstrap'('4.5.0')
+        'leaflet'('1.3.4')
+        'leaflet.markercluster'('1.4.1')
+        'leaflet.awesome-markers'('2.0.5')
+    }
+}
+
+def commonWarDefs = {
+    from ('src/assets/vendor') {
+        into 'client'
+    }
+    from 'build/static'
+    from 'res-nohash'
+}
+
+war {
+    classifier = 'production'
+    configure commonWarDefs
+}
+
+task testingWar (type: War) {
+    classifier = 'testing'
+    configure commonWarDefs
+}
+
+tasks.eclipse.dependsOn clientInstall
+tasks.eclipse.dependsOn generateFavicons
+
+tasks.generateStaticFiles.dependsOn generateFavicons
+
+[war, testingWar].each { task ->
+    task.dependsOn clientInstall
+    task.dependsOn generateFavicons
+    task.from ('logging/' + task.archiveClassifier.get()) {
+        into('WEB-INF/classes')
+        include "**/*"
+    }
+    task.from ('config/' + task.archiveClassifier.get()) {
+        into('WEB-INF/classes')
+        include "**/*"
+    }
+}
+
+favicons {
+    input = 'res/images/icon.svg'
+}
+
+cacheBusting {
+    input = []
+    input += 'res'
+    input += 'build/favicons'
+}

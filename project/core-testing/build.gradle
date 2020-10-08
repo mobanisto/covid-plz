@@ -1,0 +1,7 @@
+dependencies {
+    implementation project(':covid-plz-core')
+
+    testImplementation 'de.topobyte:system-utils:0.0.1'
+    testImplementation 'junit:junit:4.12'
+    testRuntimeOnly 'ch.qos.logback:logback-classic:1.2.3'
+}

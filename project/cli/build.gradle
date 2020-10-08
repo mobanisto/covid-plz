@@ -1,0 +1,24 @@
+dependencies {
+    implementation project(':covid-plz-core')
+
+    implementation 'de.topobyte:system-utils:0.0.1'
+
+    implementation 'org.slf4j:slf4j-api:1.7.25'
+    runtimeOnly 'ch.qos.logback:logback-classic:1.2.3'
+
+    testImplementation 'junit:junit:4.12'
+}
+
+task copyJars(type: Copy) {
+    into "$buildDir/lib-run"
+    from jar
+}
+
+task copyDeps(type: Copy) {
+    into "$buildDir/lib-run"
+    from configurations.runtimeClasspath
+}
+
+task createRuntime(dependsOn: [copyJars, copyDeps]) {
+    description 'Setup the execution environment for the main scripts'
+}

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+DIR=$(dirname $0)
+CMD="$DIR/covid-plz.sh"
+CLASS="de.mobanisto.covidplz.RunShowDataInfo"
+
+exec "$CMD" "$CLASS" "$@"

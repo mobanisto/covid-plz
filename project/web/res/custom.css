@@ -1,0 +1,88 @@
+body {
+    padding-top: 80px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+}
+
+@media print {
+  a[href]:after {
+    content: none;
+  }
+}
+
+.breadcrumb > li + li:before {
+	color: #ccc;
+	content: "» ";
+	padding: 0 5px;
+}
+
+.breakwords {
+  -ms-word-break: break-all;
+  word-break: break-all;
+
+  /* Non standard for webkit */
+  word-break: break-word;
+
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+}
+
+img.line {
+  height: 1em;
+}
+
+span.nowrap {
+  white-space: nowrap;
+}
+
+/* Bootstrap optimizations */
+div.clickable {
+	cursor: pointer;
+}
+
+/* Footer */
+
+.footer {
+  background-color: #f5f5f5;
+  padding: 3rem;
+  margin-top: 2rem;
+}
+
+.footer ul {
+  padding-left: 0;
+}
+
+.footer li {
+  display: inline-block;
+}
+
+.footer li+li {
+  margin-left: 1rem;
+}
+
+/* Object cards */
+
+div.object-card {
+  background: #EEE;
+}
+
+.object-col {
+  margin-bottom: 10px;
+}
+
+.object-card {
+  border-radius: 6px;
+  border: 1px solid #CCC;
+  padding: 10px;
+}
+
+.object-card h3 {
+  margin-top: 2px;
+}
+
+.object-card .label {
+  line-height: 1.5em;
+}
