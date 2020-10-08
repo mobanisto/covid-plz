@@ -31,14 +31,20 @@ public class Fields
 	// cases_per_population,BL,BL_ID,county,last_update,cases7_per_100k,
 	// recovered,SHAPE_Length,SHAPE_Area
 
+	// @formatter:off
 	public static final String RS = "RS";
+	public static final String GEN = "GEN"; // Name der Region
+	public static final String BEZ = "BEZ"; // Landreis, Kreis, Kreisfreie Stadt, Bezirk
+	public static final String BL = "BL"; // Bundesland
+	public static final String BL_ID = "BL_ID"; // Bundesland-ID
+	public static final String EWZ = "EWZ"; // Einwohnerzahl
 	public static final String DEATH_RATE = "death_rate";
 	public static final String CASES = "cases";
 	public static final String DEATHS = "deaths";
 	public static final String CASES_PER_100K = "cases_per_100k";
 	public static final String CASES_PER_POPULATION = "cases_per_population";
-	public static final String BL = "BL";
 	public static final String LAST_UPDATE = "last_update";
 	public static final String CASES7_PER_100K = "cases7_per_100k";
+	// @formatter:on
 
 }

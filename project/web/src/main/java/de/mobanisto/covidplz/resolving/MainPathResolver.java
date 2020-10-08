@@ -49,7 +49,7 @@ public class MainPathResolver extends PathSpecResolver<ContentGeneratable, Void>
 
 	{
 		map(new PathSpec("abfrage"), (path, output, request, data) -> {
-			return new AbfrageGenerator(path);
+			return new AbfrageGenerator(path, request.getParameterMap());
 		});
 
 		map(new PathSpec("about"), (path, output, request, data) -> {
