@@ -1,6 +1,9 @@
 dependencies {
     implementation project(':covid-plz-core')
 
+    implementation 'de.topobyte:simple-mapfile-core:0.1.0'
+    implementation 'de.topobyte:simple-mapfile-xml:0.1.0'
+
     testImplementation 'de.topobyte:system-utils:0.0.1'
     testImplementation 'junit:junit:4.12'
     testRuntimeOnly 'ch.qos.logback:logback-classic:1.2.3'

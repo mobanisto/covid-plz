@@ -14,8 +14,8 @@ public class TestReadRKIGeometries
 
 	public static void main(String[] args) throws IOException
 	{
-		Path file = SystemPaths.CWD.getParent().getParent()
-				.resolve("data/RKI_Corona_Landkreise.geojson");
+		Path repo = SystemPaths.CWD.getParent().getParent();
+		Path file = repo.resolve("data/RKI_Corona_Landkreise.geojson");
 
 		RKIBaseData data = RKILoader.load(file);
 		Map<String, Geometry> map = data.getRsToGeometry();
