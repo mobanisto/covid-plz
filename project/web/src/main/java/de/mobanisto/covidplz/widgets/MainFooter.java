@@ -62,7 +62,7 @@ public class MainFooter extends Element
 
 		p.appendText("Made with ");
 		p.ac(Feather.heart(16));
-		p.appendText(" in Berlin");
+		p.appendText(" in Berlin-Brandenburg");
 	}
 
 }
