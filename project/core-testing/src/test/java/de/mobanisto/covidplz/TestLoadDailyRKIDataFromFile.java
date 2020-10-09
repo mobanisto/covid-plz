@@ -31,7 +31,7 @@ import org.junit.Test;
 import de.mobanisto.covidplz.model.DailyData;
 import de.topobyte.system.utils.SystemPaths;
 
-public class TestLoadDailyRKIData
+public class TestLoadDailyRKIDataFromFile
 {
 
 	@Test
