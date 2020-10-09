@@ -22,7 +22,9 @@
 
 package de.mobanisto.covidplz;
 
+import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Properties;
@@ -66,7 +68,33 @@ public class InitListener implements ServletContextListener
 		Path dirData = Paths.get(config.getProperty("data"));
 		Config.INSTANCE.setDirData(dirData);
 
-		WebsiteData.load();
+		logger.info("fetching data if not present...");
+		Path lastWorking = DataManagement.getLastWorking();
+		Path current = DataManagement.getCurrent();
+
+		if (!Files.exists(current)) {
+			try {
+				DataManagement.downloadData(current);
+			} catch (IOException e) {
+				logger.warn("Error while downloading data", e);
+			}
+		}
+
+		logger.info("loading data...");
+		boolean successful = WebsiteData.loadAll(current);
+		if (successful) {
+			try {
+				DataManagement.copyData(current, lastWorking);
+			} catch (IOException e) {
+				logger.warn("Error while backing up latest working data", e);
+			}
+		} else if (Files.exists(lastWorking)) {
+			successful = WebsiteData.loadDailyData(lastWorking);
+		}
+
+		if (!successful) {
+			WebsiteData.loadDailyDataFromResoures();
+		}
 
 		long stop = System.currentTimeMillis();
 

@@ -22,6 +22,7 @@
 
 package de.mobanisto.covidplz.pages.other;
 
+import de.mobanisto.covidplz.DataManagement;
 import de.mobanisto.covidplz.WebsiteData;
 import de.mobanisto.covidplz.pages.base.SimpleBaseGenerator;
 import de.topobyte.jsoup.HTML;
@@ -41,7 +42,7 @@ public class RefreshGenerator extends SimpleBaseGenerator
 	{
 		content.ac(HTML.h1("Refreshing data..."));
 
-		WebsiteData.load();
+		WebsiteData.loadDailyData(DataManagement.getCurrent());
 
 		P p = content.ac(HTML.p());
 		p.appendText("done");

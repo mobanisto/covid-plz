@@ -24,6 +24,7 @@ package de.mobanisto.covidplz;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Path;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,23 +38,48 @@ public class WebsiteData
 
 	final static Logger logger = LoggerFactory.getLogger(WebsiteData.class);
 
-	public static void load()
+	public static boolean loadAll(Path file)
 	{
-		logger.info("loading data...");
+		loadBaseData();
+
+		return loadDailyData(file);
+	}
+
+	private static void loadBaseData()
+	{
+		logger.info("loading base data...");
 		try {
 			DataLoader dataLoader = new DataLoader();
-			Data data = dataLoader.loadData(Config.INSTANCE.getDirData());
+			Data data = dataLoader.loadData();
 			Website.INSTANCE.setData(data);
 		} catch (IOException e) {
 			logger.error("Error while loading data", e);
 		}
+	}
 
-		logger.info("loading daily data...");
+	public static boolean loadDailyData(Path file)
+	{
+		logger.info("loading daily data: " + file);
+		try {
+			DailyData data = DailyDataLoader.load(file);
+			Website.INSTANCE.setDailyData(data);
+			return true;
+		} catch (IOException e) {
+			logger.error("Error while loading daily data", e);
+			return false;
+		}
+	}
+
+	public static boolean loadDailyDataFromResoures()
+	{
+		logger.info("loading daily data from resources...");
 		try (InputStream input = Resources.stream("data.csv")) {
 			DailyData data = DailyDataLoader.load(input);
 			Website.INSTANCE.setDailyData(data);
+			return true;
 		} catch (IOException e) {
 			logger.error("Error while loading daily data", e);
+			return false;
 		}
 	}
 

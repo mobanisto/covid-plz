@@ -23,54 +23,41 @@
 package de.mobanisto.covidplz;
 
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.io.InputStream;
+import java.net.URL;
+import java.net.URLConnection;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 
-import com.google.gson.Gson;
-
-import de.mobanisto.covidplz.mapping.Mapping;
-import de.mobanisto.covidplz.mapping.PartialRsRelation;
-import de.mobanisto.covidplz.model.Data;
-import de.topobyte.melon.commons.io.Resources;
-
-public class DataLoader
+public class DataManagement
 {
 
-	public Data loadData() throws IOException
+	public static Path getCurrent()
 	{
-		Data data = new Data();
+		Path dir = Config.INSTANCE.getDirData();
+		return dir.resolve("latest.csv");
+	}
 
-		String json = Resources.loadString("mapping.json");
-		Gson gson = new Gson();
-		Mapping mapping = gson.fromJson(json, Mapping.class);
+	public static Path getLastWorking()
+	{
+		Path dir = Config.INSTANCE.getDirData();
+		return dir.resolve("working.csv");
+	}
 
-		data.setMapping(mapping);
+	public static void downloadData(Path target) throws IOException
+	{
+		URL url = new URL(DataSources.URL_AGGREGATED_DATA);
+		URLConnection connection = url.openConnection();
 
-		Map<String, List<PartialRsRelation>> codeToRKI = mapping.getCodeToRKI();
-
-		// Get postal codes from mapping
-
-		Set<String> postalCodes = new HashSet<>();
-		postalCodes.addAll(codeToRKI.keySet());
-
-		data.setPostalCodes(postalCodes);
-
-		// Get RKI identifiers from mapping
-
-		Set<String> rkiIdentifiers = new HashSet<>();
-
-		for (String key : codeToRKI.keySet()) {
-			List<PartialRsRelation> rkis = codeToRKI.get(key);
-			for (PartialRsRelation rki : rkis) {
-				rkiIdentifiers.add(rki.getObject());
-			}
+		try (InputStream input = connection.getInputStream()) {
+			Files.copy(input, target, StandardCopyOption.REPLACE_EXISTING);
 		}
+	}
 
-		data.setRkiIdentifiers(rkiIdentifiers);
-
-		return data;
+	public static void copyData(Path source, Path target) throws IOException
+	{
+		Files.copy(source, target, StandardCopyOption.REPLACE_EXISTING);
 	}
 
 }
