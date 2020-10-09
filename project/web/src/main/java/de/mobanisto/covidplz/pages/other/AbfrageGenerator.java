@@ -127,6 +127,11 @@ public class AbfrageGenerator extends SimpleBaseGenerator
 			RegionData regionData = dailyData.getRsToRegionData().get(rs);
 			data(element, rs, regionData);
 		}
+
+		Alert alert = element.ac(Bootstrap.alert(ContextualType.WARNING));
+		alert.appendText(
+				"Alle Angaben ohne Gewähr. Bitte informieren Sie sich zusätzlich"
+						+ " immer bei den für Sie zuständigen Behörden.");
 	}
 
 	private void data(Element element, String rs, RegionData data)

@@ -24,6 +24,9 @@ package de.mobanisto.covidplz.pages.other;
 
 import de.mobanisto.covidplz.pages.base.SimpleBaseGenerator;
 import de.topobyte.jsoup.HTML;
+import de.topobyte.jsoup.bootstrap4.Bootstrap;
+import de.topobyte.jsoup.bootstrap4.components.Alert;
+import de.topobyte.jsoup.bootstrap4.components.ContextualType;
 import de.topobyte.jsoup.components.P;
 import de.topobyte.webpaths.WebPath;
 
@@ -51,6 +54,11 @@ public class IndexGenerator extends SimpleBaseGenerator
 		p.appendText(" eine Postleitzahl ein."
 				+ " Nach Bestätigung der Eingabe erscheinen die vorhandenen Daten zu"
 				+ " der entsprechenden Stadt bzw. dem entsprechenden Landkreis.");
+
+		Alert alert = content.ac(Bootstrap.alert(ContextualType.WARNING));
+		alert.appendText(
+				"Alle Angaben ohne Gewähr. Bitte informieren Sie sich zusätzlich"
+						+ " immer bei den für Sie zuständigen Behörden.");
 	}
 
 }
