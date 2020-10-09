@@ -62,10 +62,18 @@ public class AboutGenerator extends SimpleBaseGenerator
 		Div colLeft = row.ac(HTML.div("col-12 col-sm-4"));
 		Div colRight = row.ac(HTML.div("col-12 col-sm-8"));
 
-		Img image = colLeft.ac(HTML.img("/"
+		Div c = colLeft.ac(Bootstrap.row());
+		Div a = c.ac(HTML.div("col-6"));
+		Div b = c.ac(HTML.div("col-6"));
+		Img imageMobanisto = a.ac(HTML.img("/"
 				+ WebPaths.get(CacheBusting.resolve("images/mobanisto.svg"))));
-		image.addClass("img-fluid");
-		image.attr("style", "width: 100%; padding: 15%");
+		imageMobanisto.addClass("img-fluid");
+		imageMobanisto.attr("style", "width: 100%; padding: 5%");
+
+		Img imageTmb = b.ac(HTML.img(
+				"/" + WebPaths.get(CacheBusting.resolve("images/tmb.svg"))));
+		imageTmb.addClass("img-fluid");
+		imageTmb.attr("style", "width: 100%; padding: 5%");
 
 		P p = colRight.ac(HTML.p());
 		p.appendText(
