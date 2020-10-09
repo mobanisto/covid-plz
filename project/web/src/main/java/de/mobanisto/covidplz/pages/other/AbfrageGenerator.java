@@ -27,6 +27,7 @@ import java.util.Map;
 
 import de.mobanisto.covidplz.Website;
 import de.mobanisto.covidplz.content.DataTable;
+import de.mobanisto.covidplz.content.Snippets;
 import de.mobanisto.covidplz.mapping.Mapping;
 import de.mobanisto.covidplz.mapping.PartialRsRelation;
 import de.mobanisto.covidplz.model.DailyData;
@@ -132,6 +133,9 @@ public class AbfrageGenerator extends SimpleBaseGenerator
 		alert.appendText(
 				"Alle Angaben ohne Gewähr. Bitte informieren Sie sich zusätzlich"
 						+ " immer bei den für Sie zuständigen Behörden.");
+
+		element.ac(HTML.h3("Quellen").addClass("mt-2"));
+		Snippets.references(element);
 	}
 
 	private void data(Element element, String rs, RegionData data)

@@ -23,13 +23,13 @@
 package de.mobanisto.covidplz.pages.other;
 
 import de.mobanisto.covidplz.Website;
+import de.mobanisto.covidplz.content.Snippets;
 import de.mobanisto.covidplz.model.Data;
 import de.mobanisto.covidplz.pages.base.SimpleBaseGenerator;
 import de.topobyte.cachebusting.CacheBusting;
 import de.topobyte.jsoup.HTML;
 import de.topobyte.jsoup.bootstrap4.Bootstrap;
 import de.topobyte.jsoup.bootstrap4.components.ListGroup;
-import de.topobyte.jsoup.bootstrap4.components.listgroup.ListGroupItem;
 import de.topobyte.jsoup.components.Div;
 import de.topobyte.jsoup.components.Img;
 import de.topobyte.jsoup.components.P;
@@ -105,30 +105,7 @@ public class AboutGenerator extends SimpleBaseGenerator
 				data.getRkiIdentifiers().size()));
 
 		colRight.ac(HTML.h3("Quellen").addClass("mt-2"));
-
-		list = colRight.ac(Bootstrap.listGroup());
-		ListGroupItem item = list.addTextItem(
-				"Postleitzahlen: © OpenStreetMap contributors, lizensiert unter der ");
-		item.ac(HTML.a("https://opendatacommons.org/licenses/odbl/",
-				"Open Data Commons Open Database License"));
-		item.appendText(" (ODbL) von der ");
-		item.ac(HTML.a("https://osmfoundation.org/",
-				"OpenStreetMap Foundation"));
-		item.appendText(" (OSMF).");
-
-		item = list.addTextItem("Infektionsdaten: © ");
-		item.ac(HTML.a(
-				"https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Fallzahlen.html",
-				"Robert-Koch-Institut"));
-		item.appendText(" (RKI), lizensiert unter der ");
-		item.ac(HTML.a("https://www.govdata.de/dl-de/by-2-0",
-				"Open Data Datenlizenz Deutschland – Namensnennung – Version 2.0"));
-		item.appendText(", abgerufen über die ");
-		item.ac(HTML.a(
-				"https://npgeo-corona-npgeo-de.hub.arcgis.com/datasets/917fc37a709542548cc3be077a786c17_0",
-				"Nationale Plattform für geographische Daten"));
-		item.appendText(" (NPGEO-DE)");
-
+		Snippets.references(colRight);
 	}
 
 }
