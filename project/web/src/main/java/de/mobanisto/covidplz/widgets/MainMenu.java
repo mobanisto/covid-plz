@@ -54,7 +54,7 @@ public class MainMenu
 		image.attr("style", "padding-right:15px");
 		brand.ap(image);
 
-		brand.appendText("Covid-PLZ");
+		brand.appendText("Covid-PLZ-Check");
 
 		menu.addBrand(brand);
 		menu.addToggleButton();
