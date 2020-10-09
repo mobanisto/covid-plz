@@ -48,11 +48,18 @@ public class MainMenu
 
 		A brand = a("/");
 
-		Img image = HTML.img(
+		Img imageMobanisto = HTML.img(
 				"/" + WebPaths.get(CacheBusting.resolve("images/icon.svg")));
-		image.attr("height", "40px");
-		image.attr("style", "padding-right:15px");
-		brand.ap(image);
+		imageMobanisto.attr("height", "40px");
+		imageMobanisto.attr("style", "padding-right:15px");
+
+		Img imageTmb = HTML.img(
+				"/" + WebPaths.get(CacheBusting.resolve("images/tmb.svg")));
+		imageTmb.attr("height", "40px");
+		imageTmb.attr("style", "padding-right:15px");
+
+		brand.ap(imageMobanisto);
+		brand.ap(imageTmb);
 
 		brand.appendText("Covid-PLZ-Check");
 
