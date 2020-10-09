@@ -63,8 +63,6 @@ public class MainMenu
 		Element main = menu.addSection(collapse);
 		Element right = menu.addSectionRight(collapse);
 
-		menu.addLink(main, "/abfrage", "Abfrage", false);
-
 		menu.addLink(right, "/about", "Über", false);
 
 		return menu;

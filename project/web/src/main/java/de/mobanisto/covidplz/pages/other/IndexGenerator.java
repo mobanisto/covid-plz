@@ -22,20 +22,44 @@
 
 package de.mobanisto.covidplz.pages.other;
 
+import java.util.List;
+import java.util.Map;
+
+import de.mobanisto.covidplz.Website;
+import de.mobanisto.covidplz.content.DataTable;
+import de.mobanisto.covidplz.content.Snippets;
+import de.mobanisto.covidplz.mapping.Mapping;
+import de.mobanisto.covidplz.mapping.PartialRsRelation;
+import de.mobanisto.covidplz.model.DailyData;
+import de.mobanisto.covidplz.model.RegionData;
 import de.mobanisto.covidplz.pages.base.SimpleBaseGenerator;
+import de.mobanisto.covidplz.rki.Fields;
 import de.topobyte.jsoup.HTML;
 import de.topobyte.jsoup.bootstrap4.Bootstrap;
 import de.topobyte.jsoup.bootstrap4.components.Alert;
 import de.topobyte.jsoup.bootstrap4.components.ContextualType;
+import de.topobyte.jsoup.components.Button;
+import de.topobyte.jsoup.components.Div;
+import de.topobyte.jsoup.components.Form;
+import de.topobyte.jsoup.components.Input;
 import de.topobyte.jsoup.components.P;
+import de.topobyte.jsoup.jquery.JQuery;
+import de.topobyte.jsoup.nodes.Element;
+import de.topobyte.webgun.util.ParameterUtil;
 import de.topobyte.webpaths.WebPath;
 
 public class IndexGenerator extends SimpleBaseGenerator
 {
 
-	public IndexGenerator(WebPath path)
+	private static final String PARAM_PLZ = "plz";
+
+	private String plz;
+
+	public IndexGenerator(WebPath path, Map<String, String[]> parameters)
 	{
 		super(path);
+
+		plz = ParameterUtil.get(parameters, PARAM_PLZ);
 	}
 
 	@Override
@@ -49,16 +73,92 @@ public class IndexGenerator extends SimpleBaseGenerator
 						+ " COVID-19-Pandemie abrufen, die täglich vom Robert-Koch-Institut"
 						+ " veröffentlicht werden.");
 		p = content.ac(HTML.p());
-		p.appendText("Geben Sie einfach auf der ");
-		p.ac(HTML.a("/abfrage", "Abfrage-Seite"));
-		p.appendText(" eine Postleitzahl ein."
+		p.appendText("Geben Sie einfach unten eine Postleitzahl ein."
 				+ " Nach Bestätigung der Eingabe erscheinen die vorhandenen Daten zu"
 				+ " der entsprechenden Stadt bzw. dem entsprechenden Landkreis.");
 
-		Alert alert = content.ac(Bootstrap.alert(ContextualType.WARNING));
+		form(content);
+
+		if (plz != null) {
+			results(content);
+		}
+	}
+
+	private void form(Element element)
+	{
+		Form form = element.ac(HTML.form());
+		form.setAction("/");
+
+		queryAndButton(form, "Bitte hier Postleitzahl eingeben",
+				plz == null ? "" : plz, "plz");
+
+		element.ac(JQuery.focusById("plz"));
+	}
+
+	public static void queryAndButton(Form form, String placeholder,
+			String value, String id)
+	{
+		Div group = form.ac(HTML.div("form-group"));
+		group = group.ac(HTML.div("input-group"));
+
+		Input input = group.ac(HTML.input());
+		if (id != null) {
+			input.setId(id);
+		}
+		input.setName(PARAM_PLZ);
+		if (value != null) {
+			input.setValue(value);
+		}
+		input.addClass("form-control");
+		input.attr("placeholder", placeholder);
+		input.attr("autocomplete", "off");
+
+		Div div = group.ac(HTML.div());
+		div.addClass("input-group-append");
+		Button button = div.ac(HTML.button());
+		button.attr("type", "submit");
+		button.addClass("btn");
+		button.addClass("btn-primary");
+		button.appendText("abfragen");
+	}
+
+	private void results(Element element)
+	{
+		Mapping mapping = Website.INSTANCE.getData().getMapping();
+		DailyData dailyData = Website.INSTANCE.getDailyData();
+
+		List<PartialRsRelation> rkis = mapping.getCodeToRKI().get(plz);
+		if (rkis == null) {
+			Alert alert = element.ac(Bootstrap.alert(ContextualType.DANGER));
+			alert.appendText("Ungültige Postleitzahl");
+			return;
+		}
+
+		for (PartialRsRelation rki : rkis) {
+			String rs = rki.getObject();
+			RegionData regionData = dailyData.getRsToRegionData().get(rs);
+			data(element, rs, regionData);
+		}
+
+		Alert alert = element.ac(Bootstrap.alert(ContextualType.WARNING));
 		alert.appendText(
 				"Alle Angaben ohne Gewähr. Bitte informieren Sie sich zusätzlich"
 						+ " immer bei den für Sie zuständigen Behörden.");
+
+		element.ac(HTML.h3("Quellen").addClass("mt-2"));
+		Snippets.references(element);
+	}
+
+	private void data(Element element, String rs, RegionData data)
+	{
+		String bezeichnungRegion = data.getData().get(Fields.BEZ);
+		String nameRegion = data.getData().get(Fields.GEN);
+
+		element.ac(
+				HTML.h2(String.format("%s %s", bezeichnungRegion, nameRegion)));
+
+		DataTable dataTable = new DataTable(data);
+		dataTable.add(element);
 	}
 
 }

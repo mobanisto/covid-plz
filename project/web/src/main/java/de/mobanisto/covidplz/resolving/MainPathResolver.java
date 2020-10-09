@@ -25,7 +25,6 @@ package de.mobanisto.covidplz.resolving;
 import javax.servlet.http.HttpServletRequest;
 
 import de.mobanisto.covidplz.pages.markdown.MarkdownResourceGenerator;
-import de.mobanisto.covidplz.pages.other.AbfrageGenerator;
 import de.mobanisto.covidplz.pages.other.AboutGenerator;
 import de.mobanisto.covidplz.pages.other.IndexGenerator;
 import de.mobanisto.covidplz.pages.other.RefreshGenerator;
@@ -42,16 +41,12 @@ public class MainPathResolver extends PathSpecResolver<ContentGeneratable, Void>
 			HttpServletRequest request, Void data)
 	{
 		if (path.getNameCount() == 0) {
-			return new IndexGenerator(path);
+			return new IndexGenerator(path, request.getParameterMap());
 		}
 		return super.getGenerator(path, request, data);
 	}
 
 	{
-		map(new PathSpec("abfrage"), (path, output, request, data) -> {
-			return new AbfrageGenerator(path, request.getParameterMap());
-		});
-
 		map(new PathSpec("about"), (path, output, request, data) -> {
 			return new AboutGenerator(path);
 		});
