@@ -31,3 +31,11 @@ und importieren von dort aus das Projekt mit seinen Untermodulen. Nachdem
 Sie einen Servlet-Container wie Tomcat installiert haben, können Sie die
 Webanwendung wie gewohnt von Eclipse aus starten und mit der Weiterentwicklung
 beginnen.
+
+## Datenquellen
+
+Zur Zeit benutzen wir [diese auf Landkreisebene aggregierten
+Daten](https://npgeo-corona-npgeo-de.hub.arcgis.com/datasets/917fc37a709542548cc3be077a786c17_0),
+noch besser wäre es, die
+[Rohdaten](https://npgeo-corona-npgeo-de.hub.arcgis.com/datasets/dd4580c810204019a7b8eb3e0b329dd6_0)
+zu verarbeiten.
