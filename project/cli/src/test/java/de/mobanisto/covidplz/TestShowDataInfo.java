@@ -24,11 +24,8 @@ package de.mobanisto.covidplz;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
-import java.nio.file.Path;
 
-import de.mobanisto.covidplz.ShowDataInfo;
 import de.topobyte.osm4j.core.resolve.EntityNotFoundException;
-import de.topobyte.system.utils.SystemPaths;
 
 public class TestShowDataInfo
 {
@@ -36,8 +33,6 @@ public class TestShowDataInfo
 	public static void main(String[] args)
 			throws MalformedURLException, IOException, EntityNotFoundException
 	{
-		Path pathData = SystemPaths.CWD.getParent().resolve("data");
-
 		ShowDataInfo task = new ShowDataInfo();
 		task.execute();
 	}

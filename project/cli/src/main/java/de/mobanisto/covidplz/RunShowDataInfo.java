@@ -23,23 +23,14 @@
 package de.mobanisto.covidplz;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
-
-import de.topobyte.osm4j.core.resolve.EntityNotFoundException;
 
 public class RunShowDataInfo
 {
 
-	public static void main(String[] args)
-			throws MalformedURLException, IOException, EntityNotFoundException
+	public static void main(String[] args) throws IOException
 	{
-		if (args.length != 1) {
-			System.out.println(String.format("usage: %s <directory>",
-					RunShowDataInfo.class.getSimpleName()));
-			System.exit(1);
-		}
-
-		// TODO: implement
+		ShowDataInfo task = new ShowDataInfo();
+		task.execute();
 	}
 
 }
