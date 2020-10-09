@@ -45,7 +45,7 @@ public class IndexGenerator extends SimpleBaseGenerator
 
 		P p = content.ac(HTML.p());
 		p.appendText(
-				"Auf dieser Seite können Sie die Daten zum Infektionsgeschen der"
+				"Auf dieser Seite können Sie die Daten zum Infektionsgeschehen der"
 						+ " COVID-19-Pandemie abrufen, die täglich vom Robert-Koch-Institut"
 						+ " veröffentlicht werden.");
 		p = content.ac(HTML.p());
