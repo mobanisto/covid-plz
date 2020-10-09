@@ -22,32 +22,50 @@
 
 package de.mobanisto.covidplz;
 
-import de.mobanisto.covidplz.model.DailyData;
-import de.mobanisto.covidplz.model.Data;
-import de.mobanisto.scheduler.Scheduler;
-import de.mobanisto.scheduler.SchedulerTask;
-import lombok.Getter;
-import lombok.Setter;
+import java.io.IOException;
+import java.nio.file.Path;
 
-public class Website
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import de.mobanisto.scheduler.SchedulerTask;
+
+public class DataUpdaterTask extends SchedulerTask
 {
 
-	public static final Website INSTANCE = new Website();
+	final static Logger logger = LoggerFactory.getLogger(DataUpdaterTask.class);
 
-	@Getter
-	@Setter
-	private CacheBuster cacheBuster;
+	public DataUpdaterTask()
+	{
+		super("Update data");
+	}
 
-	@Getter
-	@Setter
-	private Data data;
+	@Override
+	public void run()
+	{
+		try {
+			tryUpdate();
+		} catch (IOException e) {
+			logger.warn("Error while updating data", e);
+		}
+	}
 
-	@Getter
-	@Setter
-	private DailyData dailyData;
+	private void tryUpdate() throws IOException
+	{
+		Path current = DataManagement.getCurrent();
+		Path lastWorking = DataManagement.getLastWorking();
 
-	@Getter
-	@Setter
-	private Scheduler<SchedulerTask> scheduler;
+		try {
+			DataManagement.downloadData(current);
+		} catch (IOException e) {
+			logger.warn("Error while downloading data", e);
+			return;
+		}
+
+		boolean successful = WebsiteData.loadDailyData(current);
+		if (successful) {
+			DataManagement.copyData(current, lastWorking);
+		}
+	}
 
 }

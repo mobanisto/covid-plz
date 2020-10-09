@@ -37,6 +37,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import ch.qos.logback.classic.LoggerContext;
+import de.mobanisto.scheduler.HourlyInvocationTimeFactory;
+import de.mobanisto.scheduler.Scheduler;
+import de.mobanisto.scheduler.SchedulerTask;
 import de.topobyte.cachebusting.CacheBusting;
 import de.topobyte.melon.commons.io.Resources;
 
@@ -96,6 +99,13 @@ public class InitListener implements ServletContextListener
 			WebsiteData.loadDailyDataFromResoures();
 		}
 
+		logger.info("starting scheduler daemon");
+		Scheduler<SchedulerTask> scheduler = new Scheduler<>();
+		Website.INSTANCE.setScheduler(scheduler);
+		scheduler.schedule(new HourlyInvocationTimeFactory(0, 0),
+				new DataUpdaterTask());
+		scheduler.start();
+
 		long stop = System.currentTimeMillis();
 
 		logger.info("done");
@@ -107,6 +117,16 @@ public class InitListener implements ServletContextListener
 	public void contextDestroyed(ServletContextEvent sce)
 	{
 		logger.info("context destroyed");
+
+		logger.info("shutting down scheduler");
+		Website.INSTANCE.getScheduler().stop();
+
+		try {
+			// Wait a bit for scheduler threads to finish
+			Thread.sleep(2500);
+		} catch (InterruptedException e) {
+			// ignore
+		}
 
 		logger.info("shutting down Logback");
 		LoggerContext loggerContext = (LoggerContext) LoggerFactory

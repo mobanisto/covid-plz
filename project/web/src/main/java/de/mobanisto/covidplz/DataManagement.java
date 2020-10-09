@@ -30,13 +30,18 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class DataManagement
 {
+
+	final static Logger logger = LoggerFactory.getLogger(DataManagement.class);
 
 	public static Path getCurrent()
 	{
 		Path dir = Config.INSTANCE.getDirData();
-		return dir.resolve("latest.csv");
+		return dir.resolve("current.csv");
 	}
 
 	public static Path getLastWorking()
@@ -45,8 +50,16 @@ public class DataManagement
 		return dir.resolve("working.csv");
 	}
 
+	public static Path getNew()
+	{
+		Path dir = Config.INSTANCE.getDirData();
+		return dir.resolve("new.csv");
+	}
+
 	public static void downloadData(Path target) throws IOException
 	{
+		logger.info("downloading data to: " + target);
+
 		URL url = new URL(DataSources.URL_AGGREGATED_DATA);
 		URLConnection connection = url.openConnection();
 
@@ -57,6 +70,9 @@ public class DataManagement
 
 	public static void copyData(Path source, Path target) throws IOException
 	{
+		logger.info(String.format("Copying data from '%s' to '%s'", source,
+				target));
+
 		Files.copy(source, target, StandardCopyOption.REPLACE_EXISTING);
 	}
 
