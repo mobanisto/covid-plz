@@ -48,13 +48,28 @@ public class DataTable
 		table.addClass("table");
 
 		row(table, "Datenstand", Fields.LAST_UPDATE);
-		rowD(table, "Fälle pro 100.000 Einwohner in den letzten 7 Tagen",
+		Element row7 = rowD(table,
+				"Fälle pro 100.000 Einwohner in den letzten 7 Tagen",
 				Fields.CASES7_PER_100K).attr("style", "font-weight: bold");
 		row(table, "Fälle insgesamt", Fields.CASES);
 		row(table, "Tote insgesamt", Fields.DEATHS);
 		rowI(table, "Einwohner", Fields.EWZ);
 		rowD(table, "Fälle pro 100.000 Einwohner insgesamt",
 				Fields.CASES_PER_100K);
+
+		try {
+			double cases7 = Double
+					.parseDouble(data.getData().get(Fields.CASES7_PER_100K));
+			if (cases7 < 35) {
+				row7.addClass("table-success");
+			} else if (cases7 < 50) {
+				row7.addClass("table-warning");
+			} else {
+				row7.addClass("table-danger");
+			}
+		} catch (NumberFormatException e) {
+			// ignore
+		}
 	}
 
 	private TableRow row(Table table, String title, String id)
@@ -64,27 +79,31 @@ public class DataTable
 
 	private TableRow rowD(Table table, String title, String id)
 	{
-		return row(table, title, id, s -> {
-			try {
-				double d = Double.parseDouble(s);
-				return String.format(Locale.GERMAN, "%.2f", d);
-			} catch (NumberFormatException e) {
-				return s;
-			}
-		});
+		return row(table, title, id, formatterD);
 	}
 
 	private TableRow rowI(Table table, String title, String id)
 	{
-		return row(table, title, id, s -> {
-			try {
-				int i = Integer.parseInt(s);
-				return String.format(Locale.GERMAN, "%,d", i);
-			} catch (NumberFormatException e) {
-				return s;
-			}
-		});
+		return row(table, title, id, formatterI);
 	}
+
+	private static Function<String, String> formatterD = s -> {
+		try {
+			double d = Double.parseDouble(s);
+			return String.format(Locale.GERMAN, "%.2f", d);
+		} catch (NumberFormatException e) {
+			return s;
+		}
+	};
+
+	private static Function<String, String> formatterI = s -> {
+		try {
+			int i = Integer.parseInt(s);
+			return String.format(Locale.GERMAN, "%,d", i);
+		} catch (NumberFormatException e) {
+			return s;
+		}
+	};
 
 	private TableRow row(Table table, String title, String id,
 			Function<String, String> formatter)
