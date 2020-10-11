@@ -158,14 +158,24 @@ public class IndexGenerator extends SimpleBaseGenerator
 			}
 		}
 
+		if (rss.size() > 1) {
+			Alert alertMultiple = element
+					.ac(Bootstrap.alert(ContextualType.WARNING));
+			alertMultiple.appendText(
+					"Diese Postleitzahl liegt in mehreren Landkreisen."
+							+ " Bitte prüfen Sie weitere Angaben um die richtige Region zu"
+							+ " ermitteln.");
+		}
+
 		// For each ID, print a section with data table
 		for (String rs : rss) {
 			RegionData regionData = dailyData.getRsToRegionData().get(rs);
 			data(element, rs, regionData);
 		}
 
-		Alert alert = element.ac(Bootstrap.alert(ContextualType.WARNING));
-		alert.appendText(
+		Alert alertNoWarranty = element
+				.ac(Bootstrap.alert(ContextualType.WARNING));
+		alertNoWarranty.appendText(
 				"Alle Angaben ohne Gewähr. Bitte informieren Sie sich zusätzlich"
 						+ " immer bei den für Sie zuständigen Behörden.");
 
