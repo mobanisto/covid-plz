@@ -86,7 +86,7 @@ public class AboutGenerator extends SimpleBaseGenerator
 		p.appendText(" in Zusammenarbeit mit der ");
 		p.ac(HTML.a("https://www.reiseland-brandenburg.de",
 				"TMB Tourismus-Marketing Brandenburg GmbH"));
-		p.appendText(".");
+		p.appendText(" und dem OK Lab Fläming.");
 	}
 
 	private void rowAboutData()
