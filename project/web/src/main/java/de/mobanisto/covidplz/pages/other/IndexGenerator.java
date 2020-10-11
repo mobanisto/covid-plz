@@ -113,6 +113,10 @@ public class IndexGenerator extends SimpleBaseGenerator
 		input.attr("placeholder", placeholder);
 		input.attr("autocomplete", "off");
 
+		input.attr("type", "tel");
+		input.attr("pattern", "[0-9]*");
+		input.attr("novalidate");
+
 		Div div = group.ac(HTML.div());
 		div.addClass("input-group-append");
 		Button button = div.ac(HTML.button());
