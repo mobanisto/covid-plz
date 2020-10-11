@@ -30,6 +30,7 @@ import de.topobyte.jsoup.bootstrap4.components.Expand;
 import de.topobyte.jsoup.bootstrap4.components.Menu;
 import de.topobyte.jsoup.bootstrap4.components.MenuBuilder;
 import de.topobyte.jsoup.components.A;
+import de.topobyte.jsoup.components.Div;
 import de.topobyte.jsoup.components.Img;
 import de.topobyte.jsoup.nodes.Element;
 import de.topobyte.pagegen.core.LinkResolver;
@@ -61,7 +62,8 @@ public class MainMenu
 		brand.ap(imageMobanisto);
 		brand.ap(imageTmb);
 
-		brand.appendText("Covid-PLZ-Check");
+		Div divTitle = brand.ac(HTML.div("d-none d-md-inline-block"));
+		divTitle.appendText("Covid-PLZ-Check");
 
 		menu.addBrand(brand);
 		menu.addToggleButton();
