@@ -22,6 +22,7 @@
 
 package de.mobanisto.covidplz.pages.other;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -33,6 +34,7 @@ import de.mobanisto.covidplz.mapping.PartialRsRelation;
 import de.mobanisto.covidplz.model.DailyData;
 import de.mobanisto.covidplz.model.RegionData;
 import de.mobanisto.covidplz.pages.base.SimpleBaseGenerator;
+import de.mobanisto.covidplz.rki.Berlin;
 import de.mobanisto.covidplz.rki.Fields;
 import de.topobyte.jsoup.HTML;
 import de.topobyte.jsoup.bootstrap4.Bootstrap;
@@ -138,8 +140,26 @@ public class IndexGenerator extends SimpleBaseGenerator
 			return;
 		}
 
+		// This is the list of IDs we're actually going to display
+		List<String> rss = new ArrayList<>();
+
+		// Replace Berlin boroughs with Berlin; make sure to add Berlin only
+		// once should it occur multiple times (example 14195 which is in
+		// Steglitz-Zehlendorf and Charlottenburg-Wilmersdorf)
 		for (PartialRsRelation rki : rkis) {
 			String rs = rki.getObject();
+			RegionData regionData = dailyData.getRsToRegionData().get(rs);
+			if (Berlin.isBerlinBorough(regionData)) {
+				if (!rss.contains(Berlin.RS)) {
+					rss.add(Berlin.RS);
+				}
+			} else {
+				rss.add(rs);
+			}
+		}
+
+		// For each ID, print a section with data table
+		for (String rs : rss) {
 			RegionData regionData = dailyData.getRsToRegionData().get(rs);
 			data(element, rs, regionData);
 		}

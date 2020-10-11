@@ -31,6 +31,7 @@ import org.slf4j.LoggerFactory;
 
 import de.mobanisto.covidplz.model.DailyData;
 import de.mobanisto.covidplz.model.Data;
+import de.mobanisto.covidplz.rki.Berlin;
 import de.topobyte.melon.commons.io.Resources;
 
 public class WebsiteData
@@ -62,6 +63,7 @@ public class WebsiteData
 		logger.info("loading daily data: " + file);
 		try {
 			DailyData data = DailyDataLoader.load(file);
+			Berlin.deriveBerlinData(data);
 			Website.INSTANCE.setDailyData(data);
 			return true;
 		} catch (IOException e) {
