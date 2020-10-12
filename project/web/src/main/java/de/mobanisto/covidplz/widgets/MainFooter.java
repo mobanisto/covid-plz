@@ -54,12 +54,12 @@ public class MainFooter extends Element
 		A linkPrivacy = a(privacyLink, "Datenschutz");
 		links.addItem(linkPrivacy);
 
+		A linkTwitter = a("https://twitter.com/mobanisto", "Twitter");
+		links.addItem(linkTwitter);
+
 		A linkGithub = a("https://github.com/mobanisto/covid-plz",
 				"Quellcode auf Github");
 		links.addItem(linkGithub);
-
-		A linkTwitter = a("https://twitter.com/mobanisto", "Twitter");
-		links.addItem(linkTwitter);
 
 		Element p = div.ac(p().addClass("text-muted"));
 
