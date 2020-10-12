@@ -58,6 +58,9 @@ public class MainFooter extends Element
 				"Quellcode auf Github");
 		links.addItem(linkGithub);
 
+		A linkTwitter = a("https://twitter.com/mobanisto", "Twitter");
+		links.addItem(linkTwitter);
+
 		Element p = div.ac(p().addClass("text-muted"));
 
 		p.appendText("Made with ");
