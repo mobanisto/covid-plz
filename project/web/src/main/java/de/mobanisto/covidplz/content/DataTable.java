@@ -52,7 +52,7 @@ public class DataTable
 				"Fälle pro 100.000 Einwohner in den letzten 7 Tagen",
 				Fields.CASES7_PER_100K).attr("style", "font-weight: bold");
 		row(table, "Fälle insgesamt", Fields.CASES);
-		row(table, "Tote insgesamt", Fields.DEATHS);
+		row(table, "Todesfälle insgesamt", Fields.DEATHS);
 		rowI(table, "Einwohner", Fields.EWZ);
 		rowD(table, "Fälle pro 100.000 Einwohner insgesamt",
 				Fields.CASES_PER_100K);
