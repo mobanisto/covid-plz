@@ -79,6 +79,7 @@ public class AboutGenerator extends SimpleBaseGenerator
 		p.appendText(
 				"Ein Webservice zur schnellen Abfrage von Informationen zum"
 						+ " COVID-19 Infektionsgeschehen in Deutschland.");
+
 		p = colRight.ac(HTML.p());
 		p.appendText("Ein Projekt der ");
 		p.ac(HTML.a("https://www.mobanisto.de",
@@ -89,6 +90,12 @@ public class AboutGenerator extends SimpleBaseGenerator
 		p.appendText(" und dem ");
 		p.ac(HTML.a("https://codefor.de/flaeming/", "OK Lab Fläming"));
 		p.appendText(".");
+
+		p = colRight.ac(HTML.p());
+		p.appendText("Kontakt: ");
+		p.ac(HTML.a("mailto:info@mobanisto.de", "info@mobanisto.de"));
+		p.appendText(", ");
+		p.ac(HTML.a("https://twitter.com/mobanisto", "Twitter"));
 	}
 
 	private void rowAboutData()
