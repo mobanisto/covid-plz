@@ -37,18 +37,23 @@ import de.topobyte.webpaths.WebPath;
 public class ServletUtil
 {
 
-	public static void respond404(WebPath output, HttpServletResponse response,
-			Void data) throws IOException
+	private static Consumer<Element> generator(int code)
 	{
-		respond(404, output, response, content -> {
-			ErrorUtil.write404(content);
-		}, data);
+		if (code == 404) {
+			return content -> {
+				ErrorUtil.write404(content);
+			};
+		}
+		return content -> {
+			ErrorUtil.writeError(content);
+		};
 	}
 
-	public static void respond404(WebPath output, HttpServletResponse response,
-			Consumer<Element> contentGenerator, Void data) throws IOException
+	public static void respond(int code, WebPath output,
+			HttpServletResponse response, Void data) throws IOException
 	{
-		respond(404, output, response, contentGenerator, data);
+		Consumer<Element> contentGenerator = generator(code);
+		respond(code, output, response, contentGenerator, data);
 	}
 
 	public static void respond(int code, WebPath output,

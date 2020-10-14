@@ -28,7 +28,6 @@ import org.jsoup.nodes.Element;
 
 import de.mobanisto.covidplz.CacheBuster;
 import de.mobanisto.covidplz.Website;
-import de.mobanisto.covidplz.exceptions.PageNotFoundException;
 import de.mobanisto.covidplz.widgets.MainFooter;
 import de.mobanisto.covidplz.widgets.MainMenu;
 import de.topobyte.jsoup.ElementBuilder;
@@ -36,6 +35,7 @@ import de.topobyte.jsoup.FaviconUtil;
 import de.topobyte.jsoup.bootstrap4.components.Menu;
 import de.topobyte.jsoup.components.Head;
 import de.topobyte.pagegen.bootstrap.Bootstrap4Generator;
+import de.topobyte.webgun.exceptions.PageNotFoundException;
 import de.topobyte.webpaths.WebPath;
 
 public class BaseGenerator extends Bootstrap4Generator

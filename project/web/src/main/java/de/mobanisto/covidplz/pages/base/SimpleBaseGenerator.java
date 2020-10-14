@@ -27,11 +27,11 @@ import java.io.IOException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import de.mobanisto.covidplz.exceptions.PageNotFoundException;
-import de.mobanisto.covidplz.exceptions.WebStatusException;
 import de.topobyte.jsoup.Exceptions;
 import de.topobyte.jsoup.HTML;
 import de.topobyte.jsoup.components.P;
+import de.topobyte.webgun.exceptions.PageNotFoundException;
+import de.topobyte.webgun.exceptions.WebStatusException;
 import de.topobyte.webpaths.WebPath;
 
 public abstract class SimpleBaseGenerator extends BaseGenerator

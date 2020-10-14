@@ -34,11 +34,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import de.mobanisto.covidplz.exceptions.PageNotFoundException;
 import de.mobanisto.covidplz.resolving.MainPathResolver;
 import de.mobanisto.covidplz.util.ServletUtil;
 import de.topobyte.jsoup.ContentGeneratable;
 import de.topobyte.jsoup.JsoupServletUtil;
+import de.topobyte.webgun.exceptions.WebStatusException;
 import de.topobyte.webgun.resolving.PathResolver;
 import de.topobyte.webgun.resolving.Redirecter;
 import de.topobyte.webpaths.WebPath;
@@ -58,8 +58,8 @@ public class IndexServlet extends HttpServlet
 	private interface Responder<T>
 	{
 
-		public void respond(WebPath output, HttpServletResponse response,
-				T data) throws IOException;
+		public void respond(int code, WebPath output,
+				HttpServletResponse response, T data) throws IOException;
 
 	}
 
@@ -70,11 +70,11 @@ public class IndexServlet extends HttpServlet
 		if (generator != null) {
 			try {
 				JsoupServletUtil.respond(response, generator);
-			} catch (PageNotFoundException e) {
-				responder.respond(path, response, data);
+			} catch (WebStatusException e) {
+				responder.respond(e.getCode(), path, response, data);
 			}
 		} else {
-			responder.respond(path, response, data);
+			responder.respond(404, path, response, data);
 		}
 
 	}
@@ -107,7 +107,7 @@ public class IndexServlet extends HttpServlet
 			}
 		}
 
-		tryGenerate(response, path, generator, ServletUtil::respond404,
+		tryGenerate(response, path, generator, ServletUtil::respond,
 				(Void) null);
 	}
 
@@ -139,7 +139,7 @@ public class IndexServlet extends HttpServlet
 			}
 		}
 
-		tryGenerate(response, path, generator, ServletUtil::respond404,
+		tryGenerate(response, path, generator, ServletUtil::respond,
 				(Void) null);
 	}
 
