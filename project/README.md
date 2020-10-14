@@ -46,9 +46,9 @@ des Projekts in Eclipse führen Sie zunächst folgendes Kommando aus:
 
 Im Anschluss fügen Sie das Git-Repository zu ihrem Eclipse-Workspace hinzu,
 und importieren von dort aus das Projekt mit seinen Untermodulen. Nachdem
-Sie einen Servlet-Container wie Tomcat installiert haben, können Sie die
-Webanwendung wie gewohnt von Eclipse aus starten und mit der Weiterentwicklung
-beginnen.
+Sie einen Servlet-Container wie Tomcat installiert und in Eclipse hinzugefügt haben,
+können Sie die Webanwendung wie gewohnt von Eclipse aus starten und mit der
+Weiterentwicklung beginnen.
 
 Wie im Produktivmodus müssen Sie auch für den Entwicklungsmodus eine
 Konfiguration vornehmen. Die Konfiguration für den Entwicklungsmodus befindet
