@@ -9,7 +9,7 @@ für geographische Daten (NPGEO-DE) täglich aktualisert zur Verfügung gestellt
 Daten sowie die Postleitzahlregionen aus dem OpenStreetMap-Projekt.
 
 Eine öffentlich erreichbare Instanz dieses Webservice ist unter
-https://covid.mobanisto.de erreichbar.
+https://covid-plz-check.de erreichbar.
 
 Sie können selbst eine Instanz dieses Webserivce betreiben. Nähere Informationen
 dazu finden sie [hier](project/README.md).
