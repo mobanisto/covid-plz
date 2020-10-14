@@ -15,7 +15,7 @@ heruntergeladen werden, z.B:
 Das Projekt wird mit Hilfe des Build-Tools Gradle zusammengebaut. Verwenden Sie
 das Kommando
 
-    ./gradlew war
+    $ ./gradlew war
 
 um ein WAR-Archiv zu erzeugen. Dieses befindet sich nach Abschluss des Vorgangs
 hier:
@@ -28,11 +28,11 @@ Installationsanweisungen des jeweiligen Servlet-Containers.
 
 Zu Testzwecken können Sie z.B. den Jetty-Runner verwenden:
 
-    wget https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-runner/9.4.32.v20200930/jetty-runner-9.4.32.v20200930.jar
+    $ wget https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-runner/9.4.32.v20200930/jetty-runner-9.4.32.v20200930.jar
 
 Dann starten Sie die Anwendung folgendermaßen:
 
-    java -jar jetty-runner-9.4.32.v20200930.jar --port 9090 web/build/libs/covid-plz-web-0.0.1-production.war
+    $ java -jar jetty-runner-9.4.32.v20200930.jar --port 9090 web/build/libs/covid-plz-web-0.0.1-production.war
 
 Im Anschluss können Sie in Ihrem Browser die URL `http://localhost:9090`
 aufrufen um die Anwendung zu benutzen.
@@ -42,7 +42,7 @@ aufrufen um die Anwendung zu benutzen.
 Zur Entwicklung empfehlen wir Eclipse mit Web Tools Platform. Zum Importieren
 des Projekts in Eclipse führen Sie zunächst folgendes Kommando aus:
 
-    ./gradlew cleanEclipse eclipse
+    $ ./gradlew cleanEclipse eclipse
 
 Im Anschluss fügen Sie das Git-Repository zu ihrem Eclipse-Workspace hinzu,
 und importieren von dort aus das Projekt mit seinen Untermodulen. Nachdem
