@@ -37,11 +37,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import ch.qos.logback.classic.LoggerContext;
-import de.mobanisto.scheduler.HourlyInvocationTimeFactory;
-import de.mobanisto.scheduler.Scheduler;
-import de.mobanisto.scheduler.SchedulerTask;
 import de.topobyte.cachebusting.CacheBusting;
 import de.topobyte.melon.commons.io.Resources;
+import de.topobyte.webgun.scheduler.HourlyInvocationTimeFactory;
+import de.topobyte.webgun.scheduler.Scheduler;
+import de.topobyte.webgun.scheduler.SchedulerTask;
 
 @WebListener
 public class InitListener implements ServletContextListener

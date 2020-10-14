@@ -24,8 +24,8 @@ package de.mobanisto.covidplz;
 
 import de.mobanisto.covidplz.model.DailyData;
 import de.mobanisto.covidplz.model.Data;
-import de.mobanisto.scheduler.Scheduler;
-import de.mobanisto.scheduler.SchedulerTask;
+import de.topobyte.webgun.scheduler.Scheduler;
+import de.topobyte.webgun.scheduler.SchedulerTask;
 import lombok.Getter;
 import lombok.Setter;
 

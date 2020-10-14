@@ -23,6 +23,7 @@ dependencies {
     implementation 'de.topobyte:pagegen-bootstrap:1.1.0'
     implementation 'de.topobyte:webgun-core:1.2.0'
     implementation 'de.topobyte:webgun-resolving:1.2.0'
+    implementation 'de.topobyte:webgun-scheduler:1.2.0'
     implementation 'de.topobyte:jsoup-bootstrap4:1.0.0'
     implementation 'de.topobyte:jsoup-servlet:0.1.1'
     implementation 'de.topobyte:jsoup-jquery:0.0.1'
