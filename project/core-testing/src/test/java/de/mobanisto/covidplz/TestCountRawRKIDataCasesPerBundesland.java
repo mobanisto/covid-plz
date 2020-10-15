@@ -40,7 +40,7 @@ import de.mobanisto.covidplz.model.RawData;
 import de.mobanisto.covidplz.model.RawEntry;
 import de.topobyte.system.utils.SystemPaths;
 
-public class CountRawRKIDataCasesPerBundesland
+public class TestCountRawRKIDataCasesPerBundesland
 {
 
 	@Test

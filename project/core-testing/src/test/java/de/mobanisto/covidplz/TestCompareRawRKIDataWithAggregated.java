@@ -42,7 +42,7 @@ import de.mobanisto.covidplz.model.RegionData;
 import de.mobanisto.covidplz.rki.daily.Fields;
 import de.topobyte.system.utils.SystemPaths;
 
-public class CompareRawRKIDataWithAggregated
+public class TestCompareRawRKIDataWithAggregated
 {
 
 	@Test
