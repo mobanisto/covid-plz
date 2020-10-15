@@ -53,11 +53,3 @@ Weiterentwicklung beginnen.
 Wie im Produktivmodus müssen Sie auch für den Entwicklungsmodus eine
 Konfiguration vornehmen. Die Konfiguration für den Entwicklungsmodus befindet
 sich in der Datei `web/config/devel/config.properties`.
-
-## Datenquellen
-
-Zur Zeit benutzen wir [diese auf Landkreisebene aggregierten
-Daten](https://npgeo-corona-npgeo-de.hub.arcgis.com/datasets/917fc37a709542548cc3be077a786c17_0),
-noch besser wäre es, die
-[Rohdaten](https://npgeo-corona-npgeo-de.hub.arcgis.com/datasets/dd4580c810204019a7b8eb3e0b329dd6_0)
-zu verarbeiten.
