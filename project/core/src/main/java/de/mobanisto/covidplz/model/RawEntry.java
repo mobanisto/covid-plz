@@ -41,11 +41,11 @@ public class RawEntry
 	@Getter
 	private String bundesland;
 	@Getter
-	private int idBundesland;
+	private String idBundesland;
 	@Getter
 	private String landkreis;
 	@Getter
-	private int idLandkreis;
+	private String idLandkreis;
 	@Getter
 	private String altersgruppe;
 	@Getter
@@ -75,9 +75,9 @@ public class RawEntry
 		refdatum = map.get(Fields.REFDATUM);
 
 		bundesland = map.get(Fields.BUNDESLAND);
-		idBundesland = Integer.parseInt(map.get(Fields.ID_BUNDESLAND));
+		idBundesland = map.get(Fields.ID_BUNDESLAND);
 		landkreis = map.get(Fields.LANDKREIS);
-		idLandkreis = Integer.parseInt(map.get(Fields.ID_LANDKREIS));
+		idLandkreis = map.get(Fields.ID_LANDKREIS);
 
 		altersgruppe = map.get(Fields.ALTERSGRUPPE);
 		altersgruppe2 = map.get(Fields.ALTERSGRUPPE2);
