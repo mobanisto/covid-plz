@@ -179,6 +179,12 @@ public class IndexGenerator extends SimpleBaseGenerator
 				"Alle Angaben ohne Gewähr. Bitte informieren Sie sich zusätzlich"
 						+ " immer bei den für Sie zuständigen Behörden.");
 
+		Alert alertDelay = element.ac(Bootstrap.alert(ContextualType.INFO));
+		alertDelay.appendText(
+				"Für den Check werden die Daten des Robert-Koch-Instituts verwendet."
+						+ " Diese können von den Meldungen lokaler und regionaler Stellen"
+						+ " zeitlich abweichen.");
+
 		element.ac(HTML.h3("Quellen").addClass("mt-2"));
 		Snippets.references(element);
 	}
