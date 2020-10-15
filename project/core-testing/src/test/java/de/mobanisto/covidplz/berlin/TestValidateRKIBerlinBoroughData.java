@@ -33,7 +33,7 @@ import de.mobanisto.covidplz.DailyDataLoader;
 import de.mobanisto.covidplz.model.DailyData;
 import de.mobanisto.covidplz.model.RegionData;
 import de.mobanisto.covidplz.rki.Berlin;
-import de.mobanisto.covidplz.rki.Fields;
+import de.mobanisto.covidplz.rki.daily.Fields;
 import de.topobyte.system.utils.SystemPaths;
 
 public class TestValidateRKIBerlinBoroughData

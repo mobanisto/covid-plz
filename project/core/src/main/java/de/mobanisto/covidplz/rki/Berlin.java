@@ -29,6 +29,7 @@ import java.util.Set;
 
 import de.mobanisto.covidplz.model.DailyData;
 import de.mobanisto.covidplz.model.RegionData;
+import de.mobanisto.covidplz.rki.daily.Fields;
 
 public class Berlin
 {

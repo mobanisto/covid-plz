@@ -36,7 +36,7 @@ import org.supercsv.prefs.CsvPreference;
 
 import de.mobanisto.covidplz.model.DailyData;
 import de.mobanisto.covidplz.model.RegionData;
-import de.mobanisto.covidplz.rki.Fields;
+import de.mobanisto.covidplz.rki.daily.Fields;
 
 public class DailyDataLoader
 {

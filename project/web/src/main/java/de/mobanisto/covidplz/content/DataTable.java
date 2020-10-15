@@ -26,7 +26,7 @@ import java.util.Locale;
 import java.util.function.Function;
 
 import de.mobanisto.covidplz.model.RegionData;
-import de.mobanisto.covidplz.rki.Fields;
+import de.mobanisto.covidplz.rki.daily.Fields;
 import de.topobyte.jsoup.HTML;
 import de.topobyte.jsoup.components.Table;
 import de.topobyte.jsoup.components.TableRow;

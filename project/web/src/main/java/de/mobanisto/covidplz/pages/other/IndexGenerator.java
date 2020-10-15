@@ -35,7 +35,7 @@ import de.mobanisto.covidplz.model.DailyData;
 import de.mobanisto.covidplz.model.RegionData;
 import de.mobanisto.covidplz.pages.base.SimpleBaseGenerator;
 import de.mobanisto.covidplz.rki.Berlin;
-import de.mobanisto.covidplz.rki.Fields;
+import de.mobanisto.covidplz.rki.daily.Fields;
 import de.topobyte.jsoup.HTML;
 import de.topobyte.jsoup.bootstrap4.Bootstrap;
 import de.topobyte.jsoup.bootstrap4.components.Alert;
