@@ -40,11 +40,13 @@ import de.topobyte.jsoup.HTML;
 import de.topobyte.jsoup.bootstrap4.Bootstrap;
 import de.topobyte.jsoup.bootstrap4.components.Alert;
 import de.topobyte.jsoup.bootstrap4.components.ContextualType;
+import de.topobyte.jsoup.components.A;
 import de.topobyte.jsoup.components.Button;
 import de.topobyte.jsoup.components.Div;
 import de.topobyte.jsoup.components.Form;
 import de.topobyte.jsoup.components.Input;
 import de.topobyte.jsoup.components.P;
+import de.topobyte.jsoup.feather.Feather;
 import de.topobyte.jsoup.jquery.JQuery;
 import de.topobyte.jsoup.nodes.Element;
 import de.topobyte.webgun.util.ParameterUtil;
@@ -78,6 +80,10 @@ public class IndexGenerator extends SimpleBaseGenerator
 		p.appendText("Geben Sie einfach unten eine Postleitzahl ein."
 				+ " Nach Bestätigung der Eingabe erscheinen die vorhandenen Daten zu"
 				+ " der entsprechenden Stadt bzw. dem entsprechenden Landkreis.");
+		p.appendText(" Postleitzahlen zu einer Adresse bestimmen können Sie ");
+		A link = p.ac(HTML.a("https://www.postdirekt.de/plzserver/", "hier"));
+		link.ac(Feather.externalLink("1em"));
+		p.appendText(".");
 
 		form(content);
 
