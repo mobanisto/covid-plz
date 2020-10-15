@@ -60,19 +60,31 @@ public class CompareRawRKIDataWithAggregated
 
 		DailyData dailyData = DailyDataLoader.load(fileDaily);
 
-		Multiset<String> landkreisFaelle = HashMultiset.create();
+		Multiset<String> faelle = HashMultiset.create();
+		Multiset<String> todesFaelle = HashMultiset.create();
 
 		for (RawEntry entry : entries) {
 			int anzahlFall = entry.getAnzahlFall();
-			landkreisFaelle.add(entry.getIdLandkreis(), anzahlFall);
+			if (anzahlFall > 0) {
+				faelle.add(entry.getIdLandkreis(), anzahlFall);
+			}
+			int anzahlTodesFall = entry.getAnzahlTodesfall();
+			if (anzahlTodesFall > 0) {
+				todesFaelle.add(entry.getIdLandkreis(), anzahlTodesFall);
+			}
 		}
 
-		for (String id : landkreisFaelle.elementSet()) {
+		for (String id : faelle.elementSet()) {
 			RegionData regionData = dailyData.getRsToRegionData().get(id);
 			int casesDaily = Integer
 					.parseInt(regionData.getData().get(Fields.CASES));
-			int casesRaw = landkreisFaelle.count(id);
+			int casesRaw = faelle.count(id);
 			Assert.assertEquals(casesDaily, casesRaw);
+
+			int deathsDaily = Integer
+					.parseInt(regionData.getData().get(Fields.DEATHS));
+			int deathsRaw = todesFaelle.count(id);
+			Assert.assertEquals(deathsDaily, deathsRaw);
 		}
 	}
 
