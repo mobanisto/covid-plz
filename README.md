@@ -16,3 +16,13 @@ dazu finden sie [hier](project/README.md).
 Sie können und dürfen den Dienst auch anpassen oder erweitern.
 Der dazu benötigte Quellcode wird Ihnen in diesem Repository unter der
 [MIT Lizenz](MIT.md) zur Verfügung gestellt.
+
+## Datenquellen
+
+Leider stellt das RKI keine historischen Daten zur Verfügung, sondern
+überschreibt seinen eigenen Datensatz täglich. Zum Glück haben andere schon vor
+uns angefangen die Daten des RKI zu archivieren um historische Auswertungen
+möglich zu machen. Uns sind zwei Quellen bekannt, von der ARD und dem NDR:
+
+* [ard-data/2020-rki-archive](https://github.com/ard-data/2020-rki-archive)
+* [NorddeutscherRundfunk/corona_daten](https://github.com/NorddeutscherRundfunk/corona_daten)
