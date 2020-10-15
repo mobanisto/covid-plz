@@ -22,7 +22,10 @@
 
 package de.mobanisto.covidplz.model;
 
+import java.time.LocalDate;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import de.mobanisto.covidplz.rki.raw.Fields;
 import lombok.Getter;
@@ -33,11 +36,11 @@ public class RawEntry
 	@Getter
 	private int id;
 	@Getter
-	private String meldedatum;
+	private LocalDate meldedatum;
 	@Getter
 	private String datenstand;
 	@Getter
-	private String refdatum;
+	private LocalDate refdatum;
 	@Getter
 	private String bundesland;
 	@Getter
@@ -67,12 +70,27 @@ public class RawEntry
 	@Getter
 	private int istErkrankungsbeginn;
 
+	private static final Pattern patternDates = Pattern.compile(
+			"(\\d{4,4})/(\\d{2,2})/(\\d{2,2}) (\\d{2,2}):(\\d{2,2}):(\\d{2,2})");
+
+	private static LocalDate date(String value)
+	{
+		Matcher matcher = patternDates.matcher(value);
+		if (matcher.matches()) {
+			int year = Integer.parseInt(matcher.group(1));
+			int month = Integer.parseInt(matcher.group(2));
+			int day = Integer.parseInt(matcher.group(3));
+			return LocalDate.of(year, month, day);
+		}
+		throw new IllegalArgumentException();
+	}
+
 	public RawEntry(Map<String, String> map)
 	{
 		id = Integer.parseInt(map.get(Fields.OBJECT_ID));
-		meldedatum = map.get(Fields.MELDEDATUM);
+		meldedatum = date(map.get(Fields.MELDEDATUM));
 		datenstand = map.get(Fields.DATENSTAND);
-		refdatum = map.get(Fields.REFDATUM);
+		refdatum = date(map.get(Fields.REFDATUM));
 
 		bundesland = map.get(Fields.BUNDESLAND);
 		idBundesland = map.get(Fields.ID_BUNDESLAND);
