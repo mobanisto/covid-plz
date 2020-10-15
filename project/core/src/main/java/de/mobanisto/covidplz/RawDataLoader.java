@@ -63,7 +63,11 @@ public class RawDataLoader
 
 				Map<String, String> map;
 				while ((map = csvReader.read(header)) != null) {
-					data.getEntries().add(new RawEntry(map));
+					RawEntry entry = new RawEntry(map);
+					if (entry.getNeuerFall() < 0) {
+						continue;
+					}
+					data.getEntries().add(entry);
 				}
 			} finally {
 				if (csvReader != null) {
