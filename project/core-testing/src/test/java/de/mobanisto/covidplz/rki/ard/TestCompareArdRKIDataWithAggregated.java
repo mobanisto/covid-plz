@@ -24,10 +24,15 @@ package de.mobanisto.covidplz.rki.ard;
 
 import java.io.IOException;
 import java.nio.file.Path;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
 
 import com.google.common.collect.HashMultiset;
 import com.google.common.collect.Multiset;
@@ -41,15 +46,38 @@ import de.mobanisto.covidplz.model.RegionData;
 import de.mobanisto.covidplz.rki.daily.Fields;
 import de.topobyte.system.utils.SystemPaths;
 
+@RunWith(Parameterized.class)
 public class TestCompareArdRKIDataWithAggregated
 {
+
+	@Parameters
+	public static Collection<Object[]> data()
+	{
+		return Arrays.asList(new Object[][] { //
+				{ "data_2020-10-06-02-31.json.bz2", "2020_10_06.csv" }, //
+				{ "data_2020-10-07-02-30.json.bz2", "2020_10_07.csv" }, //
+				{ "data_2020-10-08-02-31.json.bz2", "2020_10_08.csv" }, //
+				{ "data_2020-10-11-02-31.json.bz2", "2020_10_11.csv" }, //
+				{ "data_2020-10-15-02-31.json.bz2", "2020_10_15.csv" } //
+		});
+	}
+
+	private String filenameArd;
+	private String filenameDaily;
+
+	public TestCompareArdRKIDataWithAggregated(String filenameArd,
+			String filenameDaily)
+	{
+		this.filenameArd = filenameArd;
+		this.filenameDaily = filenameDaily;
+	}
 
 	@Test
 	public void test() throws IOException
 	{
 		Path repo = SystemPaths.CWD.getParent().getParent();
-		Path fileArd = repo.resolve("data/ard/data_2020-10-15-02-31.json.bz2");
-		Path fileDaily = repo.resolve("data/daily/2020_10_15.csv");
+		Path fileArd = repo.resolve("data/ard").resolve(filenameArd);
+		Path fileDaily = repo.resolve("data/daily").resolve(filenameDaily);
 
 		ArdData data = ArdDataLoader.load(fileArd);
 		List<ArdEntry> entries = data.getEntries();
