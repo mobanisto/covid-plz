@@ -22,28 +22,19 @@
 
 package de.mobanisto.covidplz.model.germany;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import lombok.Getter;
 
-public class Kreis extends Region
+public class Germany
 {
 
-	public static enum Type {
-		STADTKREIS,
-		LANDKREIS,
-		REGION
-	}
-
 	@Getter
-	private Type type;
-
+	private List<Bundesland> laender = new ArrayList<>();
 	@Getter
-	private Bundesland bundesland;
-
-	public Kreis(String id, String name, Type type, Bundesland bundesland)
-	{
-		super(id, name);
-		this.type = type;
-		this.bundesland = bundesland;
-	}
+	private List<Kreis> kreise = new ArrayList<>();
+	@Getter
+	private List<Stadtteil> stadtteile = new ArrayList<>();
 
 }
