@@ -149,28 +149,41 @@ public class IndexGenerator extends SimpleBaseGenerator
 		// This is the list of IDs we're actually going to display
 		List<String> rss = new ArrayList<>();
 
-		// Replace Berlin boroughs with Berlin; make sure to add Berlin only
+		boolean berlin = false;
+
+		// For Berlin boroughs, add state Berlin; make sure to add Berlin only
 		// once should it occur multiple times (example 14195 which is in
 		// Steglitz-Zehlendorf and Charlottenburg-Wilmersdorf)
 		for (PartialRsRelation rki : rkis) {
 			String rs = rki.getObject();
 			RegionData regionData = dailyData.getRsToRegionData().get(rs);
 			if (Berlin.isBerlinBorough(regionData)) {
+				berlin = true;
 				if (!rss.contains(Berlin.RS)) {
 					rss.add(Berlin.RS);
 				}
-			} else {
-				rss.add(rs);
 			}
+			rss.add(rs);
 		}
 
 		if (rss.size() > 1) {
 			Alert alertMultiple = element
 					.ac(Bootstrap.alert(ContextualType.WARNING));
-			alertMultiple.appendText(
-					"Diese Postleitzahl liegt in mehreren Landkreisen."
-							+ " Bitte prüfen Sie weitere Angaben um die richtige Region zu"
-							+ " ermitteln.");
+			if (berlin) {
+				alertMultiple.appendText(
+						"Für Berlin werden Ergebnisse auf Landes- und Bezirksebene angezeigt.");
+				if (rkis.size() > 1) {
+					alertMultiple.appendText(
+							" Diese Postleitzahl liegt außerdem in mehreren Bezirken."
+									+ " Bitte prüfen Sie weitere Angaben um die richtige Region zu"
+									+ " ermitteln.");
+				}
+			} else {
+				alertMultiple.appendText(
+						"Diese Postleitzahl liegt in mehreren Landkreisen."
+								+ " Bitte prüfen Sie weitere Angaben um die richtige Region zu"
+								+ " ermitteln.");
+			}
 		}
 
 		// For each ID, print a section with data table
