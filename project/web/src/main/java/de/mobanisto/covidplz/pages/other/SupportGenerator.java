@@ -60,7 +60,7 @@ public class SupportGenerator extends SimpleBaseGenerator
 		p.appendText("Wir möchten auf nervige Werbung weitestgehend verzichten"
 				+ " und das Tool weiterhin simpel, neutral, und schnell verfügbar machen."
 				+ " Um diesen Service weiterhin unabhängig am Leben zu erhalten und"
-				+ " ihn Weiterzuentwicklen, haben wir diesen kleinen Pandemie-Shop"
+				+ " ihn weiterzuentwickeln, haben wir diesen kleinen Pandemie-Shop"
 				+ " eingerichtet."
 				+ " Wir sind dankbar für jede Unterstützung und jedes Feedback.");
 
