@@ -241,23 +241,29 @@ public class IndexGenerator extends SimpleBaseGenerator
 		col = row.ac(HTML.div("col-12 col-md-4"));
 
 		ul = col.ac(Bootstrap.listGroupDiv());
-		item(ul, "https://amzn.to/2FKXFrM", "Toilettenpaper",
+		item(ul, "https://amzn.to/2FKXFrM", "Toilettenpapier",
 				"images/emojis/1F9FB.svg");
-		item(ul, "https://amzn.to/3dIBb7o", "Desinfektions-Spray",
+		item(ul, "https://amzn.to/2HjRD1u", "Hand-Desinfektion",
 				"images/emojis/1F9F4.svg");
+		item(ul, "https://amzn.to/3dFW7vN", "Seife", "images/emojis/1F9FC.svg");
 
 		col = row.ac(HTML.div("col-12 col-md-4"));
 
 		ul = col.ac(Bootstrap.listGroupDiv());
-		item(ul, "https://amzn.to/35aLVrb", "Mund-Nasen-Schutz",
+		item(ul, "https://amzn.to/3dMNrnm", "Einwegmasken",
 				"images/emojis/1F637.svg");
-		item(ul, "https://amzn.to/3dFW7vN", "Seife", "images/emojis/1F9FC.svg");
+		item(ul, "https://amzn.to/31lCwvS", "Stoffmasken",
+				"images/emojis/1F637.svg");
+		item(ul, "https://amzn.to/349bGZw", "Gesichtsschutz",
+				"images/emojis/E2D9.svg");
 
 		col = row.ac(HTML.div("col-12 col-md-4"));
 
 		ul = col.ac(Bootstrap.listGroupDiv());
 		item(ul, "https://amzn.to/34aW1ZO", "Hinweisschilder",
 				"images/emojis/1FAA7.svg");
+		item(ul, "https://amzn.to/3kfZDzh", "Laptopständer fürs Homeoffice",
+				"images/emojis/1F431-200D-1F4BB.svg");
 	}
 
 	private void item(ListGroupDiv ul, String link, String name,
