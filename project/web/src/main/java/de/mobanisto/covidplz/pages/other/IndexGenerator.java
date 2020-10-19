@@ -253,7 +253,7 @@ public class IndexGenerator extends SimpleBaseGenerator
 		item(ul, "https://amzn.to/3dMNrnm", "Einwegmasken",
 				"images/emojis/1F637.svg");
 		item(ul, "https://amzn.to/31lCwvS", "Stoffmasken",
-				"images/emojis/1F637.svg");
+				"images/emojis/1F637-rainbow.svg");
 		item(ul, "https://amzn.to/349bGZw", "Gesichtsschutz",
 				"images/emojis/E2D9.svg");
 
