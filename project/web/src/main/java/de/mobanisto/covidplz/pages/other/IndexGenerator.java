@@ -28,6 +28,7 @@ import java.util.Map;
 
 import de.mobanisto.covidplz.Website;
 import de.mobanisto.covidplz.content.DataTable;
+import de.mobanisto.covidplz.content.Shop;
 import de.mobanisto.covidplz.content.Snippets;
 import de.mobanisto.covidplz.mapping.Mapping;
 import de.mobanisto.covidplz.mapping.PartialRsRelation;
@@ -36,18 +37,14 @@ import de.mobanisto.covidplz.model.RegionData;
 import de.mobanisto.covidplz.pages.base.SimpleBaseGenerator;
 import de.mobanisto.covidplz.rki.Berlin;
 import de.mobanisto.covidplz.rki.daily.Fields;
-import de.topobyte.cachebusting.CacheBusting;
 import de.topobyte.jsoup.HTML;
 import de.topobyte.jsoup.bootstrap4.Bootstrap;
 import de.topobyte.jsoup.bootstrap4.components.Alert;
 import de.topobyte.jsoup.bootstrap4.components.ContextualType;
-import de.topobyte.jsoup.bootstrap4.components.ListGroupDiv;
-import de.topobyte.jsoup.bootstrap4.components.listgroup.ListGroupA;
 import de.topobyte.jsoup.components.A;
 import de.topobyte.jsoup.components.Button;
 import de.topobyte.jsoup.components.Div;
 import de.topobyte.jsoup.components.Form;
-import de.topobyte.jsoup.components.Img;
 import de.topobyte.jsoup.components.Input;
 import de.topobyte.jsoup.components.P;
 import de.topobyte.jsoup.feather.Feather;
@@ -232,47 +229,12 @@ public class IndexGenerator extends SimpleBaseGenerator
 
 		P p = content.ac(HTML.p());
 		p.appendText(
-				"Unterstützen Sie uns, indem Sie über unsere Links bei Amazon einkaufen:");
+				"Unterstützen Sie uns, indem Sie über unsere Links bei Amazon einkaufen: (");
+		p.ac(HTML.a("/support-us", "mehr Infos"));
+		p.appendText(")");
 
 		Div row = content.ac(Bootstrap.row());
-		Div col;
-		ListGroupDiv ul;
-
-		col = row.ac(HTML.div("col-12 col-md-4"));
-
-		ul = col.ac(Bootstrap.listGroupDiv());
-		item(ul, "https://amzn.to/2FKXFrM", "Toilettenpapier",
-				"images/emojis/1F9FB.svg");
-		item(ul, "https://amzn.to/2HjRD1u", "Hand-Desinfektion",
-				"images/emojis/1F9F4.svg");
-		item(ul, "https://amzn.to/3dFW7vN", "Seife", "images/emojis/1F9FC.svg");
-
-		col = row.ac(HTML.div("col-12 col-md-4"));
-
-		ul = col.ac(Bootstrap.listGroupDiv());
-		item(ul, "https://amzn.to/3dMNrnm", "Einwegmasken",
-				"images/emojis/1F637.svg");
-		item(ul, "https://amzn.to/31lCwvS", "Stoffmasken",
-				"images/emojis/1F637-rainbow.svg");
-		item(ul, "https://amzn.to/349bGZw", "Gesichtsschutz",
-				"images/emojis/E2D9.svg");
-
-		col = row.ac(HTML.div("col-12 col-md-4"));
-
-		ul = col.ac(Bootstrap.listGroupDiv());
-		item(ul, "https://amzn.to/34aW1ZO", "Hinweisschilder und Aufkleber",
-				"images/emojis/1FAA7.svg");
-		item(ul, "https://amzn.to/3kfZDzh", "Laptopständer fürs Homeoffice",
-				"images/emojis/1F431-200D-1F4BB.svg");
-	}
-
-	private void item(ListGroupDiv ul, String link, String name,
-			String imageFile)
-	{
-		ListGroupA item = ul.addA(link, name);
-		Img image = HTML.img("/" + CacheBusting.resolve(imageFile));
-		image.attr("style", "height:3em");
-		item.prependChild(image);
+		Shop.content(row);
 	}
 
 }

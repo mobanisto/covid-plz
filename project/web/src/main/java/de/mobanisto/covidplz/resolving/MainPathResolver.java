@@ -28,6 +28,7 @@ import de.mobanisto.covidplz.pages.markdown.MarkdownResourceGenerator;
 import de.mobanisto.covidplz.pages.other.AboutGenerator;
 import de.mobanisto.covidplz.pages.other.IndexGenerator;
 import de.mobanisto.covidplz.pages.other.RefreshGenerator;
+import de.mobanisto.covidplz.pages.other.SupportGenerator;
 import de.topobyte.jsoup.ContentGeneratable;
 import de.topobyte.webgun.resolving.pathspec.PathSpec;
 import de.topobyte.webgun.resolving.pathspec.PathSpecResolver;
@@ -61,6 +62,9 @@ public class MainPathResolver extends PathSpecResolver<ContentGeneratable, Void>
 
 		map(new PathSpec("refresh"), (path, output, request, data) -> {
 			return new RefreshGenerator(path);
+		});
+		map(new PathSpec("support-us"), (path, output, request, data) -> {
+			return new SupportGenerator(path);
 		});
 	}
 
