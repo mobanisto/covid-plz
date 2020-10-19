@@ -271,7 +271,7 @@ public class IndexGenerator extends SimpleBaseGenerator
 	{
 		ListGroupA item = ul.addA(link, name);
 		Img image = HTML.img("/" + CacheBusting.resolve(imageFile));
-		image.attr("style", "height:2em");
+		image.attr("style", "height:3em");
 		item.prependChild(image);
 	}
 
