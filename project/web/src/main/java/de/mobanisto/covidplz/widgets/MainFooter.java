@@ -66,6 +66,11 @@ public class MainFooter extends Element
 		p.appendText("Made with ");
 		p.ac(Feather.heart("1em"));
 		p.appendText(" in Berlin-Brandenburg");
+
+		p = div.ac(p().addClass("text-muted"));
+
+		p.appendText(
+				"All emojis designed by OpenMoji – the open-source emoji and icon project. License: CC BY-SA 4.0");
 	}
 
 }

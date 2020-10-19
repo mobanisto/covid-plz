@@ -36,14 +36,18 @@ import de.mobanisto.covidplz.model.RegionData;
 import de.mobanisto.covidplz.pages.base.SimpleBaseGenerator;
 import de.mobanisto.covidplz.rki.Berlin;
 import de.mobanisto.covidplz.rki.daily.Fields;
+import de.topobyte.cachebusting.CacheBusting;
 import de.topobyte.jsoup.HTML;
 import de.topobyte.jsoup.bootstrap4.Bootstrap;
 import de.topobyte.jsoup.bootstrap4.components.Alert;
 import de.topobyte.jsoup.bootstrap4.components.ContextualType;
+import de.topobyte.jsoup.bootstrap4.components.ListGroupDiv;
+import de.topobyte.jsoup.bootstrap4.components.listgroup.ListGroupA;
 import de.topobyte.jsoup.components.A;
 import de.topobyte.jsoup.components.Button;
 import de.topobyte.jsoup.components.Div;
 import de.topobyte.jsoup.components.Form;
+import de.topobyte.jsoup.components.Img;
 import de.topobyte.jsoup.components.Input;
 import de.topobyte.jsoup.components.P;
 import de.topobyte.jsoup.feather.Feather;
@@ -90,6 +94,8 @@ public class IndexGenerator extends SimpleBaseGenerator
 		if (plz != null) {
 			results(content);
 		}
+
+		shop();
 	}
 
 	private void form(Element element)
@@ -218,6 +224,49 @@ public class IndexGenerator extends SimpleBaseGenerator
 
 		DataTable dataTable = new DataTable(data);
 		dataTable.add(element);
+	}
+
+	private void shop()
+	{
+		content.ac(HTML.h2("Pandemie-Shop")).addClass("mt-3");
+
+		P p = content.ac(HTML.p());
+		p.appendText(
+				"Unterstützen Sie uns, indem Sie über unsere Links bei Amazon einkaufen:");
+
+		Div row = content.ac(Bootstrap.row());
+		Div col;
+		ListGroupDiv ul;
+
+		col = row.ac(HTML.div("col-12 col-md-4"));
+
+		ul = col.ac(Bootstrap.listGroupDiv());
+		item(ul, "https://amzn.to/2FKXFrM", "Toilettenpaper",
+				"images/emojis/1F9FB.svg");
+		item(ul, "https://amzn.to/3dIBb7o", "Desinfektions-Spray",
+				"images/emojis/1F9F4.svg");
+
+		col = row.ac(HTML.div("col-12 col-md-4"));
+
+		ul = col.ac(Bootstrap.listGroupDiv());
+		item(ul, "https://amzn.to/35aLVrb", "Mund-Nasen-Schutz",
+				"images/emojis/1F637.svg");
+		item(ul, "https://amzn.to/3dFW7vN", "Seife", "images/emojis/1F9FC.svg");
+
+		col = row.ac(HTML.div("col-12 col-md-4"));
+
+		ul = col.ac(Bootstrap.listGroupDiv());
+		item(ul, "https://amzn.to/34aW1ZO", "Hinweisschilder",
+				"images/emojis/1FAA7.svg");
+	}
+
+	private void item(ListGroupDiv ul, String link, String name,
+			String imageFile)
+	{
+		ListGroupA item = ul.addA(link, name);
+		Img image = HTML.img("/" + CacheBusting.resolve(imageFile));
+		image.attr("style", "height:2em");
+		item.prependChild(image);
 	}
 
 }
