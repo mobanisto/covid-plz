@@ -260,7 +260,7 @@ public class IndexGenerator extends SimpleBaseGenerator
 		col = row.ac(HTML.div("col-12 col-md-4"));
 
 		ul = col.ac(Bootstrap.listGroupDiv());
-		item(ul, "https://amzn.to/34aW1ZO", "Hinweisschilder",
+		item(ul, "https://amzn.to/34aW1ZO", "Hinweisschilder und Aufkleber",
 				"images/emojis/1FAA7.svg");
 		item(ul, "https://amzn.to/3kfZDzh", "Laptopständer fürs Homeoffice",
 				"images/emojis/1F431-200D-1F4BB.svg");
