@@ -11,5 +11,6 @@ dependencies {
     api 'com.google.code.gson:gson:2.8.6'
     api 'org.locationtech.jts.io:jts-io-common:1.17.1'
     api 'net.sf.supercsv:super-csv:2.4.0'
+    api 'org.jsoup:jsoup:1.8.3'
     api 'org.slf4j:slf4j-api:1.7.30'
 }
