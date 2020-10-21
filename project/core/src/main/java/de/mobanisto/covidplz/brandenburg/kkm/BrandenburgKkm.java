@@ -35,15 +35,19 @@ import org.jsoup.nodes.Document;
 public class BrandenburgKkm
 {
 
-	public static BrandenburgKkmData parse(LocalDate date)
-			throws IOException, ParsingException
+	public static String url(LocalDate date)
 	{
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-YYYY");
 		String dateString = formatter.format(date);
-		String spec = String.format(
+		return String.format(
 				"https://kkm.brandenburg.de/kkm/de/presse/pressemitteilungen/detail/~%s-aktuelle-fallzahlen-covid-19-in-brandenburg-%s",
 				dateString, dateString);
-		URL url = new URL(spec);
+	}
+
+	public static BrandenburgKkmData parse(LocalDate date)
+			throws IOException, ParsingException
+	{
+		URL url = new URL(url(date));
 		URLConnection connection = url.openConnection();
 		try (InputStream input = connection.getInputStream()) {
 			return parse(input);
