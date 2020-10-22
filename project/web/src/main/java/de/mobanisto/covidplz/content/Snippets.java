@@ -55,7 +55,16 @@ public class Snippets
 		item.ac(HTML.a(
 				"https://npgeo-corona-npgeo-de.hub.arcgis.com/datasets/917fc37a709542548cc3be077a786c17_0",
 				"Nationale Plattform für geographische Daten"));
-		item.appendText(" (NPGEO-DE)");
+		item.appendText(" (NPGEO-DE).");
+
+		item = list.addTextItem("Infektionsdaten Brandenburg: © ");
+		item.ac(HTML.a("https://lavg.brandenburg.de/",
+				"Landesamt für Arbeitsschutz, Verbraucherschutz und Gesundheit"));
+		item.appendText(" (LAVG), abgerufen über das ");
+		item.ac(HTML.a(
+				"https://kkm.brandenburg.de/kkm/de/presse/pressemitteilungen/",
+				"Koordinierungszentrum Krisenmanagement in Brandenburg"));
+		item.appendText(".");
 	}
 
 }
