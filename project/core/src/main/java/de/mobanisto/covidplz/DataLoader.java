@@ -23,6 +23,7 @@
 package de.mobanisto.covidplz;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -30,10 +31,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 
 import de.mobanisto.covidplz.brandenburg.kkm.BrandenburgKkmData;
+import de.mobanisto.covidplz.brandenburg.kkm.KkmData;
 import de.mobanisto.covidplz.mapping.Mapping;
 import de.mobanisto.covidplz.mapping.PartialRsRelation;
 import de.mobanisto.covidplz.model.Data;
@@ -46,6 +51,8 @@ import de.topobyte.melon.commons.io.Resources;
 
 public class DataLoader
 {
+
+	final static Logger logger = LoggerFactory.getLogger(DataLoader.class);
 
 	public Data loadData() throws IOException
 	{
@@ -62,7 +69,7 @@ public class DataLoader
 		data.setMapping(mapping);
 		data.setBrandenburgKkmData(brandenburgKkmData);
 
-		// Load Germany adminstrative region model
+		// Load Germany administrative region model
 
 		Germany germany = new Germany();
 
@@ -118,7 +125,26 @@ public class DataLoader
 
 		data.setRkiIdentifiers(rkiIdentifiers);
 
+		// Check KKM data can be matched
+
+		checkKkmData(brandenburgKkmData, data.getGermanyRegionLookup());
+
 		return data;
+	}
+
+	private void checkKkmData(BrandenburgKkmData brandenburgKkmData,
+			GermanyRegionLookup lookup)
+	{
+		Map<LocalDate, Map<String, KkmData>> dateToNameToData = brandenburgKkmData
+				.getDateToNameToData();
+		Map<String, KkmData> data = dateToNameToData
+				.get(LocalDate.of(2020, 10, 13));
+		for (String rs : data.keySet()) {
+			Kreis kreis = lookup.getIdToKreis().get(rs);
+			if (kreis == null) {
+				logger.warn("Unable to match KKM id to Kreis: " + rs);
+			}
+		}
 	}
 
 }
