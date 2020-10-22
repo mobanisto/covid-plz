@@ -58,6 +58,7 @@ public class BrandenburgKkmParser
 		for (int i = 0; i < tables.size(); i++) {
 			Element table = tables.get(i);
 			parseTable(table);
+			data.setValid(true);
 		}
 	}
 

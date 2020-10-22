@@ -26,9 +26,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 import lombok.Getter;
+import lombok.Setter;
 
 public class BrandenburgKkmData
 {
+
+	@Getter
+	@Setter
+	private boolean valid = false;
 
 	@Getter
 	private Map<String, Data> nameToData = new HashMap<>();
