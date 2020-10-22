@@ -36,9 +36,12 @@ public class RkiDataTable
 
 	private RegionData data;
 
-	public RkiDataTable(RegionData data)
+	private boolean displayPopulation;
+
+	public RkiDataTable(RegionData data, boolean displayPopulation)
 	{
 		this.data = data;
+		this.displayPopulation = displayPopulation;
 	}
 
 	public void add(Element element)
@@ -52,7 +55,9 @@ public class RkiDataTable
 				Fields.CASES7_PER_100K).attr("style", "font-weight: bold");
 		row(table, "Fälle insgesamt", Fields.CASES);
 		row(table, "Todesfälle insgesamt", Fields.DEATHS);
-		rowI(table, "Einwohner", Fields.EWZ);
+		if (displayPopulation) {
+			rowI(table, "Einwohner", Fields.EWZ);
+		}
 		rowD(table, "Fälle pro 100.000 Einwohner insgesamt",
 				Fields.CASES_PER_100K);
 

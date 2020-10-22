@@ -248,7 +248,7 @@ public class IndexGenerator extends SimpleBaseGenerator
 		element.ac(
 				HTML.h2(String.format("%s %s", bezeichnungRegion, nameRegion)));
 
-		RkiDataTable dataTable = new RkiDataTable(data);
+		RkiDataTable dataTable = new RkiDataTable(data, true);
 		dataTable.add(element);
 	}
 
@@ -262,8 +262,8 @@ public class IndexGenerator extends SimpleBaseGenerator
 				HTML.h2(String.format("%s %s", bezeichnungRegion, nameRegion)));
 
 		BrandenburgDataTable dataTable1 = new BrandenburgDataTable(rkiData,
-				kkmData, date);
-		RkiDataTable dataTable2 = new RkiDataTable(rkiData);
+				kkmData, date, true);
+		RkiDataTable dataTable2 = new RkiDataTable(rkiData, false);
 		dataTable1.add(element);
 		dataTable2.add(element);
 	}

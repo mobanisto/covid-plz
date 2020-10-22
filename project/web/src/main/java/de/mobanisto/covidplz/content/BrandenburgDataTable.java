@@ -39,12 +39,15 @@ public class BrandenburgDataTable
 	private KkmData kkmData;
 	private LocalDate date;
 
+	private boolean displayPopulation;
+
 	public BrandenburgDataTable(RegionData rkiData, KkmData data,
-			LocalDate date)
+			LocalDate date, boolean displayPopulation)
 	{
 		this.rkiData = rkiData;
 		this.kkmData = data;
 		this.date = date;
+		this.displayPopulation = displayPopulation;
 	}
 
 	public void add(Element element)
@@ -61,7 +64,9 @@ public class BrandenburgDataTable
 						"font-weight: bold");
 		row(table, "Fälle insgesamt", kkmData.getCasesTotal());
 		row(table, "Todesfälle insgesamt", kkmData.getDeathsTotal());
-		row(table, "Einwohner", population);
+		if (displayPopulation) {
+			row(table, "Einwohner", population);
+		}
 		row(table, "Fälle pro 100.000 Einwohner insgesamt",
 				kkmData.getIncidence100k());
 
