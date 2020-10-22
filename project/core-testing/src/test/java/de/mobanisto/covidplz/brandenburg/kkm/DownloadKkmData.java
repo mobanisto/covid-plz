@@ -63,6 +63,9 @@ public class DownloadKkmData
 			String filename = String.format("%s.html", formatter.format(date));
 			System.out.println(String.format("%s → %s", url, filename));
 			Path file = dirKkm.resolve(filename);
+			if (Files.exists(file)) {
+				continue;
+			}
 
 			download(url, file);
 		}
