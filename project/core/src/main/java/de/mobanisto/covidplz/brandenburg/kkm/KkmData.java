@@ -23,6 +23,7 @@
 package de.mobanisto.covidplz.brandenburg.kkm;
 
 import lombok.Getter;
+import lombok.Setter;
 
 public class KkmData
 {
@@ -31,6 +32,7 @@ public class KkmData
 	private int newCases24;
 	@Getter
 	private int casesTotal;
+	@Setter
 	@Getter
 	private double incidence100k;
 	@Getter
