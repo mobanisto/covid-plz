@@ -229,7 +229,7 @@ public class IndexGenerator extends SimpleBaseGenerator
 
 		P p = content.ac(HTML.p());
 		p.appendText("Wir haben hier einen kleinen Shop eingerichtet."
-				+ " Als Amazon-Partner verdienen wir an qualifizierten verkäufen."
+				+ " Als Amazon-Partner verdienen wir an qualifizierten Verkäufen."
 				+ " Viel Spaß beim Shoppen und bleiben Sie gesund.");
 
 		Div row = content.ac(Bootstrap.row());
