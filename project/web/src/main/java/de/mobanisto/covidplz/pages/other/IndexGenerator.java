@@ -287,11 +287,11 @@ public class IndexGenerator extends SimpleBaseGenerator
 				kkmData, date, true);
 		RkiDataTable dataTable2 = new RkiDataTable(rkiData, false);
 
-		element.ac(HTML.h6(
-				"Landesamt für Arbeitsschutz, Verbraucherschutz und Gesundheit (LAVG)"));
+		element.ac(HTML.h5(
+				"Landesamt für Arbeitsschutz, Verbraucherschutz und Gesundheit (LAVG):"));
 		dataTable1.add(element);
 
-		element.ac(HTML.h6("Robert-Koch-Institut (RKI)"));
+		element.ac(HTML.h5("Robert-Koch-Institut (RKI):"));
 		dataTable2.add(element);
 	}
 
