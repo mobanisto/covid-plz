@@ -165,7 +165,10 @@ public class IndexGenerator extends SimpleBaseGenerator
 		// This is the list of IDs we're actually going to display
 		List<String> rss = new ArrayList<>();
 
-		boolean berlin = false;
+		boolean isBerlin = false;
+		boolean isBrandenburg = false;
+
+		Bundesland brandenburg = germany.getIdToLand().get("12");
 
 		// For Berlin boroughs, add state Berlin; make sure to add Berlin only
 		// once should it occur multiple times (example 14195 which is in
@@ -174,7 +177,7 @@ public class IndexGenerator extends SimpleBaseGenerator
 			String rs = rki.getObject();
 			RegionData regionData = dailyData.getRsToRegionData().get(rs);
 			if (Berlin.isBerlinBorough(regionData)) {
-				berlin = true;
+				isBerlin = true;
 				if (!rss.contains(Berlin.RS)) {
 					rss.add(Berlin.RS);
 				}
@@ -182,10 +185,17 @@ public class IndexGenerator extends SimpleBaseGenerator
 			rss.add(rs);
 		}
 
+		for (String rs : rss) {
+			Kreis kreis = germany.getIdToKreis().get(rs);
+			if (kreis != null && kreis.getBundesland() == brandenburg) {
+				isBrandenburg = true;
+			}
+		}
+
 		if (rss.size() > 1) {
 			Alert alertMultiple = element
 					.ac(Bootstrap.alert(ContextualType.WARNING));
-			if (berlin) {
+			if (isBerlin) {
 				alertMultiple.appendText(
 						"Für Berlin werden Ergebnisse auf Landes- und Bezirksebene angezeigt.");
 				if (rkis.size() > 1) {
@@ -202,12 +212,17 @@ public class IndexGenerator extends SimpleBaseGenerator
 			}
 		}
 
-		Bundesland brandenburg = germany.getIdToLand().get("12");
-
 		Map<LocalDate, Map<String, KkmData>> dateToNameToData = kkm
 				.getDateToNameToData();
 		List<LocalDate> kkmDates = new ArrayList<>(dateToNameToData.keySet());
 		Collections.sort(kkmDates);
+
+		if (isBrandenburg) {
+			Alert alertBrandenburg = element
+					.ac(Bootstrap.alert(ContextualType.WARNING));
+			alertBrandenburg.appendText(
+					"Für Brandenburg werden mehrere Datenquellen angezeigt.");
+		}
 
 		// For each ID, print a section with data table
 		for (String rs : rss) {
@@ -231,10 +246,17 @@ public class IndexGenerator extends SimpleBaseGenerator
 						+ " immer bei den für Sie zuständigen Behörden.");
 
 		Alert alertDelay = element.ac(Bootstrap.alert(ContextualType.INFO));
-		alertDelay.appendText(
-				"Für den Check werden die Daten des Robert-Koch-Instituts verwendet."
-						+ " Diese können von den Meldungen lokaler und regionaler Stellen"
-						+ " zeitlich abweichen.");
+		if (!isBrandenburg) {
+			alertDelay.appendText(
+					"Für den Check werden die Daten des Robert-Koch-Instituts verwendet."
+							+ " Diese können von den Meldungen lokaler und regionaler Stellen"
+							+ " zeitlich abweichen.");
+		} else {
+			alertDelay.appendText(
+					"Für den Check werden die Daten des RKI und des LAVG verwendet."
+							+ " Diese können von den Meldungen lokaler und regionaler Stellen"
+							+ " zeitlich abweichen.");
+		}
 
 		element.ac(HTML.h3("Quellen").addClass("mt-2"));
 		Snippets.references(element);
@@ -264,7 +286,12 @@ public class IndexGenerator extends SimpleBaseGenerator
 		BrandenburgDataTable dataTable1 = new BrandenburgDataTable(rkiData,
 				kkmData, date, true);
 		RkiDataTable dataTable2 = new RkiDataTable(rkiData, false);
+
+		element.ac(HTML.h6(
+				"Landesamt für Arbeitsschutz, Verbraucherschutz und Gesundheit (LAVG)"));
 		dataTable1.add(element);
+
+		element.ac(HTML.h6("Robert-Koch-Institut (RKI)"));
 		dataTable2.add(element);
 	}
 
