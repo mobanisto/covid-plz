@@ -93,12 +93,19 @@ public class TestCalculateKkmIncidence
 			if (data.getIncidence100k() == 0) {
 				System.out
 						.println("zero: " + rs + " " + total + " " + incidence);
-				data.setIncidence100k(incidence);
+				data.setIncidence100k(round(incidence, 2));
 			} else {
 				System.out.println(String.format("%f vs. %f",
 						data.getIncidence100k(), incidence));
 			}
 		}
+	}
+
+	public static double round(double value, int places)
+	{
+		int factor = (int) Math.pow(10, places);
+		value = value * factor;
+		return Math.round(value) / (double) factor;
 	}
 
 }
