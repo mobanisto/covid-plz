@@ -20,63 +20,27 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-package de.mobanisto.covidplz;
+package de.mobanisto.covidplz.brandenburg.kkm;
 
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+
+import org.junit.Test;
 
 import com.google.gson.Gson;
 
-import de.mobanisto.covidplz.brandenburg.kkm.BrandenburgKkmData;
-import de.mobanisto.covidplz.mapping.Mapping;
-import de.mobanisto.covidplz.mapping.PartialRsRelation;
-import de.mobanisto.covidplz.model.Data;
+import de.mobanisto.covidplz.GsonUtil;
 import de.topobyte.melon.commons.io.Resources;
 
-public class DataLoader
+public class TestDeserializeKkmData
 {
 
-	public Data loadData() throws IOException
+	@Test
+	public void test() throws IOException
 	{
-		Data data = new Data();
 		Gson gson = GsonUtil.gson();
-
-		String jsonMapping = Resources.loadString("mapping.json");
-		Mapping mapping = gson.fromJson(jsonMapping, Mapping.class);
-
 		String jsonKkm = Resources.loadString("kkm.json");
 		BrandenburgKkmData brandenburgKkmData = gson.fromJson(jsonKkm,
 				BrandenburgKkmData.class);
-
-		data.setMapping(mapping);
-		data.setBrandenburgKkmData(brandenburgKkmData);
-
-		Map<String, List<PartialRsRelation>> codeToRKI = mapping.getCodeToRKI();
-
-		// Get postal codes from mapping
-
-		Set<String> postalCodes = new HashSet<>();
-		postalCodes.addAll(codeToRKI.keySet());
-
-		data.setPostalCodes(postalCodes);
-
-		// Get RKI identifiers from mapping
-
-		Set<String> rkiIdentifiers = new HashSet<>();
-
-		for (String key : codeToRKI.keySet()) {
-			List<PartialRsRelation> rkis = codeToRKI.get(key);
-			for (PartialRsRelation rki : rkis) {
-				rkiIdentifiers.add(rki.getObject());
-			}
-		}
-
-		data.setRkiIdentifiers(rkiIdentifiers);
-
-		return data;
 	}
 
 }

@@ -20,32 +20,35 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-package de.mobanisto.covidplz.model;
+package de.mobanisto.covidplz;
 
-import java.util.Set;
+import java.lang.reflect.Type;
+import java.time.LocalDate;
 
-import de.mobanisto.covidplz.brandenburg.kkm.BrandenburgKkmData;
-import de.mobanisto.covidplz.mapping.Mapping;
-import lombok.Getter;
-import lombok.Setter;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParseException;
 
-public class Data
+public class GsonUtil
 {
 
-	@Getter
-	@Setter
-	private Set<String> postalCodes;
+	public static Gson gson()
+	{
+		return new GsonBuilder().registerTypeAdapter(LocalDate.class,
+				new JsonDeserializer<LocalDate>() {
 
-	@Getter
-	@Setter
-	private Set<String> rkiIdentifiers;
+					@Override
+					public LocalDate deserialize(JsonElement json, Type type,
+							JsonDeserializationContext context)
+							throws JsonParseException
+					{
+						return LocalDate.parse(json.getAsString());
+					}
 
-	@Getter
-	@Setter
-	private Mapping mapping;
-
-	@Getter
-	@Setter
-	private BrandenburgKkmData brandenburgKkmData;
+				}).create();
+	}
 
 }
