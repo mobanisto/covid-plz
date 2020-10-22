@@ -22,45 +22,20 @@
 
 package de.mobanisto.covidplz.brandenburg.kkm;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
-import java.net.URLConnection;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
+import java.util.Map;
 
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
+import lombok.Getter;
+import lombok.Setter;
 
-public class BrandenburgKkm
+public class SingleBrandenburgKkmData
 {
 
-	public static String url(LocalDate date)
-	{
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-YYYY");
-		String dateString = formatter.format(date);
-		return String.format(
-				"https://kkm.brandenburg.de/kkm/de/presse/pressemitteilungen/detail/~%s-aktuelle-fallzahlen-covid-19-in-brandenburg-%s",
-				dateString, dateString);
-	}
+	@Getter
+	@Setter
+	private boolean valid = false;
 
-	public static SingleBrandenburgKkmData parse(LocalDate date)
-			throws IOException, ParsingException
-	{
-		URL url = new URL(url(date));
-		URLConnection connection = url.openConnection();
-		try (InputStream input = connection.getInputStream()) {
-			return parse(input, date);
-		}
-	}
-
-	public static SingleBrandenburgKkmData parse(InputStream input, LocalDate date)
-			throws IOException, ParsingException
-	{
-		Document doc = Jsoup.parse(input, "UTF-8", "");
-		BrandenburgKkmParser parser = new BrandenburgKkmParser();
-		parser.parse(doc, date);
-		return parser.getData();
-	}
+	@Getter
+	private Map<String, Data> nameToData = new HashMap<>();
 
 }

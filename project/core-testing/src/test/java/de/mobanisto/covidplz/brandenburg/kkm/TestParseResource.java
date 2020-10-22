@@ -39,7 +39,7 @@ public class TestParseResource
 	public void test1() throws IOException, ParsingException
 	{
 		InputStream input = Resources.stream("brandenburg/kkm/2020-08-20.html");
-		BrandenburgKkmData data = BrandenburgKkm.parse(input,
+		SingleBrandenburgKkmData data = BrandenburgKkm.parse(input,
 				LocalDate.of(2020, 8, 20));
 
 		Map<String, Data> nameToData = data.getNameToData();
@@ -58,7 +58,7 @@ public class TestParseResource
 	public void test2() throws IOException, ParsingException
 	{
 		InputStream input = Resources.stream("brandenburg/kkm/2020-10-20.html");
-		BrandenburgKkmData data = BrandenburgKkm.parse(input,
+		SingleBrandenburgKkmData data = BrandenburgKkm.parse(input,
 				LocalDate.of(2020, 10, 20));
 
 		Map<String, Data> nameToData = data.getNameToData();

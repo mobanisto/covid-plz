@@ -22,20 +22,16 @@
 
 package de.mobanisto.covidplz.brandenburg.kkm;
 
-import java.util.HashMap;
+import java.time.LocalDate;
 import java.util.Map;
+import java.util.TreeMap;
 
 import lombok.Getter;
-import lombok.Setter;
 
 public class BrandenburgKkmData
 {
 
 	@Getter
-	@Setter
-	private boolean valid = false;
-
-	@Getter
-	private Map<String, Data> nameToData = new HashMap<>();
+	private Map<LocalDate, Map<String, Data>> dateToNameToData = new TreeMap<>();
 
 }

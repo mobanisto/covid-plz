@@ -72,7 +72,7 @@ public class BrandenburgKkmParser
 	}
 
 	@Getter
-	private BrandenburgKkmData data = new BrandenburgKkmData();
+	private SingleBrandenburgKkmData data = new SingleBrandenburgKkmData();
 
 	private LocalDate date;
 

@@ -35,7 +35,7 @@ public class TestParseUrl
 	@Test
 	public void test1() throws IOException, ParsingException
 	{
-		BrandenburgKkmData data = BrandenburgKkm
+		SingleBrandenburgKkmData data = BrandenburgKkm
 				.parse(LocalDate.of(2020, 8, 20));
 
 		Map<String, Data> nameToData = data.getNameToData();
@@ -53,7 +53,7 @@ public class TestParseUrl
 	@Test
 	public void test2() throws IOException, ParsingException
 	{
-		BrandenburgKkmData data = BrandenburgKkm
+		SingleBrandenburgKkmData data = BrandenburgKkm
 				.parse(LocalDate.of(2020, 10, 20));
 
 		Map<String, Data> nameToData = data.getNameToData();

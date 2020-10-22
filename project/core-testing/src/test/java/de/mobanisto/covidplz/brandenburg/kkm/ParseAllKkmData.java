@@ -60,7 +60,7 @@ public class ParseAllKkmData
 			try {
 				parse(file, date);
 			} catch (ParsingException e) {
-				System.out.println(e.getMessage());
+				logger.warn("error while paring file: " + e.getMessage());
 				continue;
 			}
 		}
@@ -71,7 +71,7 @@ public class ParseAllKkmData
 	{
 		System.out.println(file);
 		InputStream input = Files.newInputStream(file);
-		BrandenburgKkmData data = BrandenburgKkm.parse(input, date);
+		SingleBrandenburgKkmData data = BrandenburgKkm.parse(input, date);
 
 		if (data.isValid()) {
 			Map<String, Data> nameToData = data.getNameToData();
