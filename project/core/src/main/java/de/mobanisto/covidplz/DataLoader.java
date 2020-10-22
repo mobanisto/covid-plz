@@ -23,17 +23,24 @@
 package de.mobanisto.covidplz;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 
 import de.mobanisto.covidplz.brandenburg.kkm.BrandenburgKkmData;
 import de.mobanisto.covidplz.mapping.Mapping;
 import de.mobanisto.covidplz.mapping.PartialRsRelation;
 import de.mobanisto.covidplz.model.Data;
+import de.mobanisto.covidplz.model.germany.Bundesland;
+import de.mobanisto.covidplz.model.germany.Germany;
+import de.mobanisto.covidplz.model.germany.Kreis;
+import de.mobanisto.covidplz.model.germany.Stadtteil;
 import de.topobyte.melon.commons.io.Resources;
 
 public class DataLoader
@@ -53,6 +60,39 @@ public class DataLoader
 
 		data.setMapping(mapping);
 		data.setBrandenburgKkmData(brandenburgKkmData);
+
+		// Load Germany adminstrative region model
+
+		Germany germany = new Germany();
+
+		String jsonLaender = Resources.loadString("germany/laender.json");
+		List<Bundesland> laender = gson.fromJson(jsonLaender,
+				new TypeToken<ArrayList<Bundesland>>() {
+				}.getType());
+		Map<String, Bundesland> idToLand = new HashMap<>();
+		for (Bundesland land : laender) {
+			idToLand.put(land.getId(), land);
+		}
+
+		Gson gsonGermany = GsonUtil.germany(idToLand);
+
+		String jsonKreise = Resources.loadString("germany/kreise.json");
+		List<Kreis> kreise = gsonGermany.fromJson(jsonKreise,
+				new TypeToken<ArrayList<Kreis>>() {
+				}.getType());
+
+		String jsonStadtteile = Resources.loadString("germany/stadtteile.json");
+		List<Stadtteil> stadtteile = gsonGermany.fromJson(jsonStadtteile,
+				new TypeToken<ArrayList<Stadtteil>>() {
+				}.getType());
+
+		germany.getLaender().addAll(laender);
+		germany.getKreise().addAll(kreise);
+		germany.getStadtteile().addAll(stadtteile);
+
+		data.setGermany(germany);
+
+		// Process mapping
 
 		Map<String, List<PartialRsRelation>> codeToRKI = mapping.getCodeToRKI();
 

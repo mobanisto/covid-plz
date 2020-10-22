@@ -26,11 +26,16 @@ import java.util.Set;
 
 import de.mobanisto.covidplz.brandenburg.kkm.BrandenburgKkmData;
 import de.mobanisto.covidplz.mapping.Mapping;
+import de.mobanisto.covidplz.model.germany.Germany;
 import lombok.Getter;
 import lombok.Setter;
 
 public class Data
 {
+
+	@Getter
+	@Setter
+	private Germany germany;
 
 	@Getter
 	@Setter

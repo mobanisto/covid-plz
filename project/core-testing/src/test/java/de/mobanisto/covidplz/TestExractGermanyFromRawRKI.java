@@ -63,7 +63,7 @@ public class TestExractGermanyFromRawRKI
 
 		Germany germany = build(entries);
 		Gson gson = GsonUtil.gson();
-		Gson gsonGermany = GsonUtil.germany();
+		Gson gsonGermany = GsonUtil.germany(null);
 
 		Path dir = repo.resolve("project/core/src/main/resources/germany");
 		Files.createDirectories(dir);

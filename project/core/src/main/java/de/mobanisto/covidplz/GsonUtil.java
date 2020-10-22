@@ -24,6 +24,7 @@ package de.mobanisto.covidplz;
 
 import java.lang.reflect.Type;
 import java.time.LocalDate;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -56,7 +57,7 @@ public class GsonUtil
 				}).setPrettyPrinting().create();
 	}
 
-	public static Gson germany()
+	public static Gson germany(Map<String, Bundesland> idToBundesland)
 	{
 		return new GsonBuilder().registerTypeAdapter(Bundesland.class,
 				new JsonSerializer<Bundesland>() {
@@ -68,7 +69,21 @@ public class GsonUtil
 						return new JsonPrimitive(src.getId());
 					}
 
-				}).setPrettyPrinting().create();
+				}).registerTypeAdapter(Bundesland.class,
+						new JsonDeserializer<Bundesland>() {
+
+							@Override
+							public Bundesland deserialize(JsonElement json,
+									Type type,
+									JsonDeserializationContext context)
+									throws JsonParseException
+							{
+								String id = json.getAsString();
+								return idToBundesland.get(id);
+							}
+
+						})
+				.setPrettyPrinting().create();
 	}
 
 }
