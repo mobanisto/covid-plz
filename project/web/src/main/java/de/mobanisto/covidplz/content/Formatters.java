@@ -20,22 +20,47 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-package de.mobanisto.covidplz.brandenburg.kkm;
+package de.mobanisto.covidplz.content;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
+import java.util.function.Function;
 
-import lombok.Getter;
-import lombok.Setter;
-
-public class SingleBrandenburgKkmData
+public class Formatters
 {
 
-	@Getter
-	@Setter
-	private boolean valid = false;
+	public static Function<String, String> FORMATTER_DS = s -> {
+		try {
+			double d = Double.parseDouble(s);
+			return String.format(Locale.GERMAN, "%.2f", d);
+		} catch (NumberFormatException e) {
+			return s;
+		}
+	};
 
-	@Getter
-	private Map<String, KkmData> nameToData = new HashMap<>();
+	public static Function<String, String> FORMATTER_IS = s -> {
+		try {
+			int i = Integer.parseInt(s);
+			return String.format(Locale.GERMAN, "%,d", i);
+		} catch (NumberFormatException e) {
+			return s;
+		}
+	};
+
+	public static Function<Double, String> FORMATTER_D = s -> {
+		return String.format(Locale.GERMAN, "%.2f", s);
+	};
+
+	public static Function<Integer, String> FORMATTER_I = s -> {
+		return String.format(Locale.GERMAN, "%,d", s);
+	};
+
+	private static final DateTimeFormatter _FORMATTER_DATE = DateTimeFormatter
+			.ofPattern("dd.MM.YYYY");
+
+	public static Function<LocalDate, String> FORMATTER_DATE = s -> {
+		return _FORMATTER_DATE.format(s);
+	};
 
 }

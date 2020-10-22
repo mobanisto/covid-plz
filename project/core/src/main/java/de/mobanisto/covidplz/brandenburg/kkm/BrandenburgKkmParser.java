@@ -234,7 +234,7 @@ public class BrandenburgKkmParser
 			}
 		}
 
-		Data rowData = new Data(newCases24, casesTotal, incidence100k,
+		KkmData rowData = new KkmData(newCases24, casesTotal, incidence100k,
 				incidence100k_7, deathsTotal);
 
 		if (validNames.contains(name)) {

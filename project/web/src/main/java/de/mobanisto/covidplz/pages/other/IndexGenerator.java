@@ -22,21 +22,30 @@
 
 package de.mobanisto.covidplz.pages.other;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
 import de.mobanisto.covidplz.Website;
-import de.mobanisto.covidplz.content.DataTable;
+import de.mobanisto.covidplz.brandenburg.kkm.BrandenburgKkmData;
+import de.mobanisto.covidplz.brandenburg.kkm.KkmData;
+import de.mobanisto.covidplz.content.BrandenburgDataTable;
+import de.mobanisto.covidplz.content.RkiDataTable;
 import de.mobanisto.covidplz.content.Shop;
 import de.mobanisto.covidplz.content.Snippets;
 import de.mobanisto.covidplz.mapping.Mapping;
 import de.mobanisto.covidplz.mapping.PartialRsRelation;
 import de.mobanisto.covidplz.model.DailyData;
 import de.mobanisto.covidplz.model.RegionData;
+import de.mobanisto.covidplz.model.germany.Bundesland;
+import de.mobanisto.covidplz.model.germany.GermanyRegionLookup;
+import de.mobanisto.covidplz.model.germany.Kreis;
 import de.mobanisto.covidplz.pages.base.SimpleBaseGenerator;
 import de.mobanisto.covidplz.rki.Berlin;
 import de.mobanisto.covidplz.rki.daily.Fields;
+import de.topobyte.collections.util.ListUtil;
 import de.topobyte.jsoup.HTML;
 import de.topobyte.jsoup.bootstrap4.Bootstrap;
 import de.topobyte.jsoup.bootstrap4.components.Alert;
@@ -139,8 +148,12 @@ public class IndexGenerator extends SimpleBaseGenerator
 
 	private void results(Element element)
 	{
+		GermanyRegionLookup germany = Website.INSTANCE.getData()
+				.getGermanyRegionLookup();
 		Mapping mapping = Website.INSTANCE.getData().getMapping();
 		DailyData dailyData = Website.INSTANCE.getDailyData();
+		BrandenburgKkmData kkm = Website.INSTANCE.getData()
+				.getBrandenburgKkmData();
 
 		List<PartialRsRelation> rkis = mapping.getCodeToRKI().get(plz);
 		if (rkis == null) {
@@ -189,10 +202,26 @@ public class IndexGenerator extends SimpleBaseGenerator
 			}
 		}
 
+		Bundesland brandenburg = germany.getIdToLand().get("12");
+
+		Map<LocalDate, Map<String, KkmData>> dateToNameToData = kkm
+				.getDateToNameToData();
+		List<LocalDate> kkmDates = new ArrayList<>(dateToNameToData.keySet());
+		Collections.sort(kkmDates);
+
 		// For each ID, print a section with data table
 		for (String rs : rss) {
 			RegionData regionData = dailyData.getRsToRegionData().get(rs);
-			data(element, rs, regionData);
+
+			Kreis kreis = germany.getIdToKreis().get(rs);
+			if (kreis != null && kreis.getBundesland() == brandenburg) {
+				LocalDate latestDate = ListUtil.last(kkmDates);
+				Map<String, KkmData> map = dateToNameToData.get(latestDate);
+				KkmData data = map.get(rs);
+				data(element, rs, regionData, data, latestDate);
+			} else {
+				data(element, rs, regionData);
+			}
 		}
 
 		Alert alertNoWarranty = element
@@ -219,8 +248,24 @@ public class IndexGenerator extends SimpleBaseGenerator
 		element.ac(
 				HTML.h2(String.format("%s %s", bezeichnungRegion, nameRegion)));
 
-		DataTable dataTable = new DataTable(data);
+		RkiDataTable dataTable = new RkiDataTable(data);
 		dataTable.add(element);
+	}
+
+	private void data(Element element, String rs, RegionData rkiData,
+			KkmData kkmData, LocalDate date)
+	{
+		String bezeichnungRegion = rkiData.getData().get(Fields.BEZ);
+		String nameRegion = rkiData.getData().get(Fields.GEN);
+
+		element.ac(
+				HTML.h2(String.format("%s %s", bezeichnungRegion, nameRegion)));
+
+		BrandenburgDataTable dataTable1 = new BrandenburgDataTable(rkiData,
+				kkmData, date);
+		RkiDataTable dataTable2 = new RkiDataTable(rkiData);
+		dataTable1.add(element);
+		dataTable2.add(element);
 	}
 
 	private void shop()

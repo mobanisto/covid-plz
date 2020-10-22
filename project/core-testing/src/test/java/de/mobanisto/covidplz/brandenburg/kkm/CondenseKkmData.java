@@ -124,15 +124,15 @@ public class CondenseKkmData
 			return;
 		}
 
-		Map<LocalDate, Map<String, Data>> dateToNameToData = data
+		Map<LocalDate, Map<String, KkmData>> dateToNameToData = data
 				.getDateToNameToData();
-		Map<String, Data> nameToData = dateToNameToData.get(date);
+		Map<String, KkmData> nameToData = dateToNameToData.get(date);
 		if (nameToData == null) {
 			nameToData = new TreeMap<>();
 			dateToNameToData.put(date, nameToData);
 		}
 
-		Map<String, Data> currentNameToData = dayData.getNameToData();
+		Map<String, KkmData> currentNameToData = dayData.getNameToData();
 		for (String name : currentNameToData.keySet()) {
 			if (name.equals("Brandenburg gesamt")) {
 				continue;

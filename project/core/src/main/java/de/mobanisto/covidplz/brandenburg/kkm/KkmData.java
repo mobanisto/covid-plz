@@ -24,7 +24,7 @@ package de.mobanisto.covidplz.brandenburg.kkm;
 
 import lombok.Getter;
 
-public class Data
+public class KkmData
 {
 
 	@Getter
@@ -38,7 +38,7 @@ public class Data
 	@Getter
 	private int deathsTotal;
 
-	public Data(int newCases24, int casesTotal, double incidence100k,
+	public KkmData(int newCases24, int casesTotal, double incidence100k,
 			double incidence100k_7, int deathsTotal)
 	{
 		this.newCases24 = newCases24;

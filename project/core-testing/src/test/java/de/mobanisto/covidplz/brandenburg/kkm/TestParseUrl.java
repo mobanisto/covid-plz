@@ -38,9 +38,9 @@ public class TestParseUrl
 		SingleBrandenburgKkmData data = BrandenburgKkm
 				.parse(LocalDate.of(2020, 8, 20));
 
-		Map<String, Data> nameToData = data.getNameToData();
+		Map<String, KkmData> nameToData = data.getNameToData();
 
-		Data total = nameToData.get("Brandenburg gesamt");
+		KkmData total = nameToData.get("Brandenburg gesamt");
 		Assert.assertEquals(17, total.getNewCases24());
 		Assert.assertEquals(3782, total.getCasesTotal());
 		Assert.assertEquals(149.2, total.getIncidence100k(), 0.0001);
@@ -56,9 +56,9 @@ public class TestParseUrl
 		SingleBrandenburgKkmData data = BrandenburgKkm
 				.parse(LocalDate.of(2020, 10, 20));
 
-		Map<String, Data> nameToData = data.getNameToData();
+		Map<String, KkmData> nameToData = data.getNameToData();
 
-		Data total = nameToData.get("Brandenburg gesamt");
+		KkmData total = nameToData.get("Brandenburg gesamt");
 		Assert.assertEquals(74, total.getNewCases24());
 		Assert.assertEquals(5761, total.getCasesTotal());
 		Assert.assertEquals(228.4, total.getIncidence100k(), 0.0001);

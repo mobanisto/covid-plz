@@ -32,6 +32,6 @@ public class BrandenburgKkmData
 {
 
 	@Getter
-	private Map<LocalDate, Map<String, Data>> dateToNameToData = new TreeMap<>();
+	private Map<LocalDate, Map<String, KkmData>> dateToNameToData = new TreeMap<>();
 
 }

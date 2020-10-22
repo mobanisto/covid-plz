@@ -22,7 +22,6 @@
 
 package de.mobanisto.covidplz.content;
 
-import java.util.Locale;
 import java.util.function.Function;
 
 import de.mobanisto.covidplz.model.RegionData;
@@ -32,12 +31,12 @@ import de.topobyte.jsoup.components.Table;
 import de.topobyte.jsoup.components.TableRow;
 import de.topobyte.jsoup.nodes.Element;
 
-public class DataTable
+public class RkiDataTable
 {
 
 	private RegionData data;
 
-	public DataTable(RegionData data)
+	public RkiDataTable(RegionData data)
 	{
 		this.data = data;
 	}
@@ -79,31 +78,13 @@ public class DataTable
 
 	private TableRow rowD(Table table, String title, String id)
 	{
-		return row(table, title, id, formatterD);
+		return row(table, title, id, Formatters.FORMATTER_DS);
 	}
 
 	private TableRow rowI(Table table, String title, String id)
 	{
-		return row(table, title, id, formatterI);
+		return row(table, title, id, Formatters.FORMATTER_IS);
 	}
-
-	private static Function<String, String> formatterD = s -> {
-		try {
-			double d = Double.parseDouble(s);
-			return String.format(Locale.GERMAN, "%.2f", d);
-		} catch (NumberFormatException e) {
-			return s;
-		}
-	};
-
-	private static Function<String, String> formatterI = s -> {
-		try {
-			int i = Integer.parseInt(s);
-			return String.format(Locale.GERMAN, "%,d", i);
-		} catch (NumberFormatException e) {
-			return s;
-		}
-	};
 
 	private TableRow row(Table table, String title, String id,
 			Function<String, String> formatter)

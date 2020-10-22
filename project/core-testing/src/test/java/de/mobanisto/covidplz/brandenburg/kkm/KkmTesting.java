@@ -31,13 +31,13 @@ import org.junit.Assert;
 public class KkmTesting
 {
 
-	public static void assertSums(Map<String, Data> nameToData)
+	public static void assertSums(Map<String, KkmData> nameToData)
 	{
 		String nameTotal = "Brandenburg gesamt";
 
-		Data total = nameToData.get(nameTotal);
+		KkmData total = nameToData.get(nameTotal);
 
-		List<Data> entries = new ArrayList<>();
+		List<KkmData> entries = new ArrayList<>();
 		for (String key : nameToData.keySet()) {
 			if (key.equals(nameTotal)) {
 				continue;
@@ -49,7 +49,7 @@ public class KkmTesting
 		int casesTotal = 0;
 		int deathsTotal = 0;
 
-		for (Data data : entries) {
+		for (KkmData data : entries) {
 			newCases24 += data.getNewCases24();
 			casesTotal += data.getCasesTotal();
 			deathsTotal += data.getDeathsTotal();

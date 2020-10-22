@@ -74,7 +74,7 @@ public class ParseAllKkmData
 		SingleBrandenburgKkmData data = BrandenburgKkm.parse(input, date);
 
 		if (data.isValid()) {
-			Map<String, Data> nameToData = data.getNameToData();
+			Map<String, KkmData> nameToData = data.getNameToData();
 			try {
 				KkmTesting.assertSums(nameToData);
 			} catch (AssertionError e) {
