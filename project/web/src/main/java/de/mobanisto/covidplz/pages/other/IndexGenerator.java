@@ -218,10 +218,10 @@ public class IndexGenerator extends SimpleBaseGenerator
 		Collections.sort(kkmDates);
 
 		if (isBrandenburg) {
-			Alert alertBrandenburg = element
-					.ac(Bootstrap.alert(ContextualType.WARNING));
-			alertBrandenburg.appendText(
-					"Für Brandenburg werden mehrere Datenquellen angezeigt.");
+			// Alert alertBrandenburg = element
+			// .ac(Bootstrap.alert(ContextualType.WARNING));
+			// alertBrandenburg.appendText(
+			// "Für Brandenburg werden mehrere Datenquellen angezeigt.");
 		}
 
 		// For each ID, print a section with data table
@@ -270,6 +270,7 @@ public class IndexGenerator extends SimpleBaseGenerator
 		element.ac(
 				HTML.h2(String.format("%s %s", bezeichnungRegion, nameRegion)));
 
+		element.ac(HTML.h6("Robert-Koch-Institut (RKI):"));
 		RkiDataTable dataTable = new RkiDataTable(data, true);
 		dataTable.add(element);
 	}
@@ -285,14 +286,13 @@ public class IndexGenerator extends SimpleBaseGenerator
 
 		BrandenburgDataTable dataTable1 = new BrandenburgDataTable(rkiData,
 				kkmData, date, true);
-		RkiDataTable dataTable2 = new RkiDataTable(rkiData, false);
-
-		element.ac(HTML.h5(
+		element.ac(HTML.h6(
 				"Landesamt für Arbeitsschutz, Verbraucherschutz und Gesundheit (LAVG):"));
 		dataTable1.add(element);
 
-		element.ac(HTML.h5("Robert-Koch-Institut (RKI):"));
-		dataTable2.add(element);
+		// RkiDataTable dataTable2 = new RkiDataTable(rkiData, false);
+		// element.ac(HTML.h6("Robert-Koch-Institut (RKI):"));
+		// dataTable2.add(element);
 	}
 
 	private void shop()
