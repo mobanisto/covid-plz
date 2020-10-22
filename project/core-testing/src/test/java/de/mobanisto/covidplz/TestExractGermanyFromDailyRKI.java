@@ -24,44 +24,41 @@ package de.mobanisto.covidplz;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
-import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.zip.GZIPInputStream;
 
 import org.junit.Test;
 
 import com.google.gson.Gson;
 
-import de.mobanisto.covidplz.model.RawData;
-import de.mobanisto.covidplz.model.RawEntry;
+import de.mobanisto.covidplz.model.DailyData;
+import de.mobanisto.covidplz.model.RegionData;
 import de.mobanisto.covidplz.model.germany.Bundesland;
 import de.mobanisto.covidplz.model.germany.Germany;
 import de.mobanisto.covidplz.model.germany.Kreis;
 import de.mobanisto.covidplz.model.germany.Stadtteil;
+import de.mobanisto.covidplz.rki.daily.Fields;
 import de.topobyte.system.utils.SystemPaths;
 
-public class TestExractGermanyFromRawRKI
+public class TestExractGermanyFromDailyRKI
 {
 
 	@Test
 	public void test() throws IOException
 	{
 		Path repo = SystemPaths.CWD.getParent().getParent();
-		Path file = repo.resolve("data/raw/2020_10_15.csv.gz");
+		Path file = repo.resolve("data/daily/2020_10_08.csv");
 
-		InputStream input = Files.newInputStream(file);
-		GZIPInputStream gzipInput = new GZIPInputStream(input);
+		DailyData data = DailyDataLoader.load(file);
 
-		RawData data = RawDataLoader.load(gzipInput);
-		List<RawEntry> entries = data.getEntries();
-
-		Germany germany = build(entries);
+		Germany germany = build(data);
 		Gson gson = GsonUtil.gson();
 		Gson gsonGermany = GsonUtil.germany(null);
 
@@ -83,51 +80,54 @@ public class TestExractGermanyFromRawRKI
 		}
 	}
 
-	private Germany build(List<RawEntry> entries)
+	private Germany build(DailyData data)
 	{
 		Germany germany = new Germany();
 
 		Map<String, Bundesland> idToBundesland = new HashMap<>();
 		Set<String> names = new HashSet<>();
 
-		for (RawEntry entry : entries) {
-			String id = Integer.toString(entry.getId());
-			String idBundesland = entry.getIdBundesland();
+		Map<String, RegionData> map = data.getRsToRegionData();
+		List<String> rss = new ArrayList<>(map.keySet());
+		Collections.sort(rss);
+
+		for (String rs : rss) {
+			RegionData regionData = map.get(rs);
+			Map<String, String> rd = regionData.getData();
+			String idBundesland = rd.get(Fields.BL_ID);
 
 			Bundesland bundesland = idToBundesland.get(idBundesland);
 
 			if (bundesland == null) {
-				String nameBundesland = entry.getBundesland();
+				String nameBundesland = rd.get(Fields.BL);
 				bundesland = new Bundesland(idBundesland, nameBundesland);
 				germany.getLaender().add(bundesland);
 				idToBundesland.put(idBundesland, bundesland);
 			}
 
-			String landkreis = entry.getLandkreis();
-			if (names.contains(landkreis)) {
+			String name = rd.get(Fields.GEN);
+			String bez = rd.get(Fields.BEZ);
+			if (names.contains(name)) {
 				continue;
 			}
-			names.add(landkreis);
+			names.add(name);
 
-			if (landkreis.startsWith("LK ")) {
-				String name = landkreis.substring(3);
+			if (name.equals("Region Hannover")) {
+				germany.getKreise().add(new Kreis(rs, "Hannover",
+						Kreis.Type.REGION, bundesland));
+			} else if (name.equals("Städteregion Aachen")) {
 				germany.getKreise().add(
-						new Kreis(id, name, Kreis.Type.LANDKREIS, bundesland));
-			} else if (landkreis.startsWith("SK Berlin ")) {
-				String name = landkreis.substring(10);
-				germany.getStadtteile().add(new Stadtteil(id, name));
-			} else if (landkreis.startsWith("SK ")) {
-				String name = landkreis.substring(3);
+						new Kreis(rs, "Aachen", Kreis.Type.REGION, bundesland));
+
+			} else if (bez.equals("Landkreis")) {
 				germany.getKreise().add(
-						new Kreis(id, name, Kreis.Type.STADTKREIS, bundesland));
-			} else if (landkreis.equals("StadtRegion Aachen")) {
-				String name = "Aachen";
+						new Kreis(rs, name, Kreis.Type.LANDKREIS, bundesland));
+			} else if (bez.equals("Kreisfreie Stadt")) {
 				germany.getKreise().add(
-						new Kreis(id, name, Kreis.Type.REGION, bundesland));
-			} else if (landkreis.equals("Region Hannover")) {
-				String name = "Hannover";
-				germany.getKreise().add(
-						new Kreis(id, name, Kreis.Type.REGION, bundesland));
+						new Kreis(rs, name, Kreis.Type.STADTKREIS, bundesland));
+			} else if (bez.equals("Bezirk")) {
+				name = name.substring(7);
+				germany.getStadtteile().add(new Stadtteil(rs, name));
 			}
 		}
 
