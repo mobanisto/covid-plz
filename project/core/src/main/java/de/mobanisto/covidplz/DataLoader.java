@@ -39,6 +39,7 @@ import de.mobanisto.covidplz.mapping.PartialRsRelation;
 import de.mobanisto.covidplz.model.Data;
 import de.mobanisto.covidplz.model.germany.Bundesland;
 import de.mobanisto.covidplz.model.germany.Germany;
+import de.mobanisto.covidplz.model.germany.GermanyRegionLookup;
 import de.mobanisto.covidplz.model.germany.Kreis;
 import de.mobanisto.covidplz.model.germany.Stadtteil;
 import de.topobyte.melon.commons.io.Resources;
@@ -91,6 +92,7 @@ public class DataLoader
 		germany.getStadtteile().addAll(stadtteile);
 
 		data.setGermany(germany);
+		data.setGermanyRegionLookup(new GermanyRegionLookup(germany));
 
 		// Process mapping
 

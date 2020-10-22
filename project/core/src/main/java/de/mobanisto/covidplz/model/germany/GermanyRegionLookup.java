@@ -20,42 +20,34 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-package de.mobanisto.covidplz.model;
+package de.mobanisto.covidplz.model.germany;
 
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
-import de.mobanisto.covidplz.brandenburg.kkm.BrandenburgKkmData;
-import de.mobanisto.covidplz.mapping.Mapping;
-import de.mobanisto.covidplz.model.germany.Germany;
-import de.mobanisto.covidplz.model.germany.GermanyRegionLookup;
 import lombok.Getter;
-import lombok.Setter;
 
-public class Data
+public class GermanyRegionLookup
 {
 
 	@Getter
-	@Setter
-	private Germany germany;
-
+	private Map<String, Bundesland> idToLand = new HashMap<>();
 	@Getter
-	@Setter
-	private GermanyRegionLookup germanyRegionLookup;
-
+	private Map<String, Kreis> idToKreis = new HashMap<>();
 	@Getter
-	@Setter
-	private Set<String> postalCodes;
+	private Map<String, Stadtteil> idToStadtteil = new HashMap<>();
 
-	@Getter
-	@Setter
-	private Set<String> rkiIdentifiers;
-
-	@Getter
-	@Setter
-	private Mapping mapping;
-
-	@Getter
-	@Setter
-	private BrandenburgKkmData brandenburgKkmData;
+	public GermanyRegionLookup(Germany germany)
+	{
+		for (Bundesland land : germany.getLaender()) {
+			idToLand.put(land.getId(), land);
+		}
+		for (Kreis kreis : germany.getKreise()) {
+			idToKreis.put(kreis.getId(), kreis);
+		}
+		for (Stadtteil stadtteil : germany.getStadtteile()) {
+			idToStadtteil.put(stadtteil.getId(), stadtteil);
+		}
+	}
 
 }
