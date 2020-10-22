@@ -55,9 +55,10 @@ public class KkmTesting
 			deathsTotal += data.getDeathsTotal();
 		}
 
-		Assert.assertEquals(total.getNewCases24(), newCases24);
-		Assert.assertEquals(total.getCasesTotal(), casesTotal);
-		Assert.assertEquals(total.getDeathsTotal(), deathsTotal);
+		Assert.assertEquals("new cases", total.getNewCases24(), newCases24);
+		Assert.assertEquals("total cases", total.getCasesTotal(), casesTotal);
+		Assert.assertEquals("deaths total", total.getDeathsTotal(),
+				deathsTotal);
 	}
 
 }

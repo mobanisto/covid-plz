@@ -24,20 +24,33 @@ package de.mobanisto.covidplz.brandenburg.kkm;
 
 import java.text.NumberFormat;
 import java.text.ParseException;
+import java.time.LocalDate;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Set;
+import java.util.function.Function;
 
 import org.apache.commons.text.similarity.LevenshteinDistance;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.google.common.collect.BiMap;
+import com.google.common.collect.HashBiMap;
 
 import lombok.Getter;
 
 public class BrandenburgKkmParser
 {
+
+	final static Logger logger = LoggerFactory
+			.getLogger(BrandenburgKkmParser.class);
 
 	private static Set<String> validNames = new HashSet<>();
 	static {
@@ -49,12 +62,29 @@ public class BrandenburgKkmParser
 				"Teltow-Fläming", "Uckermark", "Brandenburg gesamt"));
 	}
 
+	private static enum Column {
+		NAME,
+		NEW_CASES_24,
+		CASES_TOTAL,
+		DEATHS_TOTAL,
+		INCIDENCE100_7,
+		INCIDENCE100,
+	}
+
 	@Getter
 	private BrandenburgKkmData data = new BrandenburgKkmData();
 
-	public void parse(Document doc) throws ParsingException
+	private LocalDate date;
+
+	public void parse(Document doc, LocalDate date) throws ParsingException
 	{
+		this.date = date;
+
 		Elements tables = doc.select("table");
+		if (tables.size() == 0) {
+			logger.warn("No table found");
+		}
+
 		for (int i = 0; i < tables.size(); i++) {
 			Element table = tables.get(i);
 			parseTable(table);
@@ -85,20 +115,8 @@ public class BrandenburgKkmParser
 		for (int k = 0; k < cells.size(); k++) {
 			Element cell = cells.get(k);
 			String text = cell.text();
-			boolean passed = false;
-			if (k == 0) {
-				passed = check(text, "kreis");
-			} else if (k == 1) {
-				passed = check(text, "neue", "bestätigt", "fälle", "24");
-			} else if (k == 2) {
-				passed = check(text, "zahl", "bestätigt", "fälle", "kumuliert");
-			} else if (k == 3) {
-				passed = check(text, "7", "tage", "inzidenz");
-			} else if (k == 4) {
-				passed = check(text, "inzidenz", "kumuliert");
-			} else if (k == 5) {
-				passed = check(text, "sterbefälle", "kumuliert");
-			}
+			boolean passed = map(text, k);
+
 			if (!passed) {
 				throw new ParsingException(
 						String.format("Unexpected text in cell '%s'", text));
@@ -106,11 +124,70 @@ public class BrandenburgKkmParser
 		}
 	}
 
-	private boolean check(String text, String... contained)
+	private static Map<Column, List<String>> requiredWords = new HashMap<>();
+	static {
+		requiredWords.put(Column.NAME,
+				Arrays.asList("landkreis", "kreisfreie"));
+		requiredWords.put(Column.NEW_CASES_24,
+				Arrays.asList("neue", "bestätigt", "fälle", "24-h"));
+		requiredWords.put(Column.CASES_TOTAL,
+				Arrays.asList("zahl", "bestätigt", "fälle"));
+		requiredWords.put(Column.DEATHS_TOTAL,
+				Arrays.asList("sterbefälle", "kumuliert"));
+		requiredWords.put(Column.INCIDENCE100_7,
+				Arrays.asList("7-tage", "inzidenz", "100.000"));
+		requiredWords.put(Column.INCIDENCE100,
+				Arrays.asList("inzidenz", "bestätigt", "100.000"));
+	}
+
+	private BiMap<Integer, Column> map = HashBiMap.create();
+
+	private boolean map(String text, int k)
 	{
+		int found = 0;
 		String lower = text.toLowerCase();
+		for (Column column : Column.values()) {
+			if (matcher(column).apply(lower)) {
+				if (++found == 1) {
+					map.put(k, column);
+				} else {
+					logger.warn(String.format("Ambigious column '%s'", text));
+					logger.warn(String.format("Found '%s'",
+							requiredWords.get(map.get(k))));
+					logger.warn(String.format("But also '%s'",
+							requiredWords.get(column)));
+				}
+			}
+		}
+		return found == 1;
+	}
+
+	private Function<String, Boolean> matcher(Column column)
+	{
+		if (column == Column.CASES_TOTAL) {
+			return s -> {
+				boolean containsAll = containsAll(s, requiredWords.get(column));
+				if (!containsAll) {
+					return false;
+				}
+				return s.contains("kumuliert") || s.contains("kumulativ");
+			};
+		} else if (column == Column.DEATHS_TOTAL) {
+			if (date.isBefore(LocalDate.of(2020, 5, 7))) {
+				return s -> containsAll(s,
+						Arrays.asList("sterbefälle", "wohnort"));
+			} else {
+				return s -> containsAll(s, requiredWords.get(column));
+			}
+		} else {
+			return s -> containsAll(s, requiredWords.get(column));
+		}
+	}
+
+	private boolean containsAll(String text, Iterable<String> contained)
+	{
 		for (String string : contained) {
-			if (!lower.contains(string)) {
+			if (!text.contains(string)) {
 				return false;
 			}
 		}
@@ -129,18 +206,31 @@ public class BrandenburgKkmParser
 		for (int k = 0; k < cells.size(); k++) {
 			Element cell = cells.get(k);
 			String text = cell.text();
-			if (k == 0) {
+			Column column = map.get(k);
+			if (column == null) {
+				continue;
+			}
+			switch (column) {
+			default:
+				break;
+			case NAME:
 				name = text;
-			} else if (k == 1) {
+				break;
+			case NEW_CASES_24:
 				newCases24 = parseInt(text);
-			} else if (k == 2) {
+				break;
+			case CASES_TOTAL:
 				casesTotal = parseInt(text);
-			} else if (k == 3) {
-				incidence100k_7 = parseDouble(text);
-			} else if (k == 4) {
-				incidence100k = parseDouble(text);
-			} else if (k == 5) {
+				break;
+			case DEATHS_TOTAL:
 				deathsTotal = parseInt(text);
+				break;
+			case INCIDENCE100:
+				incidence100k = parseDouble(text);
+				break;
+			case INCIDENCE100_7:
+				incidence100k_7 = parseDouble(text);
+				break;
 			}
 		}
 
@@ -156,6 +246,10 @@ public class BrandenburgKkmParser
 				int distance = LevenshteinDistance.getDefaultInstance()
 						.apply(name, valid);
 				if (distance < 3) {
+					if (distance > 0) {
+						logger.warn(String.format(
+								"Approximate match '%s' -> '%s'", name, valid));
+					}
 					data.getNameToData().put(valid, rowData);
 					break;
 				}

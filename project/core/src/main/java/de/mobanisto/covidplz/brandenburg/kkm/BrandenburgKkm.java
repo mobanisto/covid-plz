@@ -50,16 +50,16 @@ public class BrandenburgKkm
 		URL url = new URL(url(date));
 		URLConnection connection = url.openConnection();
 		try (InputStream input = connection.getInputStream()) {
-			return parse(input);
+			return parse(input, date);
 		}
 	}
 
-	public static BrandenburgKkmData parse(InputStream input)
+	public static BrandenburgKkmData parse(InputStream input, LocalDate date)
 			throws IOException, ParsingException
 	{
 		Document doc = Jsoup.parse(input, "UTF-8", "");
 		BrandenburgKkmParser parser = new BrandenburgKkmParser();
-		parser.parse(doc);
+		parser.parse(doc, date);
 		return parser.getData();
 	}
 

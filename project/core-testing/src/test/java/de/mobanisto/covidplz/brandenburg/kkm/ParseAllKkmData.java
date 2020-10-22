@@ -40,7 +40,7 @@ public class ParseAllKkmData
 
 	final static Logger logger = LoggerFactory.getLogger(ParseAllKkmData.class);
 
-	public static void main(String[] args) throws IOException, ParsingException
+	public static void main(String[] args) throws IOException
 	{
 		Path repo = SystemPaths.CWD.getParent().getParent();
 		Path dirKkm = repo.resolve("data/brandenburg/kkm");
@@ -58,7 +58,7 @@ public class ParseAllKkmData
 				continue;
 			}
 			try {
-				parse(file);
+				parse(file, date);
 			} catch (ParsingException e) {
 				System.out.println(e.getMessage());
 				continue;
@@ -66,11 +66,12 @@ public class ParseAllKkmData
 		}
 	}
 
-	private static void parse(Path file) throws IOException, ParsingException
+	private static void parse(Path file, LocalDate date)
+			throws IOException, ParsingException
 	{
 		System.out.println(file);
 		InputStream input = Files.newInputStream(file);
-		BrandenburgKkmData data = BrandenburgKkm.parse(input);
+		BrandenburgKkmData data = BrandenburgKkm.parse(input, date);
 
 		if (data.isValid()) {
 			Map<String, Data> nameToData = data.getNameToData();

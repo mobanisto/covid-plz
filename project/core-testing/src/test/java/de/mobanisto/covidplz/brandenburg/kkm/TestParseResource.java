@@ -24,6 +24,7 @@ package de.mobanisto.covidplz.brandenburg.kkm;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.time.LocalDate;
 import java.util.Map;
 
 import org.junit.Assert;
@@ -38,7 +39,8 @@ public class TestParseResource
 	public void test1() throws IOException, ParsingException
 	{
 		InputStream input = Resources.stream("brandenburg/kkm/2020-08-20.html");
-		BrandenburgKkmData data = BrandenburgKkm.parse(input);
+		BrandenburgKkmData data = BrandenburgKkm.parse(input,
+				LocalDate.of(2020, 8, 20));
 
 		Map<String, Data> nameToData = data.getNameToData();
 
@@ -56,7 +58,8 @@ public class TestParseResource
 	public void test2() throws IOException, ParsingException
 	{
 		InputStream input = Resources.stream("brandenburg/kkm/2020-10-20.html");
-		BrandenburgKkmData data = BrandenburgKkm.parse(input);
+		BrandenburgKkmData data = BrandenburgKkm.parse(input,
+				LocalDate.of(2020, 10, 20));
 
 		Map<String, Data> nameToData = data.getNameToData();
 
