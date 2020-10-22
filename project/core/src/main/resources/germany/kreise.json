@@ -2,2407 +2,1969 @@
   {
     "type": "STADTKREIS",
     "bundesland": "1",
-    "id": "44082977",
+    "id": "01001",
     "name": "Flensburg"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "1",
-    "id": "44083114",
+    "id": "01002",
     "name": "Kiel"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "1",
-    "id": "44083581",
+    "id": "01003",
     "name": "Lübeck"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "1",
-    "id": "44083906",
+    "id": "01004",
     "name": "Neumünster"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "1",
-    "id": "44084092",
-    "name": "Dithmarschen"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "1",
-    "id": "44084311",
-    "name": "Herzogtum Lauenburg"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "1",
-    "id": "44084675",
-    "name": "Nordfriesland"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "1",
-    "id": "44084833",
-    "name": "Ostholstein"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "1",
-    "id": "44084995",
-    "name": "Pinneberg"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "1",
-    "id": "44085858",
-    "name": "Plön"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "1",
-    "id": "44086030",
-    "name": "Rendsburg-Eckernförde"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "1",
-    "id": "44086400",
-    "name": "Schleswig-Flensburg"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "1",
-    "id": "44086602",
-    "name": "Segeberg"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "1",
-    "id": "44087116",
-    "name": "Steinburg"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "1",
-    "id": "44087298",
-    "name": "Stormarn"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "2",
-    "id": "44087929",
+    "id": "02000",
     "name": "Hamburg"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "3",
-    "id": "44092981",
+    "id": "03101",
     "name": "Braunschweig"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "3",
-    "id": "44093461",
+    "id": "03102",
     "name": "Salzgitter"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "3",
-    "id": "44093726",
+    "id": "03103",
     "name": "Wolfsburg"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "3",
-    "id": "44094103",
+    "id": "03151",
     "name": "Gifhorn"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "3",
-    "id": "44094365",
+    "id": "03153",
     "name": "Goslar"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "3",
-    "id": "44094683",
+    "id": "03154",
     "name": "Helmstedt"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "3",
-    "id": "44094838",
+    "id": "03155",
     "name": "Northeim"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "3",
-    "id": "44095032",
+    "id": "03157",
     "name": "Peine"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "3",
-    "id": "44095333",
+    "id": "03158",
     "name": "Wolfenbüttel"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "3",
-    "id": "44095550",
+    "id": "03159",
     "name": "Göttingen"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "3",
-    "id": "44096239",
-    "name": "Göttingen (alt)"
   },
   {
     "type": "REGION",
     "bundesland": "3",
-    "id": "44096727",
+    "id": "03241",
     "name": "Hannover"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "3",
-    "id": "44099992",
+    "id": "03251",
     "name": "Diepholz"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "3",
-    "id": "44100569",
+    "id": "03252",
     "name": "Hameln-Pyrmont"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "3",
-    "id": "44100809",
+    "id": "03254",
     "name": "Hildesheim"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "3",
-    "id": "44101404",
+    "id": "03255",
     "name": "Holzminden"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "3",
-    "id": "44101532",
+    "id": "03256",
     "name": "Nienburg (Weser)"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "3",
-    "id": "44101696",
+    "id": "03257",
     "name": "Schaumburg"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "3",
-    "id": "44102025",
+    "id": "03351",
     "name": "Celle"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "3",
-    "id": "44102373",
+    "id": "03352",
     "name": "Cuxhaven"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "3",
-    "id": "44102772",
+    "id": "03353",
     "name": "Harburg"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "3",
-    "id": "44103395",
+    "id": "03354",
     "name": "Lüchow-Dannenberg"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "3",
-    "id": "44103438",
+    "id": "03355",
     "name": "Lüneburg"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "3",
-    "id": "44103690",
+    "id": "03356",
     "name": "Osterholz"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "3",
-    "id": "44103898",
+    "id": "03357",
     "name": "Rotenburg (Wümme)"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "3",
-    "id": "44104214",
+    "id": "03358",
     "name": "Heidekreis"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "3",
-    "id": "44104352",
+    "id": "03359",
     "name": "Stade"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "3",
-    "id": "44104707",
+    "id": "03360",
     "name": "Uelzen"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "3",
-    "id": "44104807",
+    "id": "03361",
     "name": "Verden"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "3",
-    "id": "44105171",
+    "id": "03401",
     "name": "Delmenhorst"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "3",
-    "id": "44105430",
+    "id": "03402",
     "name": "Emden"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "3",
-    "id": "44105479",
-    "name": "Oldenburg"
+    "id": "03403",
+    "name": "Oldenburg (Oldb)"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "3",
-    "id": "44105784",
+    "id": "03404",
     "name": "Osnabrück"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "3",
-    "id": "44106539",
+    "id": "03405",
     "name": "Wilhelmshaven"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "3",
-    "id": "44106605",
+    "id": "03451",
     "name": "Ammerland"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "3",
-    "id": "44106846",
+    "id": "03452",
     "name": "Aurich"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "3",
-    "id": "44107132",
+    "id": "03453",
     "name": "Cloppenburg"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "3",
-    "id": "44107786",
+    "id": "03454",
     "name": "Emsland"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "3",
-    "id": "44108667",
+    "id": "03455",
     "name": "Friesland"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "3",
-    "id": "44108791",
+    "id": "03456",
     "name": "Grafschaft Bentheim"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "3",
-    "id": "44109201",
+    "id": "03457",
     "name": "Leer"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "3",
-    "id": "44109508",
+    "id": "03458",
     "name": "Oldenburg"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "3",
-    "id": "44109921",
-    "name": "Osnabrück"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "3",
-    "id": "44111274",
+    "id": "03460",
     "name": "Vechta"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "3",
-    "id": "44111733",
+    "id": "03461",
     "name": "Wesermarsch"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "3",
-    "id": "44111958",
+    "id": "03462",
     "name": "Wittmund"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "4",
-    "id": "44112036",
+    "id": "04011",
     "name": "Bremen"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "4",
-    "id": "44113860",
+    "id": "04012",
     "name": "Bremerhaven"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "5",
-    "id": "44114127",
+    "id": "05111",
     "name": "Düsseldorf"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "5",
-    "id": "44115905",
+    "id": "05112",
     "name": "Duisburg"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "5",
-    "id": "44118494",
+    "id": "05113",
     "name": "Essen"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "5",
-    "id": "44120537",
+    "id": "05114",
     "name": "Krefeld"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "5",
-    "id": "44121564",
+    "id": "05116",
     "name": "Mönchengladbach"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "5",
-    "id": "44122677",
-    "name": "Mülheim a.d.Ruhr"
+    "id": "05117",
+    "name": "Mülheim an der Ruhr"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "5",
-    "id": "44123356",
+    "id": "05119",
     "name": "Oberhausen"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "5",
-    "id": "44124031",
+    "id": "05120",
     "name": "Remscheid"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "5",
-    "id": "44124618",
+    "id": "05122",
     "name": "Solingen"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "5",
-    "id": "44125386",
+    "id": "05124",
     "name": "Wuppertal"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "5",
-    "id": "44127037",
-    "name": "Kleve"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "5",
-    "id": "44127972",
-    "name": "Mettmann"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "5",
-    "id": "44129953",
-    "name": "Rhein-Kreis Neuss"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "5",
-    "id": "44131327",
-    "name": "Viersen"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "5",
-    "id": "44132187",
-    "name": "Wesel"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "5",
-    "id": "44133591",
+    "id": "05314",
     "name": "Bonn"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "5",
-    "id": "44134883",
+    "id": "05315",
     "name": "Köln"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "5",
-    "id": "44137658",
+    "id": "05316",
     "name": "Leverkusen"
   },
   {
     "type": "REGION",
     "bundesland": "5",
-    "id": "44138356",
+    "id": "05334",
     "name": "Aachen"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "5",
-    "id": "44140873",
-    "name": "Düren"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "5",
-    "id": "44141884",
-    "name": "Rhein-Erft-Kreis"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "5",
-    "id": "44143557",
-    "name": "Euskirchen"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "5",
-    "id": "44144271",
-    "name": "Heinsberg"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "5",
-    "id": "44146124",
-    "name": "Oberbergischer Kreis"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "5",
-    "id": "44147005",
-    "name": "Rheinisch-Bergischer Kreis"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "5",
-    "id": "44147786",
-    "name": "Rhein-Sieg-Kreis"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "5",
-    "id": "44149377",
+    "id": "05512",
     "name": "Bottrop"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "5",
-    "id": "44149765",
+    "id": "05513",
     "name": "Gelsenkirchen"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "5",
-    "id": "44151002",
+    "id": "05515",
     "name": "Münster"
   },
   {
-    "type": "LANDKREIS",
-    "bundesland": "5",
-    "id": "44152053",
-    "name": "Borken"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "5",
-    "id": "44153274",
-    "name": "Coesfeld"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "5",
-    "id": "44154106",
-    "name": "Recklinghausen"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "5",
-    "id": "44156261",
-    "name": "Steinfurt"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "5",
-    "id": "44157762",
-    "name": "Warendorf"
-  },
-  {
     "type": "STADTKREIS",
     "bundesland": "5",
-    "id": "44158532",
+    "id": "05711",
     "name": "Bielefeld"
   },
   {
-    "type": "LANDKREIS",
-    "bundesland": "5",
-    "id": "44159253",
-    "name": "Gütersloh"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "5",
-    "id": "44160922",
-    "name": "Herford"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "5",
-    "id": "44161600",
-    "name": "Höxter"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "5",
-    "id": "44162028",
-    "name": "Lippe"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "5",
-    "id": "44162996",
-    "name": "Minden-Lübbecke"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "5",
-    "id": "44163870",
-    "name": "Paderborn"
-  },
-  {
     "type": "STADTKREIS",
     "bundesland": "5",
-    "id": "44164661",
+    "id": "05911",
     "name": "Bochum"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "5",
-    "id": "44165884",
+    "id": "05913",
     "name": "Dortmund"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "5",
-    "id": "44167853",
+    "id": "05914",
     "name": "Hagen"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "5",
-    "id": "44168642",
+    "id": "05915",
     "name": "Hamm"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "5",
-    "id": "44169790",
+    "id": "05916",
     "name": "Herne"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "5",
-    "id": "44170370",
-    "name": "Ennepe-Ruhr-Kreis"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "5",
-    "id": "44171341",
-    "name": "Hochsauerlandkreis"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "5",
-    "id": "44172161",
-    "name": "Märkischer Kreis"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "5",
-    "id": "44173282",
-    "name": "Olpe"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "5",
-    "id": "44174075",
-    "name": "Siegen-Wittgenstein"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "5",
-    "id": "44174784",
-    "name": "Soest"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "5",
-    "id": "44175411",
-    "name": "Unna"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "6",
-    "id": "44176778",
+    "id": "06411",
     "name": "Darmstadt"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "6",
-    "id": "44177286",
+    "id": "06412",
     "name": "Frankfurt am Main"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "6",
-    "id": "44180341",
-    "name": "Offenbach"
+    "id": "06413",
+    "name": "Offenbach am Main"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "6",
-    "id": "44181041",
+    "id": "06414",
     "name": "Wiesbaden"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "6",
-    "id": "44182138",
+    "id": "06431",
     "name": "Bergstraße"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "6",
-    "id": "44182817",
+    "id": "06432",
     "name": "Darmstadt-Dieburg"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "6",
-    "id": "44183595",
+    "id": "06433",
     "name": "Groß-Gerau"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "6",
-    "id": "44184567",
+    "id": "06434",
     "name": "Hochtaunuskreis"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "6",
-    "id": "44185170",
+    "id": "06435",
     "name": "Main-Kinzig-Kreis"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "6",
-    "id": "44186546",
+    "id": "06436",
     "name": "Main-Taunus-Kreis"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "6",
-    "id": "44187316",
+    "id": "06437",
     "name": "Odenwaldkreis"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "6",
-    "id": "44187782",
+    "id": "06438",
     "name": "Offenbach"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "6",
-    "id": "44189105",
+    "id": "06439",
     "name": "Rheingau-Taunus-Kreis"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "6",
-    "id": "44189669",
+    "id": "06440",
     "name": "Wetteraukreis"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "6",
-    "id": "44190375",
+    "id": "06531",
     "name": "Gießen"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "6",
-    "id": "44190933",
+    "id": "06532",
     "name": "Lahn-Dill-Kreis"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "6",
-    "id": "44191499",
+    "id": "06533",
     "name": "Limburg-Weilburg"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "6",
-    "id": "44192009",
+    "id": "06534",
     "name": "Marburg-Biedenkopf"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "6",
-    "id": "44192575",
+    "id": "06535",
     "name": "Vogelsbergkreis"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "6",
-    "id": "44192770",
+    "id": "06611",
     "name": "Kassel"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "6",
-    "id": "44193390",
+    "id": "06631",
     "name": "Fulda"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "6",
-    "id": "44194010",
+    "id": "06632",
     "name": "Hersfeld-Rotenburg"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "6",
-    "id": "44194299",
-    "name": "Kassel"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "6",
-    "id": "44194863",
+    "id": "06634",
     "name": "Schwalm-Eder-Kreis"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "6",
-    "id": "44195510",
+    "id": "06635",
     "name": "Waldeck-Frankenberg"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "6",
-    "id": "44195787",
+    "id": "06636",
     "name": "Werra-Meißner-Kreis"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "7",
-    "id": "44196056",
+    "id": "07111",
     "name": "Koblenz"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "7",
-    "id": "44196380",
+    "id": "07131",
     "name": "Ahrweiler"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "7",
-    "id": "44196729",
-    "name": "Altenkirchen"
+    "id": "07132",
+    "name": "Altenkirchen (Westerwald)"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "7",
-    "id": "44196999",
+    "id": "07133",
     "name": "Bad Kreuznach"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "7",
-    "id": "44197294",
+    "id": "07134",
     "name": "Birkenfeld"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "7",
-    "id": "44197426",
+    "id": "07135",
     "name": "Cochem-Zell"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "7",
-    "id": "44197589",
+    "id": "07137",
     "name": "Mayen-Koblenz"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "7",
-    "id": "44198048",
+    "id": "07138",
     "name": "Neuwied"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "7",
-    "id": "44198429",
+    "id": "07140",
     "name": "Rhein-Hunsrück-Kreis"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "7",
-    "id": "44198646",
+    "id": "07141",
     "name": "Rhein-Lahn-Kreis"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "7",
-    "id": "44198878",
+    "id": "07143",
     "name": "Westerwaldkreis"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "7",
-    "id": "44199456",
+    "id": "07211",
     "name": "Trier"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "7",
-    "id": "44199701",
+    "id": "07231",
     "name": "Bernkastel-Wittlich"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "7",
-    "id": "44199991",
-    "name": "Bitburg-Prüm"
+    "id": "07232",
+    "name": "Eifelkreis Bitburg-Prüm"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "7",
-    "id": "44200309",
+    "id": "07233",
     "name": "Vulkaneifel"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "7",
-    "id": "44200465",
+    "id": "07235",
     "name": "Trier-Saarburg"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "7",
-    "id": "44200863",
-    "name": "Frankenthal"
+    "id": "07311",
+    "name": "Frankenthal (Pfalz)"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "7",
-    "id": "44200968",
+    "id": "07312",
     "name": "Kaiserslautern"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "7",
-    "id": "44201277",
-    "name": "Landau i.d.Pfalz"
+    "id": "07313",
+    "name": "Landau in der Pfalz"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "7",
-    "id": "44201375",
-    "name": "Ludwigshafen"
+    "id": "07314",
+    "name": "Ludwigshafen am Rhein"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "7",
-    "id": "44201944",
+    "id": "07315",
     "name": "Mainz"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "7",
-    "id": "44202972",
-    "name": "Neustadt a.d.Weinstraße"
+    "id": "07316",
+    "name": "Neustadt an der Weinstraße"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "7",
-    "id": "44203133",
+    "id": "07317",
     "name": "Pirmasens"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "7",
-    "id": "44203190",
+    "id": "07318",
     "name": "Speyer"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "7",
-    "id": "44203361",
+    "id": "07319",
     "name": "Worms"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "7",
-    "id": "44203694",
+    "id": "07320",
     "name": "Zweibrücken"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "7",
-    "id": "44203765",
+    "id": "07331",
     "name": "Alzey-Worms"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "7",
-    "id": "44204169",
+    "id": "07332",
     "name": "Bad Dürkheim"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "7",
-    "id": "44204587",
+    "id": "07333",
     "name": "Donnersbergkreis"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "7",
-    "id": "44204741",
+    "id": "07334",
     "name": "Germersheim"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "7",
-    "id": "44205108",
-    "name": "Kaiserslautern"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "7",
-    "id": "44205373",
+    "id": "07336",
     "name": "Kusel"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "7",
-    "id": "44205507",
+    "id": "07337",
     "name": "Südliche Weinstraße"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "7",
-    "id": "44205692",
+    "id": "07338",
     "name": "Rhein-Pfalz-Kreis"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "7",
-    "id": "44206084",
+    "id": "07339",
     "name": "Mainz-Bingen"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "7",
-    "id": "44206745",
+    "id": "07340",
     "name": "Südwestpfalz"
-  },
-  {
-    "type": "STADTKREIS",
-    "bundesland": "8",
-    "id": "44206897",
-    "name": "Stuttgart"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "8",
-    "id": "44209198",
+    "id": "08115",
     "name": "Böblingen"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "8",
-    "id": "44210441",
+    "id": "08116",
     "name": "Esslingen"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "8",
-    "id": "44213003",
+    "id": "08117",
     "name": "Göppingen"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "8",
-    "id": "44214192",
+    "id": "08118",
     "name": "Ludwigsburg"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "8",
-    "id": "44216670",
+    "id": "08119",
     "name": "Rems-Murr-Kreis"
   },
   {
-    "type": "STADTKREIS",
-    "bundesland": "8",
-    "id": "44218496",
-    "name": "Heilbronn"
-  },
-  {
     "type": "LANDKREIS",
     "bundesland": "8",
-    "id": "44219191",
-    "name": "Heilbronn"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "8",
-    "id": "44220418",
+    "id": "08126",
     "name": "Hohenlohekreis"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "8",
-    "id": "44221194",
+    "id": "08127",
     "name": "Schwäbisch Hall"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "8",
-    "id": "44222320",
+    "id": "08128",
     "name": "Main-Tauber-Kreis"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "8",
-    "id": "44222871",
+    "id": "08135",
     "name": "Heidenheim"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "8",
-    "id": "44223369",
+    "id": "08136",
     "name": "Ostalbkreis"
   },
   {
-    "type": "STADTKREIS",
-    "bundesland": "8",
-    "id": "44224646",
-    "name": "Baden-Baden"
-  },
-  {
-    "type": "STADTKREIS",
-    "bundesland": "8",
-    "id": "44224901",
-    "name": "Karlsruhe"
-  },
-  {
     "type": "LANDKREIS",
     "bundesland": "8",
-    "id": "44225624",
-    "name": "Karlsruhe"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "8",
-    "id": "44226866",
+    "id": "08216",
     "name": "Rastatt"
   },
   {
-    "type": "STADTKREIS",
-    "bundesland": "8",
-    "id": "44227584",
-    "name": "Heidelberg"
-  },
-  {
-    "type": "STADTKREIS",
-    "bundesland": "8",
-    "id": "44228131",
-    "name": "Mannheim"
-  },
-  {
     "type": "LANDKREIS",
     "bundesland": "8",
-    "id": "44229293",
+    "id": "08225",
     "name": "Neckar-Odenwald-Kreis"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "8",
-    "id": "44229842",
+    "id": "08226",
     "name": "Rhein-Neckar-Kreis"
-  },
-  {
-    "type": "STADTKREIS",
-    "bundesland": "8",
-    "id": "44231435",
-    "name": "Pforzheim"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "8",
-    "id": "44231995",
+    "id": "08235",
     "name": "Calw"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "8",
-    "id": "44232844",
+    "id": "08236",
     "name": "Enzkreis"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "8",
-    "id": "44233638",
+    "id": "08237",
     "name": "Freudenstadt"
-  },
-  {
-    "type": "STADTKREIS",
-    "bundesland": "8",
-    "id": "44234251",
-    "name": "Freiburg i.Breisgau"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "8",
-    "id": "44235473",
+    "id": "08315",
     "name": "Breisgau-Hochschwarzwald"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "8",
-    "id": "44236859",
+    "id": "08316",
     "name": "Emmendingen"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "8",
-    "id": "44237554",
+    "id": "08317",
     "name": "Ortenaukreis"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "8",
-    "id": "44239097",
+    "id": "08325",
     "name": "Rottweil"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "8",
-    "id": "44239836",
+    "id": "08326",
     "name": "Schwarzwald-Baar-Kreis"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "8",
-    "id": "44240570",
+    "id": "08327",
     "name": "Tuttlingen"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "8",
-    "id": "44241190",
+    "id": "08335",
     "name": "Konstanz"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "8",
-    "id": "44241944",
+    "id": "08336",
     "name": "Lörrach"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "8",
-    "id": "44242818",
+    "id": "08337",
     "name": "Waldshut"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "8",
-    "id": "44243269",
+    "id": "08415",
     "name": "Reutlingen"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "8",
-    "id": "44244840",
+    "id": "08416",
     "name": "Tübingen"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "8",
-    "id": "44246211",
+    "id": "08417",
     "name": "Zollernalbkreis"
-  },
-  {
-    "type": "STADTKREIS",
-    "bundesland": "8",
-    "id": "44247435",
-    "name": "Ulm"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "8",
-    "id": "44248057",
+    "id": "08425",
     "name": "Alb-Donau-Kreis"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "8",
-    "id": "44248933",
+    "id": "08426",
     "name": "Biberach"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "8",
-    "id": "44249746",
+    "id": "08435",
     "name": "Bodenseekreis"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "8",
-    "id": "44250287",
+    "id": "08436",
     "name": "Ravensburg"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "8",
-    "id": "44251108",
+    "id": "08437",
     "name": "Sigmaringen"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "9",
-    "id": "44251905",
+    "id": "09161",
     "name": "Ingolstadt"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "9",
-    "id": "44252668",
+    "id": "09162",
     "name": "München"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "9",
-    "id": "44258890",
+    "id": "09163",
     "name": "Rosenheim"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44259571",
+    "id": "09171",
     "name": "Altötting"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44260239",
+    "id": "09172",
     "name": "Berchtesgadener Land"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44260632",
+    "id": "09173",
     "name": "Bad Tölz-Wolfratshausen"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44261229",
+    "id": "09174",
     "name": "Dachau"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44262346",
+    "id": "09175",
     "name": "Ebersberg"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44263044",
+    "id": "09176",
     "name": "Eichstätt"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44263460",
+    "id": "09177",
     "name": "Erding"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44264029",
+    "id": "09178",
     "name": "Freising"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44265117",
+    "id": "09179",
     "name": "Fürstenfeldbruck"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44266385",
+    "id": "09180",
     "name": "Garmisch-Partenkirchen"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44266754",
-    "name": "Landsberg a.Lech"
+    "id": "09181",
+    "name": "Landsberg am Lech"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44267104",
+    "id": "09182",
     "name": "Miesbach"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44267772",
-    "name": "Mühldorf a.Inn"
+    "id": "09183",
+    "name": "Mühldorf a. Inn"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44268417",
-    "name": "München"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "9",
-    "id": "44269777",
+    "id": "09185",
     "name": "Neuburg-Schrobenhausen"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44270160",
-    "name": "Pfaffenhofen a.d.Ilm"
+    "id": "09186",
+    "name": "Pfaffenhofen a.d. Ilm"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44270676",
-    "name": "Rosenheim"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "9",
-    "id": "44272664",
+    "id": "09188",
     "name": "Starnberg"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44273346",
+    "id": "09189",
     "name": "Traunstein"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44274634",
+    "id": "09190",
     "name": "Weilheim-Schongau"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "9",
-    "id": "44275089",
+    "id": "09261",
     "name": "Landshut"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "9",
-    "id": "44275519",
+    "id": "09262",
     "name": "Passau"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "9",
-    "id": "44275751",
+    "id": "09263",
     "name": "Straubing"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44276198",
+    "id": "09271",
     "name": "Deggendorf"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44276683",
+    "id": "09272",
     "name": "Freyung-Grafenau"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44276946",
+    "id": "09273",
     "name": "Kelheim"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44277556",
-    "name": "Landshut"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "9",
-    "id": "44278363",
-    "name": "Passau"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "9",
-    "id": "44279154",
+    "id": "09276",
     "name": "Regen"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44279398",
+    "id": "09277",
     "name": "Rottal-Inn"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44280228",
+    "id": "09278",
     "name": "Straubing-Bogen"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44280798",
+    "id": "09279",
     "name": "Dingolfing-Landau"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "9",
-    "id": "44281329",
+    "id": "09361",
     "name": "Amberg"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "9",
-    "id": "44281477",
+    "id": "09362",
     "name": "Regensburg"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "9",
-    "id": "44282363",
-    "name": "Weiden i.d.OPf."
+    "id": "09363",
+    "name": "Weiden i.d. OPf."
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44282666",
+    "id": "09371",
     "name": "Amberg-Sulzbach"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44283135",
+    "id": "09372",
     "name": "Cham"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44283679",
-    "name": "Neumarkt i.d.OPf."
+    "id": "09373",
+    "name": "Neumarkt i.d. OPf."
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44284166",
-    "name": "Neustadt a.d.Waldnaab"
+    "id": "09374",
+    "name": "Neustadt a.d. Waldnaab"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44284650",
-    "name": "Regensburg"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "9",
-    "id": "44285395",
+    "id": "09376",
     "name": "Schwandorf"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44285951",
+    "id": "09377",
     "name": "Tirschenreuth"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "9",
-    "id": "44287006",
+    "id": "09461",
     "name": "Bamberg"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "9",
-    "id": "44287270",
+    "id": "09462",
     "name": "Bayreuth"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "9",
-    "id": "44287554",
+    "id": "09463",
     "name": "Coburg"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "9",
-    "id": "44287705",
+    "id": "09464",
     "name": "Hof"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44287897",
-    "name": "Bamberg"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "9",
-    "id": "44288384",
-    "name": "Bayreuth"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "9",
-    "id": "44288821",
-    "name": "Coburg"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "9",
-    "id": "44289229",
+    "id": "09474",
     "name": "Forchheim"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44289549",
-    "name": "Hof"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "9",
-    "id": "44290070",
+    "id": "09476",
     "name": "Kronach"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44290265",
+    "id": "09477",
     "name": "Kulmbach"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44290579",
+    "id": "09478",
     "name": "Lichtenfels"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44290949",
-    "name": "Wunsiedel i.Fichtelgebirge"
+    "id": "09479",
+    "name": "Wunsiedel i. Fichtelgebirge"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "9",
-    "id": "44291661",
+    "id": "09561",
     "name": "Ansbach"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "9",
-    "id": "44291853",
+    "id": "09562",
     "name": "Erlangen"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "9",
-    "id": "44292261",
+    "id": "09563",
     "name": "Fürth"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "9",
-    "id": "44292779",
+    "id": "09564",
     "name": "Nürnberg"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "9",
-    "id": "44294535",
+    "id": "09565",
     "name": "Schwabach"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44294668",
-    "name": "Ansbach"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "9",
-    "id": "44295300",
+    "id": "09572",
     "name": "Erlangen-Höchstadt"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44295697",
-    "name": "Fürth"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "9",
-    "id": "44296157",
+    "id": "09574",
     "name": "Nürnberger Land"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44296890",
-    "name": "Neustadt a.d.Aisch-Bad Windsheim"
+    "id": "09575",
+    "name": "Neustadt a.d. Aisch-Bad Windsheim"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44297147",
+    "id": "09576",
     "name": "Roth"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44297473",
+    "id": "09577",
     "name": "Weißenburg-Gunzenhausen"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "9",
-    "id": "44297824",
+    "id": "09661",
     "name": "Aschaffenburg"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "9",
-    "id": "44298023",
+    "id": "09662",
     "name": "Schweinfurt"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "9",
-    "id": "44298279",
+    "id": "09663",
     "name": "Würzburg"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44298936",
-    "name": "Aschaffenburg"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "9",
-    "id": "44299629",
+    "id": "09672",
     "name": "Bad Kissingen"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44299874",
+    "id": "09673",
     "name": "Rhön-Grabfeld"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44300162",
+    "id": "09674",
     "name": "Haßberge"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44300403",
+    "id": "09675",
     "name": "Kitzingen"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44300663",
+    "id": "09676",
     "name": "Miltenberg"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44301135",
+    "id": "09677",
     "name": "Main-Spessart"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "9",
-    "id": "44301391",
-    "name": "Schweinfurt"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "9",
-    "id": "44301953",
-    "name": "Würzburg"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "9",
-    "id": "44302545",
+    "id": "09761",
     "name": "Augsburg"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "9",
-    "id": "44303546",
+    "id": "09762",
     "name": "Kaufbeuren"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "9",
-    "id": "44303747",
-    "name": "Kempten"
+    "id": "09763",
+    "name": "Kempten (Allgäu)"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "9",
-    "id": "44303921",
+    "id": "09764",
     "name": "Memmingen"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44304086",
+    "id": "09771",
     "name": "Aichach-Friedberg"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44304528",
-    "name": "Augsburg"
+    "id": "09773",
+    "name": "Dillingen a.d. Donau"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44305233",
-    "name": "Dillingen a.d.Donau"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "9",
-    "id": "44305587",
+    "id": "09774",
     "name": "Günzburg"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44306003",
+    "id": "09775",
     "name": "Neu-Ulm"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44306731",
-    "name": "Lindau"
+    "id": "09776",
+    "name": "Lindau (Bodensee)"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44307034",
+    "id": "09777",
     "name": "Ostallgäu"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44307722",
+    "id": "09778",
     "name": "Unterallgäu"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44308129",
+    "id": "09779",
     "name": "Donau-Ries"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "9",
-    "id": "44308596",
+    "id": "09780",
     "name": "Oberallgäu"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "10",
-    "id": "44308904",
-    "name": "Stadtverband Saarbrücken"
+    "id": "10041",
+    "name": "Regionalverband Saarbrücken"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "10",
-    "id": "44309969",
+    "id": "10042",
     "name": "Merzig-Wadern"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "10",
-    "id": "44310265",
+    "id": "10043",
     "name": "Neunkirchen"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "10",
-    "id": "44310615",
+    "id": "10044",
     "name": "Saarlouis"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "10",
-    "id": "44311310",
-    "name": "Saar-Pfalz-Kreis"
+    "id": "10045",
+    "name": "Saarpfalz-Kreis"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "10",
-    "id": "44311767",
-    "name": "Sankt Wendel"
+    "id": "10046",
+    "name": "St. Wendel"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "12",
-    "id": "44327561",
-    "name": "Brandenburg a.d.Havel"
+    "id": "12051",
+    "name": "Brandenburg an der Havel"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "12",
-    "id": "44327645",
+    "id": "12052",
     "name": "Cottbus"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "12",
-    "id": "44327741",
+    "id": "12053",
     "name": "Frankfurt (Oder)"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "12",
-    "id": "44327834",
+    "id": "12054",
     "name": "Potsdam"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "12",
-    "id": "44328484",
+    "id": "12060",
     "name": "Barnim"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "12",
-    "id": "44328942",
+    "id": "12061",
     "name": "Dahme-Spreewald"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "12",
-    "id": "44329300",
+    "id": "12062",
     "name": "Elbe-Elster"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "12",
-    "id": "44329423",
+    "id": "12063",
     "name": "Havelland"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "12",
-    "id": "44329718",
+    "id": "12064",
     "name": "Märkisch-Oderland"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "12",
-    "id": "44330030",
+    "id": "12065",
     "name": "Oberhavel"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "12",
-    "id": "44330444",
+    "id": "12066",
     "name": "Oberspreewald-Lausitz"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "12",
-    "id": "44330549",
+    "id": "12067",
     "name": "Oder-Spree"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "12",
-    "id": "44330852",
+    "id": "12068",
     "name": "Ostprignitz-Ruppin"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "12",
-    "id": "44330969",
+    "id": "12069",
     "name": "Potsdam-Mittelmark"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "12",
-    "id": "44331618",
+    "id": "12070",
     "name": "Prignitz"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "12",
-    "id": "44331674",
+    "id": "12071",
     "name": "Spree-Neiße"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "12",
-    "id": "44331781",
+    "id": "12072",
     "name": "Teltow-Fläming"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "12",
-    "id": "44332086",
+    "id": "12073",
     "name": "Uckermark"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "13",
-    "id": "44332153",
+    "id": "13003",
     "name": "Rostock"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "13",
-    "id": "44332366",
+    "id": "13004",
     "name": "Schwerin"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "13",
-    "id": "44332496",
+    "id": "13071",
     "name": "Mecklenburgische Seenplatte"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "13",
-    "id": "44332744",
-    "name": "Rostock"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "13",
-    "id": "44332861",
+    "id": "13073",
     "name": "Vorpommern-Rügen"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "13",
-    "id": "44333002",
+    "id": "13074",
     "name": "Nordwestmecklenburg"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "13",
-    "id": "44333151",
+    "id": "13075",
     "name": "Vorpommern-Greifswald"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "13",
-    "id": "44333362",
+    "id": "13076",
     "name": "Ludwigslust-Parchim"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "14",
-    "id": "44333546",
+    "id": "14511",
     "name": "Chemnitz"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "14",
-    "id": "44333943",
+    "id": "14521",
     "name": "Erzgebirgskreis"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "14",
-    "id": "44334954",
+    "id": "14522",
     "name": "Mittelsachsen"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "14",
-    "id": "44335395",
+    "id": "14523",
     "name": "Vogtlandkreis"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "14",
-    "id": "44336081",
+    "id": "14524",
     "name": "Zwickau"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "14",
-    "id": "44337011",
+    "id": "14612",
     "name": "Dresden"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "14",
-    "id": "44337913",
+    "id": "14625",
     "name": "Bautzen"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "14",
-    "id": "44338556",
+    "id": "14626",
     "name": "Görlitz"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "14",
-    "id": "44338942",
+    "id": "14627",
     "name": "Meißen"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "14",
-    "id": "44339313",
+    "id": "14628",
     "name": "Sächsische Schweiz-Osterzgebirge"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "14",
-    "id": "44339739",
+    "id": "14713",
     "name": "Leipzig"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "14",
-    "id": "44340680",
-    "name": "Leipzig"
-  },
-  {
-    "type": "LANDKREIS",
-    "bundesland": "14",
-    "id": "44340949",
+    "id": "14730",
     "name": "Nordsachsen"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "15",
-    "id": "44341176",
+    "id": "15001",
     "name": "Dessau-Roßlau"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "15",
-    "id": "44341303",
-    "name": "Halle"
+    "id": "15002",
+    "name": "Halle (Saale)"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "15",
-    "id": "44341782",
+    "id": "15003",
     "name": "Magdeburg"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "15",
-    "id": "44342149",
+    "id": "15081",
     "name": "Altmarkkreis Salzwedel"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "15",
-    "id": "44342207",
+    "id": "15082",
     "name": "Anhalt-Bitterfeld"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "15",
-    "id": "44342323",
+    "id": "15083",
     "name": "Börde"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "15",
-    "id": "44342530",
+    "id": "15084",
     "name": "Burgenlandkreis"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "15",
-    "id": "44342773",
+    "id": "15085",
     "name": "Harz"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "15",
-    "id": "44342991",
+    "id": "15086",
     "name": "Jerichower Land"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "15",
-    "id": "44343066",
+    "id": "15087",
     "name": "Mansfeld-Südharz"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "15",
-    "id": "44343150",
+    "id": "15088",
     "name": "Saalekreis"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "15",
-    "id": "44343356",
+    "id": "15089",
     "name": "Salzlandkreis"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "15",
-    "id": "44343478",
+    "id": "15090",
     "name": "Stendal"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "15",
-    "id": "44343598",
+    "id": "15091",
     "name": "Wittenberg"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "16",
-    "id": "44343818",
+    "id": "16051",
     "name": "Erfurt"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "16",
-    "id": "44344081",
+    "id": "16052",
     "name": "Gera"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "16",
-    "id": "44344384",
+    "id": "16053",
     "name": "Jena"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "16",
-    "id": "44344626",
+    "id": "16054",
     "name": "Suhl"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "16",
-    "id": "44344664",
+    "id": "16055",
     "name": "Weimar"
   },
   {
     "type": "STADTKREIS",
     "bundesland": "16",
-    "id": "44344803",
+    "id": "16056",
     "name": "Eisenach"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "16",
-    "id": "44344848",
+    "id": "16061",
     "name": "Eichsfeld"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "16",
-    "id": "44345059",
+    "id": "16062",
     "name": "Nordhausen"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "16",
-    "id": "44345138",
+    "id": "16063",
     "name": "Wartburgkreis"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "16",
-    "id": "44345287",
+    "id": "16064",
     "name": "Unstrut-Hainich-Kreis"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "16",
-    "id": "44345415",
+    "id": "16065",
     "name": "Kyffhäuserkreis"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "16",
-    "id": "44345485",
+    "id": "16066",
     "name": "Schmalkalden-Meiningen"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "16",
-    "id": "44345708",
+    "id": "16067",
     "name": "Gotha"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "16",
-    "id": "44346069",
+    "id": "16068",
     "name": "Sömmerda"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "16",
-    "id": "44346164",
+    "id": "16069",
     "name": "Hildburghausen"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "16",
-    "id": "44346256",
+    "id": "16070",
     "name": "Ilm-Kreis"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "16",
-    "id": "44346472",
+    "id": "16071",
     "name": "Weimarer Land"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "16",
-    "id": "44346618",
+    "id": "16072",
     "name": "Sonneberg"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "16",
-    "id": "44346928",
+    "id": "16073",
     "name": "Saalfeld-Rudolstadt"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "16",
-    "id": "44347039",
+    "id": "16074",
     "name": "Saale-Holzland-Kreis"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "16",
-    "id": "44347164",
+    "id": "16075",
     "name": "Saale-Orla-Kreis"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "16",
-    "id": "44347358",
+    "id": "16076",
     "name": "Greiz"
   },
   {
     "type": "LANDKREIS",
     "bundesland": "16",
-    "id": "44348003",
+    "id": "16077",
     "name": "Altenburger Land"
   }
 ]
