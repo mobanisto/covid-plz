@@ -22,6 +22,7 @@
 
 package de.mobanisto.covidplz;
 
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
@@ -36,7 +37,6 @@ import java.util.zip.GZIPInputStream;
 import org.junit.Test;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 import de.mobanisto.covidplz.model.RawData;
 import de.mobanisto.covidplz.model.RawEntry;
@@ -62,10 +62,25 @@ public class TestExractGermanyFromRawRKI
 		List<RawEntry> entries = data.getEntries();
 
 		Germany germany = build(entries);
-		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		Gson gson = GsonUtil.gson();
+		Gson gsonGermany = GsonUtil.germany();
 
-		String json = gson.toJson(germany);
-		System.out.println(json);
+		Path dir = repo.resolve("project/core/src/main/resources/germany");
+		Files.createDirectories(dir);
+
+		Path fileLaender = dir.resolve("laender.json");
+		Path fileKreise = dir.resolve("kreise.json");
+		Path fileStadtteile = dir.resolve("stadtteile.json");
+
+		try (BufferedWriter output = Files.newBufferedWriter(fileLaender)) {
+			gson.toJson(germany.getLaender(), output);
+		}
+		try (BufferedWriter output = Files.newBufferedWriter(fileKreise)) {
+			gsonGermany.toJson(germany.getKreise(), output);
+		}
+		try (BufferedWriter output = Files.newBufferedWriter(fileStadtteile)) {
+			gsonGermany.toJson(germany.getStadtteile(), output);
+		}
 	}
 
 	private Germany build(List<RawEntry> entries)

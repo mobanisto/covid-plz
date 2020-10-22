@@ -41,6 +41,8 @@ public class TestDeserializeKkmData
 		String jsonKkm = Resources.loadString("kkm.json");
 		BrandenburgKkmData brandenburgKkmData = gson.fromJson(jsonKkm,
 				BrandenburgKkmData.class);
+
+		System.out.println(brandenburgKkmData.getDateToNameToData().size());
 	}
 
 }

@@ -31,6 +31,11 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
+import com.google.gson.JsonPrimitive;
+import com.google.gson.JsonSerializationContext;
+import com.google.gson.JsonSerializer;
+
+import de.mobanisto.covidplz.model.germany.Bundesland;
 
 public class GsonUtil
 {
@@ -48,7 +53,22 @@ public class GsonUtil
 						return LocalDate.parse(json.getAsString());
 					}
 
-				}).create();
+				}).setPrettyPrinting().create();
+	}
+
+	public static Gson germany()
+	{
+		return new GsonBuilder().registerTypeAdapter(Bundesland.class,
+				new JsonSerializer<Bundesland>() {
+
+					@Override
+					public JsonElement serialize(Bundesland src, Type typeOfSrc,
+							JsonSerializationContext context)
+					{
+						return new JsonPrimitive(src.getId());
+					}
+
+				}).setPrettyPrinting().create();
 	}
 
 }
