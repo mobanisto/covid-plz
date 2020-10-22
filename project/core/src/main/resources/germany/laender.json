@@ -1,0 +1,66 @@
+[
+  {
+    "id": "1",
+    "name": "Schleswig-Holstein"
+  },
+  {
+    "id": "2",
+    "name": "Hamburg"
+  },
+  {
+    "id": "3",
+    "name": "Niedersachsen"
+  },
+  {
+    "id": "4",
+    "name": "Bremen"
+  },
+  {
+    "id": "5",
+    "name": "Nordrhein-Westfalen"
+  },
+  {
+    "id": "6",
+    "name": "Hessen"
+  },
+  {
+    "id": "7",
+    "name": "Rheinland-Pfalz"
+  },
+  {
+    "id": "8",
+    "name": "Baden-Württemberg"
+  },
+  {
+    "id": "9",
+    "name": "Bayern"
+  },
+  {
+    "id": "10",
+    "name": "Saarland"
+  },
+  {
+    "id": "11",
+    "name": "Berlin"
+  },
+  {
+    "id": "12",
+    "name": "Brandenburg"
+  },
+  {
+    "id": "13",
+    "name": "Mecklenburg-Vorpommern"
+  },
+  {
+    "id": "14",
+    "name": "Sachsen"
+  },
+  {
+    "id": "15",
+    "name": "Sachsen-Anhalt"
+  },
+  {
+    "id": "16",
+    "name": "Thüringen"
+  }
+]
