@@ -228,10 +228,9 @@ public class IndexGenerator extends SimpleBaseGenerator
 		content.ac(HTML.h2("Pandemie-Shop")).addClass("mt-3");
 
 		P p = content.ac(HTML.p());
-		p.appendText(
-				"Unterstützen Sie uns, indem Sie über unsere Links bei Amazon einkaufen: (");
-		p.ac(HTML.a("/support-us", "mehr Infos"));
-		p.appendText(")");
+		p.appendText("Wir haben hier einen kleinen Shop eingerichtet."
+				+ " Als Amazon-Partner verdienen wir an qualifizierten verkäufen."
+				+ " Viel Spaß beim Shoppen und bleiben Sie gesund.");
 
 		Div row = content.ac(Bootstrap.row());
 		Shop.content(row);
