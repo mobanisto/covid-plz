@@ -50,7 +50,7 @@ public class BrandenburgDataTable
 	public void add(Element element)
 	{
 		Table table = element.ac(HTML.table());
-		table.addClass("table");
+		Tables.setup(table);
 
 		int population = Integer.parseInt(rkiData.getData().get(Fields.EWZ));
 

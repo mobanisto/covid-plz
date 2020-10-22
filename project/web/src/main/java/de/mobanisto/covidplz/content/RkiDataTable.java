@@ -44,7 +44,7 @@ public class RkiDataTable
 	public void add(Element element)
 	{
 		Table table = element.ac(HTML.table());
-		table.addClass("table");
+		Tables.setup(table);
 
 		row(table, "Datenstand", Fields.LAST_UPDATE);
 		Element row7 = rowD(table,
