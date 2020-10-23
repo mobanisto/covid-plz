@@ -39,7 +39,7 @@ import de.mobanisto.covidplz.rki.daily.Fields;
 import de.topobyte.melon.commons.io.Resources;
 import de.topobyte.system.utils.SystemPaths;
 
-public class TestCalculateKkmIncidence
+public class CalculateKkmIncidence
 {
 
 	public static void main(String[] args) throws IOException
