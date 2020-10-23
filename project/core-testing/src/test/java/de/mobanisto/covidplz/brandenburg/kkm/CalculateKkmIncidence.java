@@ -24,10 +24,14 @@ package de.mobanisto.covidplz.brandenburg.kkm;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalDate;
 import java.util.Map;
+
+import org.apache.commons.io.IOUtils;
 
 import com.google.gson.Gson;
 
@@ -36,7 +40,6 @@ import de.mobanisto.covidplz.GsonUtil;
 import de.mobanisto.covidplz.model.DailyData;
 import de.mobanisto.covidplz.model.RegionData;
 import de.mobanisto.covidplz.rki.daily.Fields;
-import de.topobyte.melon.commons.io.Resources;
 import de.topobyte.system.utils.SystemPaths;
 
 public class CalculateKkmIncidence
@@ -46,13 +49,15 @@ public class CalculateKkmIncidence
 	{
 		Gson gson = GsonUtil.gson();
 
-		String jsonKkm = Resources.loadString("kkm.json");
+		Path repo = SystemPaths.CWD.getParent().getParent();
+		Path project = repo.resolve("project");
+		Path resources = project.resolve("core/src/main/resources");
+		Path fileKkm = resources.resolve("kkm.json");
+
+		InputStream input = Files.newInputStream(fileKkm);
+		String jsonKkm = IOUtils.toString(input, StandardCharsets.UTF_8);
 		BrandenburgKkmData data = gson.fromJson(jsonKkm,
 				BrandenburgKkmData.class);
-
-		Path repo = SystemPaths.CWD.getParent().getParent();
-		Path bb = repo.resolve("data/brandenburg");
-		Path fileOutput = bb.resolve("kkm.json");
 
 		Path file = repo.resolve("data/daily/2020_10_08.csv");
 
@@ -60,7 +65,7 @@ public class CalculateKkmIncidence
 
 		calculate(data, rki);
 
-		try (BufferedWriter output = Files.newBufferedWriter(fileOutput)) {
+		try (BufferedWriter output = Files.newBufferedWriter(fileKkm)) {
 			gson.toJson(data, output);
 		}
 	}

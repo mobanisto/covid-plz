@@ -144,9 +144,9 @@ public class CondenseKkmData
 
 	private void writeData() throws IOException
 	{
-		Path repo = SystemPaths.CWD.getParent().getParent();
-		Path bb = repo.resolve("data/brandenburg");
-		Path fileOutput = bb.resolve("kkm.json");
+		Path project = SystemPaths.CWD.getParent();
+		Path resources = project.resolve("core/src/main/resources");
+		Path fileOutput = resources.resolve("kkm.json");
 
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		try (BufferedWriter output = Files.newBufferedWriter(fileOutput)) {
