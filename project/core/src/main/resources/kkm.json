@@ -23062,6 +23062,134 @@
         "incidence100k_7": 21.9,
         "deathsTotal": 3
       }
+    },
+    "2020-10-24": {
+      "12051": {
+        "newCases24": 5,
+        "casesTotal": 131,
+        "incidence100k": 181.48,
+        "incidence100k_7": 61.0,
+        "deathsTotal": 1
+      },
+      "12052": {
+        "newCases24": 11,
+        "casesTotal": 245,
+        "incidence100k": 245.79,
+        "incidence100k_7": 97.3,
+        "deathsTotal": 3
+      },
+      "12053": {
+        "newCases24": 3,
+        "casesTotal": 122,
+        "incidence100k": 211.25,
+        "incidence100k_7": 19.0,
+        "deathsTotal": 2
+      },
+      "12054": {
+        "newCases24": 15,
+        "casesTotal": 907,
+        "incidence100k": 502.96,
+        "incidence100k_7": 37.7,
+        "deathsTotal": 50
+      },
+      "12060": {
+        "newCases24": 19,
+        "casesTotal": 610,
+        "incidence100k": 329.3,
+        "incidence100k_7": 32.4,
+        "deathsTotal": 29
+      },
+      "12061": {
+        "newCases24": 21,
+        "casesTotal": 502,
+        "incidence100k": 293.93,
+        "incidence100k_7": 45.1,
+        "deathsTotal": 8
+      },
+      "12062": {
+        "newCases24": 4,
+        "casesTotal": 190,
+        "incidence100k": 186.59,
+        "incidence100k_7": 44.2,
+        "deathsTotal": 4
+      },
+      "12063": {
+        "newCases24": 19,
+        "casesTotal": 408,
+        "incidence100k": 250.31,
+        "incidence100k_7": 44.8,
+        "deathsTotal": 6
+      },
+      "12064": {
+        "newCases24": 24,
+        "casesTotal": 429,
+        "incidence100k": 219.16,
+        "incidence100k_7": 34.7,
+        "deathsTotal": 6
+      },
+      "12065": {
+        "newCases24": 21,
+        "casesTotal": 569,
+        "incidence100k": 267.24,
+        "incidence100k_7": 33.3,
+        "deathsTotal": 10
+      },
+      "12066": {
+        "newCases24": 11,
+        "casesTotal": 191,
+        "incidence100k": 174.63,
+        "incidence100k_7": 60.3,
+        "deathsTotal": 2
+      },
+      "12067": {
+        "newCases24": 12,
+        "casesTotal": 421,
+        "incidence100k": 235.45,
+        "incidence100k_7": 38.6,
+        "deathsTotal": 6
+      },
+      "12068": {
+        "newCases24": 15,
+        "casesTotal": 168,
+        "incidence100k": 169.94,
+        "incidence100k_7": 38.4,
+        "deathsTotal": 0
+      },
+      "12069": {
+        "newCases24": 9,
+        "casesTotal": 829,
+        "incidence100k": 382.79,
+        "incidence100k_7": 39.2,
+        "deathsTotal": 43
+      },
+      "12070": {
+        "newCases24": 10,
+        "casesTotal": 131,
+        "incidence100k": 172.01,
+        "incidence100k_7": 67.0,
+        "deathsTotal": 0
+      },
+      "12071": {
+        "newCases24": 14,
+        "casesTotal": 217,
+        "incidence100k": 190.82,
+        "incidence100k_7": 58.9,
+        "deathsTotal": 1
+      },
+      "12072": {
+        "newCases24": 28,
+        "casesTotal": 445,
+        "incidence100k": 261.77,
+        "incidence100k_7": 48.2,
+        "deathsTotal": 13
+      },
+      "12073": {
+        "newCases24": 6,
+        "casesTotal": 100,
+        "incidence100k": 84.07,
+        "incidence100k_7": 22.7,
+        "deathsTotal": 3
+      }
     }
   }
 }
