@@ -25,20 +25,15 @@ package de.mobanisto.covidplz.model;
 import java.util.Map;
 
 import lombok.Getter;
+import lombok.AllArgsConstructor;
 
+
+@Getter
+@AllArgsConstructor
 public class RegionData
 {
 
-	@Getter
 	private String rs;
-
-	@Getter
 	private Map<String, String> data;
-
-	public RegionData(String rs, Map<String, String> data)
-	{
-		this.rs = rs;
-		this.data = data;
-	}
 
 }

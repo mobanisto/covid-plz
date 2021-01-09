@@ -27,10 +27,10 @@ import java.util.List;
 
 import lombok.Getter;
 
+@Getter
 public class ArdData
 {
 
-	@Getter
 	List<ArdEntry> entries = new ArrayList<>();
 
 }

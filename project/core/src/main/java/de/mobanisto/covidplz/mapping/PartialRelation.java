@@ -24,19 +24,16 @@ package de.mobanisto.covidplz.mapping;
 
 import lombok.Getter;
 
+@Getter
+@Getter
+
 public class PartialRelation<T> implements Comparable<PartialRelation<T>>
 {
 
-	@Getter
 	private T object;
-	@Getter
 	private double coverage;
 
-	public PartialRelation(T object, double coverage)
-	{
-		this.object = object;
-		this.coverage = coverage;
-	}
+
 
 	@Override
 	public int compareTo(PartialRelation<T> o)

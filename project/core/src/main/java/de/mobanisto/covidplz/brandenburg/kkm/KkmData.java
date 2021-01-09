@@ -25,29 +25,15 @@ package de.mobanisto.covidplz.brandenburg.kkm;
 import lombok.Getter;
 import lombok.Setter;
 
+
+
+@Getter
+@AllArgsConstructor
 public class KkmData
 {
-
-	@Getter
 	private int newCases24;
-	@Getter
 	private int casesTotal;
-	@Setter
-	@Getter
 	private double incidence100k;
-	@Getter
 	private double incidence100k_7;
-	@Getter
 	private int deathsTotal;
-
-	public KkmData(int newCases24, int casesTotal, double incidence100k,
-			double incidence100k_7, int deathsTotal)
-	{
-		this.newCases24 = newCases24;
-		this.casesTotal = casesTotal;
-		this.incidence100k = incidence100k;
-		this.incidence100k_7 = incidence100k_7;
-		this.deathsTotal = deathsTotal;
-	}
-
 }

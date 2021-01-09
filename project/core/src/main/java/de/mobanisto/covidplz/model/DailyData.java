@@ -26,11 +26,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 import lombok.Getter;
-
+@Getter
 public class DailyData
 {
 
-	@Getter
 	private Map<String, RegionData> rsToRegionData = new HashMap<>();
 
 }

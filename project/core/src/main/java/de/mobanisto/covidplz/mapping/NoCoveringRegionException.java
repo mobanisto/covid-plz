@@ -24,12 +24,9 @@ package de.mobanisto.covidplz.mapping;
 
 public class NoCoveringRegionException extends Exception
 {
-
 	private static final long serialVersionUID = 1L;
-
 	public NoCoveringRegionException(String message)
 	{
 		super(message);
 	}
-
 }

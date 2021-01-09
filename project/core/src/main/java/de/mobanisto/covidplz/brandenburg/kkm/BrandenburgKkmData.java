@@ -27,11 +27,8 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import lombok.Getter;
-
+@Getter
 public class BrandenburgKkmData
 {
-
-	@Getter
 	private Map<LocalDate, Map<String, KkmData>> dateToNameToData = new TreeMap<>();
-
 }

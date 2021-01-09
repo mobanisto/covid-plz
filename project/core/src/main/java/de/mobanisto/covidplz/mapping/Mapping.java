@@ -27,11 +27,9 @@ import java.util.List;
 import java.util.Map;
 
 import lombok.Getter;
+@Getter
 
 public class Mapping
 {
-
-	@Getter
 	private Map<String, List<PartialRsRelation>> codeToRKI = new HashMap<>();
-
 }

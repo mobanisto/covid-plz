@@ -31,44 +31,27 @@ import com.google.gson.JsonObject;
 import de.mobanisto.covidplz.rki.ard.Fields;
 import lombok.Getter;
 
+@Getter
 public class ArdEntry
 {
 
-	@Getter
 	private int id;
-	@Getter
 	private LocalDate meldedatum;
-	@Getter
 	private LocalDate datenstand;
-	@Getter
 	private LocalDate refdatum;
-	@Getter
 	private String bundesland;
-	@Getter
 	private String idBundesland;
-	@Getter
 	private String landkreis;
-	@Getter
 	private String idLandkreis;
-	@Getter
 	private String altersgruppe;
-	@Getter
 	private String altersgruppe2;
-	@Getter
 	private String geschlecht;
-	@Getter
 	private int anzahlFall;
-	@Getter
 	private int anzahlGenesen;
-	@Getter
 	private int anzahlTodesfall;
-	@Getter
 	private int neuerFall;
-	@Getter
 	private int neuerTodesFall;
-	@Getter
 	private int neuGenesen;
-	@Getter
 	private int istErkrankungsbeginn;
 
 	private static final Pattern patternDates = Pattern

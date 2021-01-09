@@ -30,32 +30,16 @@ import de.mobanisto.covidplz.model.germany.Germany;
 import de.mobanisto.covidplz.model.germany.GermanyRegionLookup;
 import lombok.Getter;
 import lombok.Setter;
-
+@Getter
+@Setter
 public class Data
 {
 
-	@Getter
-	@Setter
 	private Germany germany;
-
-	@Getter
-	@Setter
 	private GermanyRegionLookup germanyRegionLookup;
-
-	@Getter
-	@Setter
 	private Set<String> postalCodes;
-
-	@Getter
-	@Setter
 	private Set<String> rkiIdentifiers;
-
-	@Getter
-	@Setter
 	private Mapping mapping;
-
-	@Getter
-	@Setter
 	private BrandenburgKkmData brandenburgKkmData;
 
 }

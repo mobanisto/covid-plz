@@ -26,11 +26,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import lombok.Getter;
+@Getter
 
 public class RawData
 {
-
-	@Getter
 	List<RawEntry> entries = new ArrayList<>();
-
 }

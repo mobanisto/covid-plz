@@ -27,15 +27,12 @@ import de.mobanisto.covidplz.RKIBaseData;
 import lombok.Getter;
 import lombok.Setter;
 
+@Getter
+@Setter
 public class PreprocessingData
 {
 
-	@Getter
-	@Setter
 	private RKIBaseData baseData;
-
-	@Getter
-	@Setter
 	private PostalCodeData postalCodeData;
 
 }
